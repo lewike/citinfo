@@ -1,0 +1,50 @@
+$sidebar-width: 11rem;
+
+@import "~tabler/scss/tabler";
+@import "~metismenujs/scss/metismenujs";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+.upload-images {
+    padding-bottom: 30px;
+}
+.post-images-120 {
+    li {
+        position: relative;
+    }
+    
+    img {
+        width: 120px;
+        height: 120px;
+    }
+    div {
+      height:120px;
+      width: 120px;
+      position: absolute;
+      text-align: center;
+      opacity: 0;
+      top: 0;
+      &:hover {
+        opacity: .75;
+      }
+      span {
+        display: block;
+        color: #FFF;
+        background-color: #333;
+        cursor: pointer;
+
+      }
+    }
+}
+#fileupload, #uploadqr {
+    opacity: 0; 
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width:90px;
+    height:31px;
+}
+
+#uploadqr {
+  width: 120px;
+}
