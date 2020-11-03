@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'market', 'middleware' => ['web', 'wechat.mock'], 'namespace' => 'Market'], function () {
+Route::group(['prefix' => 'market', 'middleware' => ['wechat.mock'], 'namespace' => 'Market'], function () {
 
     Route::get('/', 'HomeController@index');
     Route::get('/orders', 'HomeController@orders');
@@ -26,17 +26,23 @@ Route::group(['prefix' => 'admin/market', 'middleware' => ['admin'], 'namespace'
     Route::get('/single', 'SingleController@index');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::get('/', 'HomeController@index');
-    Route::get('/post', 'PostController@index');
-    Route::get('/post/create', 'PostController@create')->name('admin.post.create');
+Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
-    Route::post('/image/upload', 'ImageController@upload');
-    
-    Route::get('/cate', 'CategoryController@index');
-    Route::get('/cate/create', 'CategoryController@create')->name('admin.cate.create');
+    Route::get('/login', 'AuthController@login')->name('admin.login');
+    Route::post('/login', 'AuthController@loginAuth');
 
-    Route::get('/wed/member', 'WedController@member');
+    Route::group(['middleware' => ['admin']], function() {
+        Route::get('/', 'HomeController@index');
+        Route::get('/post', 'PostController@index');
+        Route::get('/post/create', 'PostController@create')->name('admin.post.create');
+        
+        Route::post('/image/upload', 'ImageController@upload');
+        
+        Route::get('/cate', 'CategoryController@index');
+        Route::get('/cate/create', 'CategoryController@create')->name('admin.cate.create');
+        
+        Route::get('/wed/member', 'WedController@member');
+    });
 });
 
 Route::group(['namespace' => 'Website'], function () {

@@ -20,6 +20,7 @@ class InitCityInfoTables extends Migration
             $table->string('ename')->nullable();
             $table->text('desc');
             $table->string('path');
+            $table->string('index_path');
             $table->integer('p_id');
             $table->integer('depth');
             $table->integer('weight')->default(0);
@@ -30,7 +31,6 @@ class InitCityInfoTables extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->default(0);
-            $table->string('weixin_id')->nullable()->default('');
             $table->string('category_path');
             $table->string('title')->nullable();
             $table->text('content');
