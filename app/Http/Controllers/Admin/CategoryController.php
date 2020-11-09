@@ -16,7 +16,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.cate.create');
+        $categories = Category::where('p_id', 0)->get();
+        return view('admin.cate.create', compact('categories'));
     }
 
     public function store(Request $request)

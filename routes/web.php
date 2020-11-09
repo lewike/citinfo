@@ -40,8 +40,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
         
         Route::get('/cate', 'CategoryController@index');
         Route::get('/cate/create', 'CategoryController@create')->name('admin.cate.create');
-        
-        Route::get('/wed/member', 'WedController@member');
+        Route::post('/cate/create', 'CategoryController@store');
+
+        Route::get('/user', 'UserController@index');
+
+        Route::group(['namespace' => 'Wed'], function () {
+            Route::get('/wed/member', 'MemberController@index')->name('admin.wed.member');
+            Route::get('/wed/member/create', 'MemberController@create')->name('admin.wed.member.create');
+            Route::post('/wed/member/create', 'MemberController@store');
+        });
     });
 });
 

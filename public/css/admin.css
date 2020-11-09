@@ -23493,3 +23493,25 @@ readers do not read off random characters that represent icons */
   width: 120px;
 }
 
+a.mm-active,
+li.mm-active > a {
+  color: #FFF;
+  background-color: #232a35;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #fff;
+  background-color: #232a35;
+}
+
+.card-footer .pagination {
+  text-align: right;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.card-footer .page-link {
+  padding: 0 0.2rem;
+}
+

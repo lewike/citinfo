@@ -98,7 +98,7 @@ $(function(){
     url : '/admin/image/upload',
     type: 'POST',
     dataType: 'json',
-    formData: {_token: $('input[name=_token]').val()},
+    formData: {_token: $('input[name=_token]').val(), action: 'post'},
     done: function (e, data) {
       if (! data.result.result) {
         toastr.error(data.result.message.upload_file)

@@ -86,23 +86,27 @@ class InitCityInfoTables extends Migration
             $table->string('name')->nullable();
             $table->string('images', 1024)->nullable();
             $table->tinyInteger('gender'); //1: 男， 2: 女
-            $table->tinyInteger('age');
-            $table->tinyInteger('weight'); // 45-100
-            $table->smallInteger('height'); // 150-200
+            $table->tinyInteger('age')->default(0);
+            $table->date('birthday')->nullable();
+            $table->tinyInteger('weight')->nullable(); // 45-100
+            $table->smallInteger('height')->nullable(); // 150-200
             $table->tinyInteger('education'); // 1:中专以下 2:中专 3:大专 4:本科 5:硕士 6:博士 7:博士后
-            $table->string('job');
-            $table->tinyInteger('marry'); // 1:未婚 2:离异 3:丧偶
+            $table->string('job')->nullable();
+            $table->tinyInteger('marry')->nullable(); // 1:未婚 2:离异 3:丧偶
             $table->tinyInteger('income')->default(0); // 2:2000以下 4:2000-4000 6:4000-6000 10:6000-10000 20:10000-20000 21:20000以上
             $table->tinyInteger('car')->default(0); //
             $table->tinyInteger('house')->default(0); //
-            $table->tinyInteger('demand_min_age');
-            $table->tinyInteger('demand_max_age');
-            $table->smallInteger('demand_min_height');
-            $table->smallInteger('demand_max_height');
+            $table->tinyInteger('real_name')->default(0); //
+            $table->tinyInteger('demand_min_age')->nullable();
+            $table->tinyInteger('demand_max_age')->nullable();
+            $table->smallInteger('demand_min_height')->nullable();
+            $table->smallInteger('demand_max_height')->nullable();
             $table->tinyInteger('demand_marry')->default(0);// 0:不限 1:未婚 2:已婚 3:离异 4:丧偶
-            $table->text('demand_other');
-            $table->text('self_introduction');
+            $table->text('demand_other')->nullable();
+            $table->text('self_introduction')->nullable();
             $table->tinyInteger('vip_level')->default(0);
+            $table->tinyInteger('show')->default(0);
+            $table->timestamps('vip_expired_at')->nullable();
             $table->timestamps();
         });
 

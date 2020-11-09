@@ -15,11 +15,13 @@ class ImageController extends Controller
         $file = $validated['upload_file'];
         $md5 = md5_file($file->path());
         $filename = $md5.'.'.$file->guessExtension();
-        $path = $file->storeAs('post_images/'.date('ymd'), $filename, 'upload');
+
+        $action = $validated['action'];
+        $path = $file->storeAs($action.'\/img\/'.date('ymd'), $filename, 'upload');
         
-        $path = '/upload/'.$path;
+        $path = '\/upload\/'.$path;
         File::create([
-            'action' => 'post_images',
+            'action' => $action,
             'type' => $file->getClientMimeType(),
             'path' => $path,
             'size' => $file->getSize(),

@@ -31,6 +31,7 @@
     "sass-loader": "^8.0.0",
     "swiper": "^6.3.3",
     "tabler": "^1.0.0-alpha.7",
+    "toastr": "^2.1.4",
     "vue-template-compiler": "^2.6.11",
     "weui": "^2.3.0"
   },
