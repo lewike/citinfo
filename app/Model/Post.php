@@ -40,6 +40,20 @@ class Post extends Model
         return [];
     }
 
+    public function getImages($size = null)
+    {
+        $images = json_decode($this->attributes['images'], true);
+        if (is_array($images)) {
+            return array_map(function ($i) use ($size) {
+                if ($size) {
+                    return env('IMG_URL').$i."!{$size}x{$size}";
+                }
+                return env('IMG_URL').$i;
+            }, $images);
+        }
+        return [];
+    }
+
     public function categoryId()
     {
         $categories = explode('/', $this->category_path);

@@ -27,34 +27,85 @@ body {
   z-index: 1;
 }
 
-.swiper-container {
-  width: 100vw;
-  height: 200px;
+.content {
+  background-color: #f7f7f7;
 }
 
-.swiper-slide {
-  background-color: #999;
+.swiper-container {
+  width: 100vw;
+}
+
+.swiper-slide img {
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: #FFF !important;
 }
 
 .masonry-container {
   position: relative;
+  background-color: #FFF;
+  padding-top: 20px;
 }
 
 .masonry-container .item {
   position: absolute;
 }
 
-.avatar {
+.user-info {
   text-align: center;
+  width: 40vw;
+  box-shadow: 0px 2px 6px 2px rgba(160, 160, 160, 0.5);
+  border-radius: 5px;
+  margin: 10px auto;
 }
 
-.avatar img {
+.user-info .info-wrap {
+  position: relative;
+}
+
+.user-info .info-wrap .vip-user {
+  background: url("/images/vip.png") no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 30px;
+  z-index: 100;
+  opacity: 0.8;
+}
+
+.user-info .info-wrap img {
   height: 60vw;
   width: 40vw;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.user-info .user-assets {
+  list-style: none;
+}
+
+.user-info .user-assets li {
+  display: inline-block;
+}
+
+.user-info .user-assets .has-house {
+  border: 1px #d0d0d0 solid;
+  background-color: #999;
 }
 
 .notice {
+  background-color: #FFF;
   padding: 0.8rem 1rem;
+  margin-bottom: 7px;
+}
+
+.weui-tabbar {
+  background-color: #FFF;
+  box-shadow: 0px -2px 8px -2px rgba(208, 208, 208, 0.5);
 }
 
 .weui-tabbar p {

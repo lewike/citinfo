@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Model\Post;
 use App\Model\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -35,14 +36,14 @@ class PostController extends Controller
     {
         $category = explode('/', $post->category_path);
         $categoryId = end($category);
-        $data['category'] = Category::find($categoryId);
+        $data['category'] = Category::where('m_id', $categoryId)->first();
         $data['fenlei'] = $data['category']->parent();
         $data['post'] = $post;
         $chars = ['6', '7', '5', '8', '9', '0', '3', '2', '1', '4'];
         $data['contact_phone'] = join('', array_map(function ($value) use ($chars) {
             return $chars[$value];
         }, str_split($post->phone)));
-        return view('post.show', $data);
+        return view('website.post.show', $data);
     }
 
     public function views(Post $post)

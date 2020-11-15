@@ -23,7 +23,7 @@ mix.js('resources/js/wed.js', 'public/js')
     .sass('resources/sass/wed.scss', 'public/css');
 
 mix.combine(['./node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js', './node_modules/blueimp-file-upload/js/jquery.iframe-transport.js', './node_modules/blueimp-file-upload/js/jquery.fileupload.js'], 'public/js/uploadfile.js');
-
+mix.combine(['./node_modules/lightbox2/dist/js/lightbox.min.js'], 'public/js/lightbox.js');
 
 if (mix.inProduction()) {
     mix.version();

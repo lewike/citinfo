@@ -30,63 +30,33 @@
             <tr>
               <th>编号</th>
               <th>分类</th>
-              <th>内容</th>
+              <th>标题</th>
               <th>联系方式</th>
-              <th>发布IP</th>
+              <th>过期时间</th>
+              <th>首页置顶</th>
+              <th>栏目置顶</th>
+              <th>浏览量</th>
               <th>发布时间</th>
-              <th>置顶</th>
               <th>状态</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($posts as $post)
             <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
+              <td>{{$post['id']}}</td>
+              <td>{{$post['category_path']}}</td>
+              <td><a href="/post/{{$post['id']}}" target="_blank">{{$post['title']}}</a></td>
+              <td>{{$post['phone']}}</td>
+              <td>{{$post['expired_at']}}</td>
+              <td>{{$post['index_stick']}}</td>
+              <td>{{$post['category_stick']}}</td>
+              <td>{{$post['views']}}</td>
+              <td>{{$post['created_at']}}</td>
+              <td>{{$post['status']}}</td>
               <td>置顶 删除 编辑</td>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>置顶 删除 编辑</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>
-                <a href="#" class="mr-2"><i class="fas fa-fw fa-thumbtack" data-fa-transform="rotate-30"></i>置顶</a>
-                <a href="#" class="mr-2"><i class="far fa-fw fa-edit"></i>编辑</a>
-                <a href="#" class="text-danger mr-2"><i class="far fa-fw fa-trash-alt"></i>删除</a>
-             </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>置顶 删除 编辑</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

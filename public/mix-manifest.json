@@ -7,5 +7,6 @@
     "/css/wed.css": "/css/wed.css",
     "/js/website.js": "/js/website.js",
     "/js/wed.js": "/js/wed.js",
-    "/js/uploadfile.js": "/js/uploadfile.js"
+    "/js/uploadfile.js": "/js/uploadfile.js",
+    "/js/lightbox.js": "/js/lightbox.js"
 }

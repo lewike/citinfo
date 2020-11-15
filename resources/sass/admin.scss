@@ -4,6 +4,7 @@ $sidebar-width: 11rem;
 @import "~metismenujs/scss/metismenujs";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~toastr/toastr";
 
 .upload-images {
     padding-bottom: 30px;
@@ -67,5 +68,22 @@ a.mm-active, li.mm-active > a {
   }
   .page-link {
    padding: 0 .2rem; 
+  }
+}
+
+.category-depth-1 {
+  td:nth-child(2) {
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+.category-depth-2 {
+  td:nth-child(2) {
+     &::before {
+      content: '┗━';
+      padding-right: 8px;
+      vertical-align: sub;
+    }
   }
 }

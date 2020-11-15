@@ -13,9 +13,13 @@ class Category extends Model
         return Post::where('category_path', 'like', $this->path.'%');
     }
 
-    public static function tree()
+    public static function tree($status = null)
     {
-        $categories = Category::where('status', 'normal')->get();
+        if ($status) {
+            $categories = Category::where('status', $status)->get();
+        } else {
+            $categories = Category::get();
+        }
         $categoryTree = [];
         foreach ($categories as $category) {
             if ($category['p_id']) {
@@ -27,14 +31,32 @@ class Category extends Model
         return $categoryTree;
     }
     
-    public static function treeArray()
+    public static function treeArray($status = null)
     {
-        $categories = Category::where('status', 'normal')->orderBy('path')->orderBy('weight')->get('path');
-
-        foreach($categories as $category) {
-            $treeArray[] = [];
+        if ($status) {
+            $categories = Category::where('status', $status)->get();
+        } else {
+            $categories = Category::get();
         }
-        return $categories;
+        $categoryTree = [];
+        foreach ($categories as $category) {
+            if ($category['p_id']) {
+                $categoryTree[$category['p_id']]['child'][] = $category;
+            } else {
+                $categoryTree[$category['m_id']]['data'] = $category;
+            }
+        }
+
+        $treeArray = [];
+
+        foreach($categoryTree as $category) {
+            $treeArray[] = $category['data'];
+            foreach($category['child'] as $subCategory) {
+                $treeArray[] = $subCategory;
+            }
+        }
+        
+        return $treeArray;
     }
 
     public function subCategories()

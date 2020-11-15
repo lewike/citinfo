@@ -28,70 +28,29 @@
         <table class="table card-table table-vcenter">
           <thead>
             <tr>
-              <th>编号</th>
-              <th>分类</th>
-              <th>内容</th>
-              <th>发布者</th>
-              <th>联系方式</th>
-              <th>发布IP</th>
-              <th>发布时间</th>
-              <th>是否置顶</th>
+              <th>分类ID</th>
+              <th>分类名</th>
+              <th>分类标识</th>
+              <th>描述</th>
               <th>状态</th>
+              <th>高亮</th>
+              <th>排序</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>张先生</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
+            @foreach ($categories as $category)
+            <tr class="category-depth-{{$category['depth']}}">
+              <td>{{$category['m_id']}}</td>
+              <td>{{$category['name']}}</td>
+              <td>{{$category['ename']}}</td>
+              <td>{{$category['desc']}}</td>
+              <td>{{$category['status']}}</td>
+              <td>{{$category['highlight']}}</td>
+              <td>{{$category['weight']}}</td>
               <td>置顶 删除 编辑</td>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>张先生</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>置顶 删除 编辑</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>张先生</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>
-                <a href="#"><i class="fas fa-fw fa-thumbtack" data-fa-transform="rotate-30"></i>置顶</a>
-                <a href="#"><i class="far fa-fw fa-edit"></i>编辑</a>
-                <a href="#" class="text-danger"><i class="far fa-fw fa-trash-alt"></i>删除</a>
-             </tr>
-            <tr>
-              <td>1</td>
-              <td>未分类</td>
-              <td>测试</td>
-              <td>张先生</td>
-              <td>18790129933</td>
-              <td>255.255.255.255</td>
-              <td>2020-10-01</td>
-              <td>否</td>
-              <td>待审核</td>
-              <td>置顶 删除 编辑</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
