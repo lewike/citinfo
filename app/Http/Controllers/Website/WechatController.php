@@ -11,7 +11,7 @@ class WechatController extends Controller
 {
     public function qrcode()
     {
-        $wechatCode = Str::random(32);
+        $wechatCode = 'createPost-'.Str::random(32);
     
         $qrCode = app('wechat.official_account')->qrcode;
         $result = $qrCode->temporary($wechatCode, 24 * 3600);
