@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
+Route::group(['namespace' => 'Api'], function () {
     Route::get('wechat', 'WechatController@check');
     Route::post('wechat', 'WechatController@handle');
 });
