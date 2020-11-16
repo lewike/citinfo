@@ -23,7 +23,7 @@ class WechatController extends Controller
                 ->json(['result' => true, 'data' => ['url' => $url]]);
     }
 
-    public function checkCode()
+    public function check()
     {
         $code = session('wechat-code');
         return response()
