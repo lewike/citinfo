@@ -91,7 +91,7 @@
           <img src="" alt="" width="215px" height="215px">
         </div>
         <div class="modal-footer">
-          <span>发布前请扫码关注我们的公众号，便于对已发布的信息管理，同时你也可以通过微信公众号进行信息管理。</span>
+          <span>，便于对已发布的信息管理，同时你也可以通过微信公众号进行信息管理。</span>
         </div>
       </div>
     </div>
@@ -118,12 +118,12 @@ window.onload = function() {
 $(function(){
   var timer = null;
   $('.btn-post').click(function(){
-    axios.get('/weixin/qrcode').then(response => {
+    axios.get('/wechat/qrcode').then(response => {
       if (response.data.result) {
         $('#follow-dialog img').attr('src', response.data.data.url);
         $('#follow-dialog').modal('show');
         timer = setInterval(function(){
-          axios.get('/weixin/check-login').then(response => {
+          axios.get('/wechat/check').then(response => {
             if (response.data.result) {
               $('#follow-dialog').modal('hide');
               clearInterval(timer);

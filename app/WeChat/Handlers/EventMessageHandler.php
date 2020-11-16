@@ -13,12 +13,12 @@ class EventMessageHandler implements EventHandlerInterface
         $openId = $payload['FromUserName'];
 
         if ($payload['Event'] == 'subscribe') {
-            Cache::put('user-openid-'.Str::after($payload['EventKey'], 'qrscene_'), $openId, 1800);
+            Cache::put('wechat-code'.Str::after($payload['EventKey'], 'qrscene_'), $openId, 1800);
             return ;
         }
 
         if ($payload['Event'] == 'SCAN') {
-            Cache::put('user-openid-'.$payload['EventKey'], $openId, 1800);
+            Cache::put('wechat-code'.$payload['EventKey'], $openId, 1800);
             return ;
         }
     }

@@ -17,13 +17,16 @@ class WechatController extends Controller
         $result = $qrCode->temporary($wechatCode, 24 * 3600);
         $url = $qrCode->url($result['ticket']);
         
+        session(['wechat-code' => $wechatCode]);
+        
         return response()
-                ->json(['result' => true, 'data' => ['url' => $url, 'wechat-code' => $wechatCode ]]);
+                ->json(['result' => true, 'data' => ['url' => $url]]);
     }
 
-    public function checkCode($code)
+    public function checkCode()
     {
+        $code = session('wechat-code');
         return response()
-                ->json(['result' => !!Cache::get('wechat-code:'.$code)]);
+                ->json(['result' => !!Cache::get('wechat-code'.$code)]);
     }
 }

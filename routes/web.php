@@ -76,4 +76,5 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/wed/profile', 'WedController@profile');
     
     Route::get('wechat/qrcode', 'WechatController@qrcode');
+    Route::get('wechat/check', 'WechatController@check');
 });

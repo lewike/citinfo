@@ -9,9 +9,9 @@ class WechatController extends Controller
 {
     public function check()
     {
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
+        $signature = $_GET["signature"] ?? '';
+        $timestamp = $_GET["timestamp"] ?? '';
+        $nonce = $_GET["nonce"] ?? '';
 
         $token = env('WECHAT_OFFICIAL_ACCOUNT_TOKEN');
         $tmpArr = array($token, $timestamp, $nonce);
@@ -19,10 +19,8 @@ class WechatController extends Controller
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
 
-        return $_GET['echostr'];
-
         if ($tmpStr == $signature) {
-            return $_GET['echostr'];
+            return $_GET['echostr'] ?? '';
         } else {
             return 'false';
         }
