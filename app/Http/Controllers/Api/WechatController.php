@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use EasyWeChat\Kernel\Messages\Message;
+use Lewike\Citinfo\Weixin\Handlers\EventMessageHandler;
 
 class WechatController extends Controller
 {
@@ -26,7 +28,7 @@ class WechatController extends Controller
         }
     }
 
-    public function handle(Request $request)
+    public function handle()
     {
         $app = app('wechat.official_account');
         $app->server->push(EventMessageHandler::class, Message::EVENT);
