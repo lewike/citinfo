@@ -23,6 +23,9 @@ Route::group(['prefix' => 'api', 'middleware' => 'api', 'namespace' => 'Api'], f
     Route::post('/feedback', 'FeedbackController@handle');
 
     Route::post('/weixin/payment', 'WeixinPaymentController@handle');
+
+    Route::get('wechat', 'WechatController@check');
+    Route::post('wechat', 'WechatController@handle');
 });
 
 Route::group(['prefix' => 'wx/api', 'namespace' => 'WeixinApi'], function () {
