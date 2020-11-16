@@ -14,12 +14,12 @@ class EventMessageHandler implements EventHandlerInterface
 
         if ($payload['Event'] == 'subscribe') {
             Cache::put('wechat-code'.Str::after($payload['EventKey'], 'qrscene_'), $openId, 1800);
-            return false;
+            return '欢迎，感谢你的关注！';
         }
 
         if ($payload['Event'] == 'SCAN') {
             Cache::put('wechat-code'.$payload['EventKey'], $openId, 1800);
-            return false;
+            return '恭喜，扫描成功！';
         }
     }
 }
