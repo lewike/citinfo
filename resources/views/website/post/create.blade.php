@@ -146,7 +146,7 @@ $(function(){
       }
     })
   });
-  $('#myModal').on('hide.bs.modal', function (e) {
+  $('#follow-dialog').on('hide.bs.modal', function (e) {
     clearInterval(timer);
   })
 })
