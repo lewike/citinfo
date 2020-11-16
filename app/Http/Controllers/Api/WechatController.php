@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
-use App\Wechat\Handlers\EventMessageHandler;
+use App\WeChat\Handlers\EventMessageHandler;
 
 class WechatController extends Controller
 {
