@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Validator;
 use App\Model\Post;
+use App\Model\User;
 use App\Model\Category;
 use App\Model\PhoneInfo;
 use App\Http\Controllers\Controller;
