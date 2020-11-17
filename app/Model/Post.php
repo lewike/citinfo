@@ -29,26 +29,15 @@ class Post extends Model
         return $query->where('status', 'published');
     }
 
-    public function getImagesAttribute($value)
-    {
-        $images = json_decode($value, true);
-        if (is_array($images)) {
-            return array_map(function ($image) {
-                return env('CDN_URL').$image;
-            }, $images);
-        }
-        return [];
-    }
-
     public function getImages($size = null)
     {
         $images = json_decode($this->attributes['images'], true);
         if (is_array($images)) {
             return array_map(function ($i) use ($size) {
                 if ($size) {
-                    return env('IMG_URL').$i."!{$size}x{$size}";
+                    return env('CDN_URL').$i."!{$size}x{$size}";
                 }
-                return env('IMG_URL').$i;
+                return env('CDN_URL').$i;
             }, $images);
         }
         return [];

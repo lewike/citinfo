@@ -12,7 +12,7 @@
         <div class="px-3">
             <h4 class="text-center py-3">{{$post->title}}</h4>
             <div class="text-center border-bottom text-md pb-2 text-secondary"> 信息编号: <span
-                    class="text-danger mr-2"><strong>{{$post->id}}</strong></span> 访问: <span class="post-views"></span>次
+                    class="text-danger mr-2"><strong>{{$post->id}}</strong></span> 浏览: <span class="post-views"></span>次
                 <span class="px-2">发布日期: {{$post->created_at->format('Y-m-d')}}</span> 有效期: <span
                     class="expired_day text-danger mr-2" data-datetime="{{$post->expired_at}}">天</span></div>
             <div class="p-4 show-post-content">
