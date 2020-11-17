@@ -60,8 +60,9 @@ Route::group(['namespace' => 'Website'], function () {
     
     Route::get('/post/{post}', 'PostController@show')->where('post', '[0-9]+')->name('website.post.show');
     Route::get('/post/create', 'PostController@create')->name('website.post.create');
+    Route::post('/post/create', 'PostController@store');
     Route::get('/post/views/{post}', 'PostController@views');
-    Route::get('/post/wx/qrcode', 'PostController@qrcode');
+    
     Route::get('/about', 'PageController@about');
     Route::get('/changelog', 'PageController@changelog');
     Route::get('/contact', 'PageController@contact');

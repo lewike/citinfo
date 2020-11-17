@@ -15,23 +15,6 @@ class PostController extends Controller
         return view('website.post.create', $data);
     }
 
-    public function qrcode()
-    {
-        $wechatCode = Str::random(32);
-    
-        $qrCode = app('wechat.official_account')->qrcode;
-        $result = $qrCode->temporary($wechatCode, 24 * 3600);
-        $url = $qrCode->url($result['ticket']);
-        
-        return response()
-                ->json(['result' => true, 'data' => ['url' => $url, 'wechat-code' => $wechatCode ]]);
-    }
-
-    public function checkCode($code)
-    {
-        return session('wechat-code:'.$code) ? 1 : 0;
-    }
-
     public function show(Post $post)
     {
         $category = explode('/', $post->category_path);
