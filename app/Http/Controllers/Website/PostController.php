@@ -114,57 +114,21 @@ class PostController extends Controller
             'content' => 'required',
             'phone' => 'required|size:11',
             'password' => 'required|min:6',
-            'ticket' => 'required',
-            'randstr' => 'required'
         ], [
             'category_path.required' => '请选择要发布的栏目',
             'content.required' => '内容不能为空',
             'phone.required' => '手机号码不能为空',
-            'password.required' => '预留密码不能为空',
             'phone.size' => '手机号码不正确，请确认！',
-            'password.min' => '预留密码最低6位字符，请确认'
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
             return ['result' => false, 'message' => join('、', $errors->all())];
         }
-        $data = $request->only(['ticket', 'randstr']);
-        if (env('APP_ENV') !== 'local') {
-            if (! $this->check($data['ticket'], $data['randstr'], $request->ip())) {
-                return ['result' => false, 'message' => '验证不通过，请重试！'];
-            }
-        }
-        $data = $request->only(['category_path', 'content', 'expired_day', 'password', 'phone', 'contact', 'images']);
+
+        $data = $request->only(['category_path', 'content', 'expired_day', 'phone', 'images']);
         $data['expired_at'] = $data['refresh_at'] = date('Y-m-d H:i:s');
         $data['ip'] = $request->ip();
         $post = Post::create($data);
         return ['result' => true, 'data' => ['url' => $post->url()]];
-    }
-
-    private function check($ticket, $randstr, $clientIp)
-    {
-        $params = http_build_query([
-            "aid" => env('CAPTCH_ID'),
-            "AppSecretKey" => env('CAPTCH_KEY'),
-            "Ticket" => $ticket,
-            "Randstr" => $randstr,
-            "UserIP" => $clientIp
-        ]);
-        $curlHttp = curl_init();
-        curl_setopt($curlHttp, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-        curl_setopt($curlHttp, CURLOPT_CONNECTTIMEOUT, 60);
-        curl_setopt($curlHttp, CURLOPT_TIMEOUT, 60);
-        curl_setopt($curlHttp, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curlHttp, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($curlHttp, CURLOPT_URL, "https://ssl.captcha.qq.com/ticket/verify?".$params);
-        if (($response = curl_exec($curlHttp)) === false) {
-            return false;
-        }
-        curl_close($curlHttp);
-        $result = json_decode($response, true);
-        if ($result['response'] == 1) {
-            return true;
-        }
-        return false;
     }
 }
