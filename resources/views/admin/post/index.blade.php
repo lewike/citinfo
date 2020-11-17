@@ -54,7 +54,7 @@
               <td>{{$post['views']}}</td>
               <td>{{$post['created_at']}}</td>
               <td><span class="post-status-{{$post['status']}}"></span></td>
-              <td>置顶 删除 <a href="/admin/post/edit/{{$psot['id']}}">编辑</a></td>
+              <td>置顶 删除 <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
             </tr>
             @endforeach
           </tbody>
