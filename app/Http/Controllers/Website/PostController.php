@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website;
 
+use Validator;
 use App\Model\Post;
 use App\Model\Category;
 use App\Http\Controllers\Controller;
