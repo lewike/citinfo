@@ -112,8 +112,7 @@ class PostController extends Controller
         $validator = Validator::make($request->all(), [
             'category_path' => 'required',
             'content' => 'required',
-            'phone' => 'required|size:11',
-            'password' => 'required|min:6',
+            'phone' => 'required|size:11'
         ], [
             'category_path.required' => '请选择要发布的栏目',
             'content.required' => '内容不能为空',
