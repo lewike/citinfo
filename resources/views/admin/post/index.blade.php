@@ -45,7 +45,7 @@
             @foreach ($posts as $post)
             <tr>
               <td>{{$post['id']}}</td>
-              <td>{{$post['category_path']}}</td>
+              <td>{{$post->catefory()->name}}</td>
               <td><a href="/post/{{$post['id']}}" target="_blank">{{$post['title']}}</a></td>
               <td>{{$post['phone']}}</td>
               <td>{{$post['expired_at']}}</td>

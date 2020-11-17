@@ -60,6 +60,11 @@ class Post extends Model
         return end($categories);
     }
 
+    public function category()
+    {
+        return Category::find($this->categoryId());
+    }
+
     public function expiredDays()
     {
         return $this->expired_at->diffInDays();
