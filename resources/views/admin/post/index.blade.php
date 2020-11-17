@@ -59,6 +59,11 @@
             @endforeach
           </tbody>
         </table>
+        @if ($posts->hasMorePages())
+        <div class="card-footer">
+          {{ $posts->links() }}
+        </div>
+        @endif
       </div>
     </div>
   </div>
