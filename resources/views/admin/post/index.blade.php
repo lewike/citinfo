@@ -45,7 +45,7 @@
             @foreach ($posts as $post)
             <tr>
               <td>{{$post['id']}}</td>
-              <td>{{$post->catefory()->name}}</td>
+              <td>{{$post->category()->name}}</td>
               <td><a href="/post/{{$post['id']}}" target="_blank">{{$post['title']}}</a></td>
               <td>{{$post['phone']}}</td>
               <td>{{$post['expired_at']}}</td>
@@ -53,8 +53,8 @@
               <td>{{$post['category_stick']}}</td>
               <td>{{$post['views']}}</td>
               <td>{{$post['created_at']}}</td>
-              <td>{{$post['status']}}</td>
-              <td>置顶 删除 编辑</td>
+              <td><span class="post-status-{{$post['status']}}"></span></td>
+              <td>置顶 删除 <a href="/admin/post/edit/{{$psot['id']}}">编辑</a></td>
             </tr>
             @endforeach
           </tbody>
