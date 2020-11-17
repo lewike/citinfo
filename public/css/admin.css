@@ -23764,3 +23764,13 @@ li.mm-active > a {
   color: #f44336;
 }
 
+.post-status-published::before {
+  content: "\5DF2\53D1\5E03";
+  border: 1px solid #4caf50;
+  font-size: 12px;
+  word-break: keep-all;
+  padding: 0px 2px;
+  border-radius: 3px;
+  color: #4caf50;
+}
+

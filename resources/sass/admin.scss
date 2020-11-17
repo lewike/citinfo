@@ -97,3 +97,13 @@ a.mm-active, li.mm-active > a {
   border-radius: 3px;
   color: #f44336;
 }
+
+.post-status-published::before {
+  content: '已发布';
+  border: 1px solid #4caf50;
+  font-size: 12px;
+  word-break: keep-all;
+  padding: 0px 2px;
+  border-radius: 3px;
+  color: #4caf50;
+}

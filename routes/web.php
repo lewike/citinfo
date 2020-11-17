@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
         Route::get('/post', 'PostController@index');
         Route::get('/post/create', 'PostController@create')->name('admin.post.create');
         Route::post('/post/create', 'PostController@store');
+        Route::get('/post/edit/{post}', 'PostController@edit');
+        Route::post('/post/edit/{post}', 'PostController@update');
         
         Route::post('/image/upload', 'ImageController@upload');
         

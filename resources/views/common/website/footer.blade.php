@@ -14,5 +14,4 @@
       <img src="{{env('CDN_URL')}}/images/zaixixian-kefu-qr.png" alt="客服微信二维码" width="80px">
       </p>
     </div>
-
   </div>
