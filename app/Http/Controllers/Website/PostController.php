@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use Cache;
 use Validator;
 use App\Model\Post;
+use App\Model\User;
 use App\Model\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
