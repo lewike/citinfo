@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website;
 
+use Cache;
 use Validator;
 use App\Model\Post;
 use App\Model\Category;
@@ -124,7 +125,27 @@ class PostController extends Controller
             return ['result' => false, 'message' => join('、', $errors->all())];
         }
 
+        $wechatCode = session('wechat-code');
+        $wechatOpenId = Cache::get('wechat-code'.$wechatCode);
+
+        if (empty($wechatOpenId)) {
+            return ['result' => false, 'message' => '无法获取身份信息'];
+        }
+
+        $user = User::where('wechat_openid', $wechatOpenId)->first();
+        if (!$user) {
+            $userId = substr($wechatOpenId, 0, 12);
+            $user = User::create([
+                'name' => $userId,
+                'email' => $userId.'@zaixixian.com',
+                'password' => md5($userId),
+                'wechat_openid' => $wechatOpenId
+            ]);
+        }
+
         $data = $request->only(['category_path', 'content', 'expired_day', 'phone', 'images']);
+
+        $data['user_id'] = $user->id;
         $data['expired_at'] = $data['refresh_at'] = date('Y-m-d H:i:s');
         $data['ip'] = $request->ip();
         $post = Post::create($data);
