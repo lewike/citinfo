@@ -17,13 +17,13 @@
     </div>
     <ul class="list-unstyled my-4">
       <li class="text-center">
-        <img src="https://img.zaixixian.com/images/ad/ad1.png" alt="">
+        <img src="https://www.zaixixian.com/images/ad/ad1.png" alt="">
       </li>
       <li class="text-center">
-        <img src="https://img.zaixixian.com/images/ad/ad2.png" alt="">
+        <img src="https://www.zaixixian.com/images/ad/ad2.png" alt="">
       </li>
       <li class="text-center">
-        <img src="https://img.zaixixian.com/images/ad/ad3.png" alt="">
+        <img src="https://www.zaixixian.com/images/ad/ad3.png" alt="">
       </li>
     </ul>
   </div>
