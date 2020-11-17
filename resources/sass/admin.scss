@@ -87,3 +87,13 @@ a.mm-active, li.mm-active > a {
     }
   }
 }
+
+.post-status-pending::before {
+  content: '未审核';
+  border: 1px solid #f44336;
+  font-size: 12px;
+  word-break: keep-all;
+  padding: 0px 2px;
+  border-radius: 3px;
+  color: #f44336;
+}
