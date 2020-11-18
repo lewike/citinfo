@@ -23708,7 +23708,8 @@ button.toast-close-button {
 }
 
 #fileupload,
-#uploadqr {
+#uploadqr,
+#avatar_upload {
   opacity: 0;
   top: 0;
   left: 0;
@@ -23772,5 +23773,12 @@ li.mm-active > a {
   padding: 0px 2px;
   border-radius: 3px;
   color: #4caf50;
+}
+
+.user-avatar {
+  width: 180px;
+  height: 320px;
+  border: 1px solid #fafafa;
+  border-radius: 5px;
 }
 

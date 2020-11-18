@@ -76,7 +76,7 @@ class InitCityInfoTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('love_members', function (Blueprint $table) {
+        Schema::create('wed_members', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->default(0);
             $table->string('nick_name');
@@ -94,8 +94,8 @@ class InitCityInfoTables extends Migration
             $table->string('job')->nullable();
             $table->tinyInteger('marry')->nullable(); // 1:未婚 2:离异 3:丧偶
             $table->tinyInteger('income')->default(0); // 2:2000以下 4:2000-4000 6:4000-6000 10:6000-10000 20:10000-20000 21:20000以上
-            $table->tinyInteger('car')->default(0); //
-            $table->tinyInteger('house')->default(0); //
+            $table->tinyInteger('car')->default(0); // 0:无车 1:有车 2:车辆认证
+            $table->tinyInteger('house')->default(0); // 0:无房 1:有房 2:房产认证
             $table->tinyInteger('real_name')->default(0); //
             $table->tinyInteger('demand_min_age')->nullable();
             $table->tinyInteger('demand_max_age')->nullable();
@@ -104,6 +104,7 @@ class InitCityInfoTables extends Migration
             $table->tinyInteger('demand_marry')->default(0);// 0:不限 1:未婚 2:已婚 3:离异 4:丧偶
             $table->text('demand_other')->nullable();
             $table->text('self_introduction')->nullable();
+            $table->text('note')->nullable();
             $table->tinyInteger('vip_level')->default(0);
             $table->tinyInteger('show')->default(0);
             $table->timestamps('vip_expired_at')->nullable();

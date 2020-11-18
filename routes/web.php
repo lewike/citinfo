@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
             Route::get('/wed/member', 'MemberController@index')->name('admin.wed.member');
             Route::get('/wed/member/create', 'MemberController@create')->name('admin.wed.member.create');
             Route::post('/wed/member/create', 'MemberController@store');
+            Route::get('/wed/member/edit/{wed_member}', 'MemberController@edit');
+            Route::post('/wed/member/edit/{wed_member}', 'MemberController@update');
         });
     });
 });
