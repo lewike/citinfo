@@ -15,6 +15,6 @@ class Config extends Model
     public static function value($name = 'wed')
     {
         $config = self::where('name', $name)->first();
-        return $config->value;
+        return $config->value ?? [];
     }
 }
