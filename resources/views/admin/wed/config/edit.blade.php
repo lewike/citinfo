@@ -20,7 +20,7 @@
                 <div class="col-lg-4">
                     <div class="mb-3 swiper-wraper">
                       <div class="form-label">轮播图1：</div>
-                    <input type="hidden" class="form-control swiper-img" name="swiper[0]" value="{{$config['swiper'][0]}}">
+                    <input type="hidden" class="form-control swiper-img" name="swiper[0]" value="{{$config['swiper'][0] ?? ''}}">
                     <img src="{{$config['swiper'][0] ?? ''}}" alt="" class="wed-config-swiper">
                       <div class="position-relative fileupload-wrapper mt-3">
                           <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
