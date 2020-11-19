@@ -23709,7 +23709,8 @@ button.toast-close-button {
 
 #fileupload,
 #uploadqr,
-#avatar_upload {
+#avatar_upload,
+.upload-swiper {
   opacity: 0;
   top: 0;
   left: 0;
@@ -23780,5 +23781,10 @@ li.mm-active > a {
   height: 320px;
   border: 1px solid #fafafa;
   border-radius: 5px;
+}
+
+.wed-config-swiper {
+  width: 240px;
+  height: 90px;
 }
 

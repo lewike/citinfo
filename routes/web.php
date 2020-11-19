@@ -53,6 +53,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
             Route::post('/wed/member/create', 'MemberController@store');
             Route::get('/wed/member/edit/{wed_member}', 'MemberController@edit');
             Route::post('/wed/member/edit/{wed_member}', 'MemberController@update');
+
+            Route::get('wed/config', 'ConfigController@edit');
+            Route::post('wed/config', 'ConfigController@update');
         });
     });
 });

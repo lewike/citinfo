@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Config' => $baseDir . '/app/Config.php',
     'App\\Console\\Commands\\RebuildCategory' => $baseDir . '/app/Console/Commands/RebuildCategory.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -16,6 +17,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\PostController' => $baseDir . '/app/Http/Controllers/Admin/PostController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Admin\\WedController' => $baseDir . '/app/Http/Controllers/Admin/WedController.php',
+    'App\\Http\\Controllers\\Admin\\Wed\\ConfigController' => $baseDir . '/app/Http/Controllers/Admin/Wed/ConfigController.php',
     'App\\Http\\Controllers\\Admin\\Wed\\MemberController' => $baseDir . '/app/Http/Controllers/Admin/Wed/MemberController.php',
     'App\\Http\\Controllers\\Api\\WechatController' => $baseDir . '/app/Http/Controllers/Api/WechatController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -52,6 +54,7 @@ return array(
     'App\\Model\\PhoneInfo' => $baseDir . '/app/Model/PhoneInfo.php',
     'App\\Model\\Post' => $baseDir . '/app/Model/Post.php',
     'App\\Model\\User' => $baseDir . '/app/Model/User.php',
+    'App\\Model\\WedMember' => $baseDir . '/app/Model/WedMember.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

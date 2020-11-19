@@ -50,4 +50,11 @@ class MemberController extends Controller
         $data['member'] = $wedMember;
         return view('admin.wed.member.edit', $data);
     }
+
+    public function update(Request $request, WedMember $wedMember)
+    {
+        $data = $request->only(['nick_name', 'avatar', 'birthday', 'gender', 'marry', 'name', 'real_name', 'car', 'house', 'weight', 'height', 'age', 'email', 'phone', 'images', 'job', 'income', 'education', 'note', 'show', 'vip_level']);
+        $wedMember->update($data);
+        return ['result' => true];
+    }
 }

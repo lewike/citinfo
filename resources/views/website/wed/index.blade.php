@@ -4,9 +4,9 @@
 <div class="wrap">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/upload/post/img/201111/a96139a5a24ecf494812174af9496191.png" data-url=""></div>
-            <div class="swiper-slide"><img src="/upload/post/img/201111/f5b117a16872c3e0a8c5d91c68e21abc.png" data-url=""></div>
-            <div class="swiper-slide"><img src="/upload/post/img/201111/40236d6ed63bc844ffe63fa5ff7164db.png" data-url=""></div>
+            @foreach ($config['swiper'] as $i => $swiper)
+            <div class="swiper-slide"><img src="{{$swiper}}" data-url="{{$config['url'][$i]}}"></div>
+            @endforeach
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -14,10 +14,11 @@
         公告:
     </div>
     <div class="masonry-container">
+        @foreach ($members as $member)
         <div class="item">
             <div class="user-info">
                 <div class="info-wrap">
-                    <img src="/upload/post/img/201111/36c16cb9f3f5fc89e069e27401706cea.png" alt="">
+                    <img src="{{$member['avatar']}}" alt="">
                     <span class="vip-user"></span>
                 </div>
                 <div>
@@ -25,32 +26,11 @@
                         <li class="has-house">有房</li>
                         <li class="has-car">有车</li>
                     </ul>
-                    <p>刘女士 未婚 22</p>
+                    <p>{{$member['name']}} 未婚 22</p>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="user-info">
-                <div class="info-wrap">
-                    <img src="/upload/post/img/201111/36c16cb9f3f5fc89e069e27401706cea.png" alt="">
-                    <span class="vip-user"></span>
-                </div>
-                <div>
-                    有车
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="user-info">
-                <div class="info-wrap">
-                    <img src="/upload/post/img/201111/36c16cb9f3f5fc89e069e27401706cea.png" alt="">
-                    <span class="vip-user"></span>
-                </div>
-                <div>
-                    有车
-                </div>
-            </div>
-        </div>        
+        </div>    
+        @endforeach       
     </div>
 </div>
 @endsection

@@ -25,7 +25,7 @@ class UploadRequest extends FormRequest
     {
         return [
             'upload_file' => 'required|image|mimes:jpeg,jpg,png|max:50120',
-            'action' => 'required|in:post,avatar,wed',
+            'action' => 'required|in:post,avatar,wed,swiper',
         ];
     }
 

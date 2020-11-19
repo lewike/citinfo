@@ -37,7 +37,7 @@ $sidebar-width: 11rem;
       }
     }
 }
-#fileupload, #uploadqr, #avatar_upload {
+#fileupload, #uploadqr, #avatar_upload, .upload-swiper {
     opacity: 0; 
     top: 0;
     left: 0;
@@ -113,4 +113,9 @@ a.mm-active, li.mm-active > a {
   height: 320px;
   border: 1px solid #fafafa;
   border-radius: 5px;
+}
+
+.wed-config-swiper {
+  width: 240px;
+  height: 90px;
 }

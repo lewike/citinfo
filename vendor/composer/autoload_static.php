@@ -583,6 +583,7 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
     );
 
     public static $classMap = array (
+        'App\\Config' => __DIR__ . '/../..' . '/app/Config.php',
         'App\\Console\\Commands\\RebuildCategory' => __DIR__ . '/../..' . '/app/Console/Commands/RebuildCategory.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -593,6 +594,7 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
         'App\\Http\\Controllers\\Admin\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PostController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Admin\\WedController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WedController.php',
+        'App\\Http\\Controllers\\Admin\\Wed\\ConfigController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Wed/ConfigController.php',
         'App\\Http\\Controllers\\Admin\\Wed\\MemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Wed/MemberController.php',
         'App\\Http\\Controllers\\Api\\WechatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/WechatController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -629,6 +631,7 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
         'App\\Model\\PhoneInfo' => __DIR__ . '/../..' . '/app/Model/PhoneInfo.php',
         'App\\Model\\Post' => __DIR__ . '/../..' . '/app/Model/Post.php',
         'App\\Model\\User' => __DIR__ . '/../..' . '/app/Model/User.php',
+        'App\\Model\\WedMember' => __DIR__ . '/../..' . '/app/Model/WedMember.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
