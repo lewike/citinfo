@@ -55,9 +55,9 @@ body {
 
 .user-info {
   text-align: center;
-  width: 40vw;
-  box-shadow: 0px 2px 6px 2px rgba(160, 160, 160, 0.5);
-  border-radius: 5px;
+  width: 45vw;
+  box-shadow: rgba(53, 64, 82, 0.24) 0 2px 4px 0;
+  border-radius: 3px;
   margin: 10px auto;
 }
 
@@ -79,22 +79,48 @@ body {
 
 .user-info .info-wrap img {
   height: 60vw;
-  width: 40vw;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  width: 45vw;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .user-info .user-assets {
   list-style: none;
+  padding-bottom: 8px;
 }
 
 .user-info .user-assets li {
   display: inline-block;
 }
 
-.user-info .user-assets .has-house {
-  border: 1px #d0d0d0 solid;
-  background-color: #999;
+.user-info .user-assets .tag-text {
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 3px;
+  padding: 2px 3px;
+}
+
+.user-info .user-assets .border-text-red {
+  border: 1px #F44336 solid;
+  color: #F44336;
+}
+
+.user-info .user-assets .border-text-green {
+  border: 1px #009688 solid;
+  color: #009688;
+}
+
+.user-info .user-baseinfo {
+  color: #333;
+}
+
+.user-info .user-baseinfo .user-name {
+  font-size: 15px;
+}
+
+.user-info .user-baseinfo .user-other {
+  font-size: 13px;
+  color: #666;
 }
 
 .notice {
@@ -111,5 +137,9 @@ body {
 .weui-tabbar p {
   font-size: 1.1rem;
   padding: 0.5rem;
+}
+
+.d-none {
+  display: none;
 }
 

@@ -81,6 +81,7 @@ Route::group(['namespace' => 'Website'], function () {
     Route::post('/image/upload', 'ImageController@upload');
 
     Route::get('/wed', 'WedController@index');
+    Route::get('/wed/list/{page}', 'WedController@list');
     Route::get('/wed/profile', 'WedController@profile');
     
     Route::get('wechat/qrcode', 'WechatController@qrcode');

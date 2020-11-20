@@ -12,7 +12,13 @@ class WedController extends Controller
     public function index()
     {
         $data['config'] = Config::value('wed');
-        $data['members'] = WedMember::where('show', 1)->limit(20)->get();
+        $data['members'] = WedMember::where('show', 1)->limit(12)->get();
         return view('website.wed.index', $data);
+    }
+
+    public function list($page)
+    {
+        $data['members'] = WedMember::where('show', 1)->offset($page*12)->limit(12)->get();
+        return ['result' => true, 'data' => $data];
     }
 }
