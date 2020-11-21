@@ -29,7 +29,8 @@ $(function () {
       pullUpLoad: true,
       bounce: false,
       click: true,
-      tap: true
+      tap: true,
+      momentum: false
     });
     let page = 1;
     let noMore = false;

@@ -48294,7 +48294,8 @@ $(function () {
       pullUpLoad: true,
       bounce: false,
       click: true,
-      tap: true
+      tap: true,
+      momentum: false
     });
     var page = 1;
     var noMore = false;
