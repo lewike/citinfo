@@ -28,15 +28,22 @@ let bs = new BScroll('.weui-tab__panel', {
 });
 
 let page = 2;
+let loading = false;
 bs.on('pullingUp', () => {
+    if (loading) {
+        return ;
+    }
     $('.load-more').addClass('d-none');
     $('.loading').removeClass('d-none');
-  axios.get('/wed/list/' + page)
-  .then(function (response) {
-    $('.load-more').removeClass('d-none');
-    $('.loading').addClass('d-none');
-  })
-  .catch(function (error) {
-  });
+    loading = true;
+    axios.get('/wed/list/' + page)
+    .then(function (response) {
+        $('.load-more').removeClass('d-none');
+        $('.loading').addClass('d-none');
+        loading = false;
+    })
+    .catch(function (error) {
+        loading = false;
+    });
   bs.finishPullUp();
 });

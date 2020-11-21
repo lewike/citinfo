@@ -67,6 +67,7 @@ Route::group(['namespace' => 'Website'], function () {
     
     Route::get('/post/{post}', 'PostController@show')->where('post', '[0-9]+')->name('website.post.show');
     Route::get('/post/create', 'PostController@create')->name('website.post.create');
+    Route::get('/post/create/success', 'PostController@success');
     Route::post('/post/create', 'PostController@store');
     Route::get('/post/views/{post}', 'PostController@views');
     

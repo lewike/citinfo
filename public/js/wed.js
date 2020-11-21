@@ -48292,13 +48292,22 @@ var bs = new better_scroll__WEBPACK_IMPORTED_MODULE_3__["default"]('.weui-tab__p
   pullUpLoad: true
 });
 var page = 2;
+var loading = false;
 bs.on('pullingUp', function () {
+  if (loading) {
+    return;
+  }
+
   $('.load-more').addClass('d-none');
   $('.loading').removeClass('d-none');
+  loading = true;
   axios.get('/wed/list/' + page).then(function (response) {
     $('.load-more').removeClass('d-none');
     $('.loading').addClass('d-none');
-  })["catch"](function (error) {});
+    loading = false;
+  })["catch"](function (error) {
+    loading = false;
+  });
   bs.finishPullUp();
 });
 

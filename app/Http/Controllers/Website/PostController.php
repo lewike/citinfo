@@ -46,6 +46,11 @@ class PostController extends Controller
         return ['result' => true];
     }
 
+    public function success()
+    {
+        return view('website.post.create-success');
+    }
+
     public function postCheckPassword(Request $request)
     {
         $data = $request->only(['post_id', 'password']);
