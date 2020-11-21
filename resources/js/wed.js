@@ -40,6 +40,15 @@ bs.on('pullingUp', () => {
     .then(function (response) {
         $('.load-more').removeClass('d-none');
         $('.loading').addClass('d-none');
+        console.log(response.data.data.members);
+        if (response.data.result) {
+            response.data.data.members.forEach(function(item){
+               let itemHtml = $('.template .item').clone();
+               itemHtml.find('img').attr('src', item.avatar);
+               itemHtml.appendTo('.masonry-container');
+            });
+        }
+        masonry.layout();
         loading = false;
     })
     .catch(function (error) {

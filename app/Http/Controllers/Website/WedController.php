@@ -18,7 +18,7 @@ class WedController extends Controller
 
     public function list($page)
     {
-        $fields = ['avatar', 'nick_name', 'gender', 'job', 'marry', 'has_car', 'has_house', 'vip_level'];
+        $fields = ['avatar', 'nick_name', 'gender', 'job', 'marry', 'car', 'house', 'vip_level'];
         $data['members'] = WedMember::where('show', 1)->offset($page*12)->limit(12)->get($fields);
         return ['result' => true, 'data' => $data];
     }
