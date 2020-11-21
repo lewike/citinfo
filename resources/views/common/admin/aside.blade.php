@@ -114,12 +114,17 @@
             </a>
             <ul class="dropdown-menu show">
               <li >
-                <a class="dropdown-item" href="./empty.html" >
-                  logo设置
+                <a class="dropdown-item" href="/admin/mp/config/menu" >
+                  菜单设置
                 </a>
               </li>
               <li >
-                <a class="dropdown-item" href="./blank.html" >
+                <a class="dropdown-item" href="/admin/mp/config/common" >
+                  一般设置
+                </a>
+              </li>
+              <li >
+                <a class="dropdown-item" href="/admin/mp/config/ad" >
                   广告管理
                 </a>
               </li>

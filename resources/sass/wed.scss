@@ -42,7 +42,7 @@ body {
 .masonry-container {
     position: relative;
     background-color: #FFF;
-    padding-top: 20px;
+    padding: 20px 0;
     .item {
         position: absolute;
     }
@@ -124,7 +124,11 @@ body {
         padding: .5rem;
     }
 }
-
+.loading, .no-more, .load-more {
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 0;
+}
 .d-none {
     display: none;
 }

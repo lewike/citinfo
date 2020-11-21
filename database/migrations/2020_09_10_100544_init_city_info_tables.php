@@ -107,7 +107,7 @@ class InitCityInfoTables extends Migration
             $table->text('note')->nullable();
             $table->tinyInteger('vip_level')->default(0);
             $table->tinyInteger('show')->default(0);
-            $table->timestamps('vip_expired_at')->nullable();
+            $table->timestamp('vip_expired_at')->nullable();
             $table->timestamps();
         });
 
