@@ -20,11 +20,6 @@ $(function () {
       },
     });
 
-    $('.masonry-container').on('click', '.item', function (e) {
-      var $e = $(e.currentTarget);
-      window.location.href = $e.data('url');
-    })
-
     window.masonry = new MiniMasonry({
       baseWidth: document.querySelector('.masonry-container').clientWidth / 2 - 20,
       ultimateGutter: 3,

@@ -48285,10 +48285,6 @@ $(function () {
         type: 'bullets'
       }
     });
-    $('.masonry-container').on('click', '.item', function (e) {
-      var $e = $(e.currentTarget);
-      window.location.href = $e.data('url');
-    });
     window.masonry = new minimasonry__WEBPACK_IMPORTED_MODULE_2__["default"]({
       baseWidth: document.querySelector('.masonry-container').clientWidth / 2 - 20,
       ultimateGutter: 3,
