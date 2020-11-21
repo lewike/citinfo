@@ -48293,7 +48293,8 @@ $(function () {
     var bs = new better_scroll__WEBPACK_IMPORTED_MODULE_3__["default"]('.weui-tab__panel', {
       pullUpLoad: true,
       bounce: false,
-      click: true
+      click: true,
+      tap: true
     });
     var page = 1;
     var noMore = false;

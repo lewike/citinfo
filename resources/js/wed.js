@@ -28,7 +28,8 @@ $(function () {
     let bs = new BScroll('.weui-tab__panel', {
       pullUpLoad: true,
       bounce: false,
-      click: true
+      click: true,
+      tap: true
     });
     let page = 1;
     let noMore = false;
