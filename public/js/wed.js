@@ -48291,22 +48291,25 @@ window.masonry = new minimasonry__WEBPACK_IMPORTED_MODULE_2__["default"]({
 var bs = new better_scroll__WEBPACK_IMPORTED_MODULE_3__["default"]('.weui-tab__panel', {
   pullUpLoad: true
 });
-var page = 2;
-var loading = false;
+var page = 1;
+var noMore = false;
 bs.on('pullingUp', function () {
-  if (loading) {
+  if (noMore) {
     return;
   }
 
   $('.load-more').addClass('d-none');
   $('.loading').removeClass('d-none');
-  loading = true;
   axios.get('/wed/list/' + page).then(function (response) {
-    $('.load-more').removeClass('d-none');
-    $('.loading').addClass('d-none');
-    console.log(response.data.data.members);
-
     if (response.data.result) {
+      if (response.data.data.members.length == 0) {
+        $('.load-more').addClass('d-none');
+        $('.loading').addClass('d-none');
+        $('.no-more').removeClass('d-none');
+        noMore = true;
+        return;
+      }
+
       response.data.data.members.forEach(function (item) {
         var itemHtml = $('.template .item').clone();
         itemHtml.find('img').attr('src', item.avatar);
@@ -48314,12 +48317,16 @@ bs.on('pullingUp', function () {
       });
     }
 
+    $('.load-more').removeClass('d-none');
+    $('.loading').addClass('d-none');
+    page++;
     masonry.layout();
-    loading = false;
+    bs.refresh();
+    bs.finishPullUp();
   })["catch"](function (error) {
-    loading = false;
+    bs.refresh();
+    bs.finishPullUp();
   });
-  bs.finishPullUp();
 });
 
 /***/ }),
