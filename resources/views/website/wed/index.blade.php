@@ -15,7 +15,7 @@
     </div>
     <div class="masonry-container">
         @foreach ($members as $member)
-        <div class="item">
+        <div class="item" data-url="/wed/detail/{{$member['id']}}">
             <div class="user-info">
                 <div class="info-wrap">
                     <img src="{{$member['avatar']}}" alt="">
