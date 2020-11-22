@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Website\Wechat;
+namespace App\Http\Controllers\Website\Weixin;
 
 use App\Model\Config;
 use App\Model\Category;

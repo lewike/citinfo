@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::group(['prefix' => 'market', 'middleware' => ['wechat.mock'], 'namespace' => 'Market'], function () {
-
-//     Route::get('/', 'HomeController@index');
-//     Route::get('/orders', 'HomeController@orders');
-//     Route::get('/single/{id}', 'SingleController@show');
-//     Route::post('/single/buy', 'SingleController@buy');
-//     Route::get('/single/{id}/share', 'SingleController@share');
-// });
-
 Route::group(['prefix' => 'admin/market', 'middleware' => ['admin'], 'namespace' => 'Admin\Market'], function () {
     Route::get('/single', 'SingleController@index');
 });
@@ -94,7 +85,7 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('wechat/qrcode', 'WechatController@qrcode');
     Route::get('wechat/check', 'WechatController@check');
     
-    Route::group(['namespace' => 'WeChat', 'prefix' => 'wx'], function(){
+    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx'], function(){
         Route::get('/', 'HomeController@index');
     });
 });
