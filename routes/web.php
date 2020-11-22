@@ -59,6 +59,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
         });
         Route::get('mp/config/menu', 'MpController@configMenu');
         Route::post('mp/config/menu', 'MpController@updateConfigMenu');
+
+        Route::get('mp/config/common', 'MpController@configCommon');
+        Route::post('mp/config/common', 'MpController@updateConfigCommon');
     });
 });
 
@@ -90,4 +93,8 @@ Route::group(['namespace' => 'Website'], function () {
     
     Route::get('wechat/qrcode', 'WechatController@qrcode');
     Route::get('wechat/check', 'WechatController@check');
+    
+    Route::group(['namespace' => 'WeChat', 'prefix' => 'wx'], function(){
+        Route::get('/', 'HomeController@index');
+    });
 });

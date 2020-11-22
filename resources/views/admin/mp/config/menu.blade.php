@@ -17,7 +17,17 @@
           <div class="card-body">
             <div class="mb-3">
                 <div class="form-label">配置Json：</div>
-                <textarea class="form-control" name="menu" rows="6" ></textarea>
+                <textarea class="form-control" name="menu" rows="20" >
+{
+    "button": [
+        {
+            "type": "view", 
+            "name": "免费发布便民信息", 
+            "url": "https://www.zaixixian.com/wx"
+        }
+    ]
+}
+                </textarea>
               </div>
           </div>
           <div class="card-footer text-muted">

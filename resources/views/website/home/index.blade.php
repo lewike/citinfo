@@ -48,3 +48,16 @@
   </div>
 </div>
 @endsection
+
+@section('extend_js')
+<script src="/js/isMobile.js"></script>
+<script>
+  $(function(){
+    var MOBILE_SITE = '/wx'
+    if (isMobile.apple.phone || isMobile.android.phone) {
+        document.location = MOBILE_SITE;
+    }
+  })
+</script>
+
+@endsection

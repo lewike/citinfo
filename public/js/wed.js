@@ -17349,7 +17349,7 @@ function bindModuleMethods(instance, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../css-loader??ref--9-1!../postcss-loader/src??ref--9-2!./swiper-bundle.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/_swiper@6.3.3@swiper/swiper-bundle.css");
+var content = __webpack_require__(/*! !../css-loader??ref--10-1!../postcss-loader/src??ref--10-2!./swiper-bundle.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/_swiper@6.3.3@swiper/swiper-bundle.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19297,9 +19297,9 @@ module.exports = {
 /***/ }),
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/_swiper@6.3.3@swiper/swiper-bundle.css":
-/*!*********************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--9-1!./node_modules/postcss-loader/src??ref--9-2!./node_modules/_swiper@6.3.3@swiper/swiper-bundle.css ***!
-  \*********************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--10-1!./node_modules/postcss-loader/src??ref--10-2!./node_modules/_swiper@6.3.3@swiper/swiper-bundle.css ***!
+  \***********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
