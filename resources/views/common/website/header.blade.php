@@ -4,7 +4,7 @@
     </div>
     <div class="logo py-3"><a href="/" title="在息县网"><img src="{{env('CDN_URL')}}/images/zaixixian-logo.png" alt="在息县网" height="64px"></a><a class="d-none" href="/" title="在息县网"><h1>在息县网</h1></a>
     </div>
-    <div class="navbar navbar-expand-lg rounded-lg">
+    <div class="navbar navbar-expand-md rounded-lg">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/" >首页</a>
       <a class="nav-item nav-link" href="/fenlei/fangchan" >房产信息</a>

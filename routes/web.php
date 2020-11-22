@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
             Route::get('wed/config', 'ConfigController@edit');
             Route::post('wed/config', 'ConfigController@update');
         });
+        Route::get('mp/config/menu', 'MpController@configMenu');
+        Route::post('mp/config/menu', 'MpController@updateConfigMenu');
     });
 });
 
