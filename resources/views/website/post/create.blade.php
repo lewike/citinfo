@@ -82,7 +82,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">打开微信"扫一扫"扫描二维码</h5>
+          <h5 class="modal-title">打开微信 "扫一扫" 扫描二维码</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -91,7 +91,7 @@
           <img src="" alt="" width="215px" height="215px">
         </div>
         <div class="modal-footer">
-          <span>，便于对已发布的信息管理，同时你也可以通过微信公众号进行信息管理。</span>
+          <span>扫码后请关注公众号，便于对信息管理</span>
         </div>
       </div>
     </div>
