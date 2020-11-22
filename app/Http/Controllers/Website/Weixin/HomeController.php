@@ -13,21 +13,20 @@ class HomeController extends Controller
     {
         $data['config'] = Config::value('mp');
         $data['categories'] = Category::where('depth', 1)->get();
-        return view('website.wechat.home.index', $data);
+        return view('website.weixin.home.index', $data);
     }
-
     public function category($id)
     {
-        return view('website.wechat.home.category');
+        return view('website.weixin.home.category');
     }
 
     public function fenlei($name)
     {
-        return view('website.wechat.home.fenlei');
+        return view('website.weixin.home.fenlei');
     }
 
     public function detail($id)
     {
-        return view('website.wechat.home.detail');
+        return view('website.weixin.home.detail');
     }
 }
