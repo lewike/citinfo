@@ -583,7 +583,6 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
     );
 
     public static $classMap = array (
-        'App\\Config' => __DIR__ . '/../..' . '/app/Config.php',
         'App\\Console\\Commands\\RebuildCategory' => __DIR__ . '/../..' . '/app/Console/Commands/RebuildCategory.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -591,6 +590,7 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomeController.php',
         'App\\Http\\Controllers\\Admin\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ImageController.php',
+        'App\\Http\\Controllers\\Admin\\MpController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MpController.php',
         'App\\Http\\Controllers\\Admin\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PostController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Admin\\WedController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WedController.php',
@@ -604,10 +604,12 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
         'App\\Http\\Controllers\\Website\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/HomeController.php',
         'App\\Http\\Controllers\\Website\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/ImageController.php',
         'App\\Http\\Controllers\\Website\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/PageController.php',
+        'App\\Http\\Controllers\\Website\\Pinche\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/Pinche/HomeController.php',
         'App\\Http\\Controllers\\Website\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/PostController.php',
         'App\\Http\\Controllers\\Website\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/SearchController.php',
         'App\\Http\\Controllers\\Website\\WechatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/WechatController.php',
         'App\\Http\\Controllers\\Website\\WedController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/WedController.php',
+        'App\\Http\\Controllers\\Website\\Weixin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/Weixin/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminAuth.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -621,6 +623,7 @@ class ComposerStaticInit5679ad1ed3b2ca70d70917f16dfbc474
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\UploadRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UploadRequest.php',
         'App\\Model\\Category' => __DIR__ . '/../..' . '/app/Model/Category.php',
+        'App\\Model\\Config' => __DIR__ . '/../..' . '/app/Model/Config.php',
         'App\\Model\\File' => __DIR__ . '/../..' . '/app/Model/File.php',
         'App\\Model\\Market' => __DIR__ . '/../..' . '/app/Model/Market.php',
         'App\\Model\\MarketCommissionLog' => __DIR__ . '/../..' . '/app/Model/MarketCommissionLog.php',

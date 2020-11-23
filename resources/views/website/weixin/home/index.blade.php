@@ -1,7 +1,7 @@
 @extends('layouts.wechat')
 
 @section('content')
-<div class="wrap iscroll">
+<div class="wrap iscroll" data-page="/wx">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             @foreach ($config['swiper'] as $i => $swiper)
@@ -9,6 +9,12 @@
             @endforeach
         </div>
         <div class="swiper-pagination"></div>
+    </div>
+    <div class="category">
+        
+    </div>
+    <div class="new-post-list">
+        
     </div>
 </div>
 @endsection

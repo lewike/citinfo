@@ -48335,6 +48335,8 @@ $(function () {
       });
     });
   }
+
+  $('.page-loading').addClass('d-none');
 });
 
 /***/ }),

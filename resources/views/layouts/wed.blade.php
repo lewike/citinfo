@@ -11,6 +11,9 @@
     <link href="{{mix('css/wed.css')}}" rel="stylesheet">
 </head>
 <body>
+    <div class="page-loading">
+        <span><i class="weui-loading"></i> 页面加载中...</span>
+    </div>
     <div class="container">
         <div class="page">
             <div style="height: 100%;">

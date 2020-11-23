@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Config' => $baseDir . '/app/Config.php',
     'App\\Console\\Commands\\RebuildCategory' => $baseDir . '/app/Console/Commands/RebuildCategory.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -14,6 +13,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\HomeController' => $baseDir . '/app/Http/Controllers/Admin/HomeController.php',
     'App\\Http\\Controllers\\Admin\\ImageController' => $baseDir . '/app/Http/Controllers/Admin/ImageController.php',
+    'App\\Http\\Controllers\\Admin\\MpController' => $baseDir . '/app/Http/Controllers/Admin/MpController.php',
     'App\\Http\\Controllers\\Admin\\PostController' => $baseDir . '/app/Http/Controllers/Admin/PostController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Admin\\WedController' => $baseDir . '/app/Http/Controllers/Admin/WedController.php',
@@ -27,10 +27,12 @@ return array(
     'App\\Http\\Controllers\\Website\\HomeController' => $baseDir . '/app/Http/Controllers/Website/HomeController.php',
     'App\\Http\\Controllers\\Website\\ImageController' => $baseDir . '/app/Http/Controllers/Website/ImageController.php',
     'App\\Http\\Controllers\\Website\\PageController' => $baseDir . '/app/Http/Controllers/Website/PageController.php',
+    'App\\Http\\Controllers\\Website\\Pinche\\HomeController' => $baseDir . '/app/Http/Controllers/Website/Pinche/HomeController.php',
     'App\\Http\\Controllers\\Website\\PostController' => $baseDir . '/app/Http/Controllers/Website/PostController.php',
     'App\\Http\\Controllers\\Website\\SearchController' => $baseDir . '/app/Http/Controllers/Website/SearchController.php',
     'App\\Http\\Controllers\\Website\\WechatController' => $baseDir . '/app/Http/Controllers/Website/WechatController.php',
     'App\\Http\\Controllers\\Website\\WedController' => $baseDir . '/app/Http/Controllers/Website/WedController.php',
+    'App\\Http\\Controllers\\Website\\Weixin\\HomeController' => $baseDir . '/app/Http/Controllers/Website/Weixin/HomeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminAuth' => $baseDir . '/app/Http/Middleware/AdminAuth.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -44,6 +46,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\UploadRequest' => $baseDir . '/app/Http/Requests/UploadRequest.php',
     'App\\Model\\Category' => $baseDir . '/app/Model/Category.php',
+    'App\\Model\\Config' => $baseDir . '/app/Model/Config.php',
     'App\\Model\\File' => $baseDir . '/app/Model/File.php',
     'App\\Model\\Market' => $baseDir . '/app/Model/Market.php',
     'App\\Model\\MarketCommissionLog' => $baseDir . '/app/Model/MarketCommissionLog.php',
