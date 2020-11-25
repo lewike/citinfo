@@ -11,10 +11,52 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="category">
-        
+        <ul>
+            <li>
+                <a href="">
+                    <img src="/images/wx-nav/house.png" alt="">
+                    <div>房产信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/job.png" alt="">
+                    <div>人才信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/circle.png" alt="">
+                    <div>供求信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/car.png" alt="">
+                    <div>车辆信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/education.png" alt="">
+                    <div>招生信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/homemaking.png" alt="">
+                    <div>服务信息</div>
+                </a>
+            </li><li>
+                <a href="">
+                    <img src="/images/wx-nav/huodong.png" alt="">
+                    <div>优惠信息</div>
+                </a>
+            </li>
+        </ul>
     </div>
     <div class="new-post-list">
-        
+        <div>最新信息</div>
+        <ul>
+            <li>
+                <div>xxxxxxxxxxxxxxx</div>
+            </li>
+        </ul>
     </div>
 </div>
 @endsection

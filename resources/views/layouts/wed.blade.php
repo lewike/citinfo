@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link href="https://res.wx.qq.com/open/libs/weui/2.4.0/weui.min.css" rel="stylesheet">
     <link href="{{mix('css/wed.css')}}" rel="stylesheet">
 </head>
+
 <body>
     <div class="page-loading">
         <span><i class="weui-loading"></i> 页面加载中...</span>
@@ -23,6 +25,7 @@
                             @yield('content')
                         </div>
                     </div>
+                    @section('tabbar')
                     <div class="weui-tabbar">
                         <div class="weui-tabbar__item weui-bar__item_on">
                             <p class="weui-tabbar__label">推荐</p>
@@ -37,6 +40,7 @@
                             <p class="weui-tabbar__label">我</p>
                         </div>
                     </div>
+                    @show
                 </div>
             </div>
         </div>
@@ -45,4 +49,5 @@
     <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
     @yield('extend_js')
 </body>
+
 </html>

@@ -167,3 +167,39 @@ body {
   margin-top: 40vh;
 }
 
+.user-detail-header {
+  background: url("https://www.zaixixian.com/upload/swiper/img/201122/a96139a5a24ecf494812174af9496191.png") no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 40vw;
+}
+
+.user-detail .user-avatar {
+  position: absolute;
+  left: 5vw;
+  bottom: -10vw;
+  width: 20vw;
+  height: 20vw;
+  padding: 1vw;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.user-detail .user-avatar img {
+  width: 100%;
+}
+
+.user-detail-info {
+  height: 10vw;
+  padding-left: 30vw;
+  padding-top: 1rem;
+}
+
+.complete-userinfo-toptip {
+  text-align: center;
+  padding: 1rem 0;
+  color: #666;
+}
+

@@ -41,4 +41,10 @@ class User extends Authenticatable
     {
         return !!$this->is_admin;
     }
+    
+    public function isWedMember()
+    {
+        $wedMemer = WedMember::where('user_id', $this->id)->first();
+        return $wedMemer && $wedMemer->needCompleted();
+    }
 }

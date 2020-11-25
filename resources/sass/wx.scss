@@ -28,6 +28,7 @@ body {
 
 .swiper-container {
     width: 100vw;
+    height: 50vw;
 }
 .swiper-slide {
     img {
@@ -152,5 +153,23 @@ body {
         display: block;
         text-align: center;
         margin-top: 40vh;
+    }
+}
+
+.category {
+    width: 96vw;
+    margin: 2vw auto;
+    li {
+        display: inline-block;
+        width: 18vw;
+        text-align: center;
+        padding: 2vw 3vw;
+        font-size: 13px;
+        a {
+            color: #333;
+        }
+        img {
+            width: 12vw;
+        }
     }
 }

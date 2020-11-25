@@ -23,4 +23,9 @@ class WedMember extends Model
         $marryMap = [1 => '未婚', 2 => '离异', 3 => '丧偶'];
         return $marryMap[$value];
     }
+
+    public function needCompleted()
+    {
+        return !$this->name || !$this->avatar;
+    }
 }

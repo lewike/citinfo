@@ -80,7 +80,8 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/wed', 'WedController@index');
     Route::get('/wed/list/{page}', 'WedController@list');
     Route::get('/wed/profile', 'WedController@profile');
-    Route::get('/wed/detail/{wedMember}', 'WedController@detail');
+    Route::get('/wed/detail/{id}', 'WedController@detail');
+    Route::get('/wed/userinfo/', 'WedController@userInfo');
     
     Route::get('wechat/qrcode', 'WechatController@qrcode');
     Route::get('wechat/check', 'WechatController@check');

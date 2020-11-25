@@ -23,9 +23,14 @@ class WedController extends Controller
         return ['result' => true, 'data' => $data];
     }
 
-    public function detail(WedMember $member)
+    public function detail($memberId)
     {
-        $data['member'] = $member;
+        $data['member'] = WedMember::find($memberId);
         return view('website.wed.detail', $data);
+    }
+
+    public function userInfo()
+    {
+        return view('website.wed.userinfo');
     }
 }

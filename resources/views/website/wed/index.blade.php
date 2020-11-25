@@ -29,10 +29,15 @@
                             {{$member['job']}}</p>
                     </div>
                     <ul class="user-assets">
-                        <li class="has-house tag-text border-text-red">有房</li>
-                        <li class="has-car tag-text border-text-green">有车</li>
-                        <li class="tag-text border-text-green">实名认证</li>
-                        <li class="tag-text border-text-green">高级会员</li>
+                        @if ($member->house)
+                            <li class="has-house tag-text border-text-red">有房</li>
+                        @endif
+                        @if ($member->car)
+                            <li class="has-car tag-text border-text-green">有车</li>
+                        @endif
+                        @if ($member->real_name)
+                            <li class="tag-text border-text-green">实名认证</li>
+                        @endif
                     </ul>
                 </div>
             </div>
