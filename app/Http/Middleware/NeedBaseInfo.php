@@ -28,6 +28,8 @@ class NeedBaseInfo
             Auth::login($user);
         }
 
+        $user = Auth::user();
+
         if (! $user->hasWed()) {
             return redirect('/wed/userinfo');
         }
