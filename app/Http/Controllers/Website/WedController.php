@@ -33,4 +33,16 @@ class WedController extends Controller
     {
         return view('website.wed.userinfo');
     }
+
+    public function userInfoComplete(Request $request)
+    {
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        if ($wedMember = WedMember::where('user_id', $data['user_id'])->first()) {
+            $wedMember->update($data);
+        } else {
+            WedMember::create($data);
+        }
+        return ['result' => true];
+    }
 }

@@ -76,12 +76,18 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/search', 'SearchController@index');
 
     Route::post('/image/upload', 'ImageController@upload');
+    
+    Route::group(['prefix' => 'wed', 'middleware' => ['wechat.oauth']], function () {
+        Route::get('/wed/userinfo/', 'WedController@userInfo');
+        Route::post('/wed/userinfo/complete', 'WedController@userInfoComplete');
 
-    Route::get('/wed', 'WedController@index');
-    Route::get('/wed/list/{page}', 'WedController@list');
-    Route::get('/wed/profile', 'WedController@profile');
-    Route::get('/wed/detail/{id}', 'WedController@detail');
-    Route::get('/wed/userinfo/', 'WedController@userInfo');
+        Route::group(['middleware' => ['wed.auth.base']], function () {
+            Route::get('/wed', 'WedController@index');
+            Route::get('/wed/list/{page}', 'WedController@list');
+            Route::get('/wed/profile', 'WedController@profile');
+            Route::get('/wed/detail/{id}', 'WedController@detail');
+        });
+    });
     
     Route::get('wechat/qrcode', 'WechatController@qrcode');
     Route::get('wechat/check', 'WechatController@check');
