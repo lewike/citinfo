@@ -29,4 +29,28 @@ class WechatController extends Controller
         return response()
                 ->json(['result' => !!Cache::get('wechat-code'.$code)]);
     }
+
+    public function auth()
+    {
+        $user = session('wechat.oauth_user.default');
+        $code = Str::random(32);
+        Cache::put($code, $user, 1800);
+        return redirect(request()->url.'?code='.$code.'&redirect='.request()->header('referer'));
+    }
+
+    public function login()
+    {
+        $redirectUrl = request()->get('redirect');
+        $code = request()->get('code');
+        $url = env('WECHAT_AUTH_CODE_URL').'?code='.$code;
+        $ch = curl_init();
+        $timeout = 5;
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        $contents = curl_exec($ch);
+        curl_close($ch);
+        
+        return redirect($redirectUrl);
+    }
 }

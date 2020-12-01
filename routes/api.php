@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Api'], function () {
     Route::get('wechat', 'WechatController@check');
     Route::post('wechat', 'WechatController@handle');
+    
+    Route::get('wechat/user', 'WechatController@getUser');
 });

@@ -114,4 +114,7 @@ return [
 
     'password_timeout' => 10800,
 
+
+    //单一服务器验证微信信息
+    'wechat_auth' => env('WECHAT_AUTH_URL'),
 ];

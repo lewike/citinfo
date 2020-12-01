@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Cache;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
@@ -33,5 +34,12 @@ class WechatController extends Controller
         $app = app('wechat.official_account');
         $app->server->push(EventMessageHandler::class, Message::EVENT);
         return $app->server->serve();
+    }
+
+    public function getUser()
+    {
+        $code = request()->code;
+        $user = Cache::get($code);
+        return ['result' => true, 'data' => $user];
     }
 }

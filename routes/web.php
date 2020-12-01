@@ -77,22 +77,24 @@ Route::group(['namespace' => 'Website'], function () {
 
     Route::post('/image/upload', 'ImageController@upload');
     
-    Route::group(['prefix' => 'wed', 'middleware' => ['wechat.oauth']], function () {
-        Route::get('/wed/userinfo/', 'WedController@userInfo');
-        Route::post('/wed/userinfo/complete', 'WedController@userInfoComplete');
-
-        Route::group(['middleware' => ['wed.auth.base']], function () {
-            Route::get('/wed', 'WedController@index');
-            Route::get('/wed/list/{page}', 'WedController@list');
-            Route::get('/wed/profile', 'WedController@profile');
-            Route::get('/wed/detail/{id}', 'WedController@detail');
-        });
+    Route::group(['prefix' => 'wed', 'middleware' => ['wechat.auth']], function () {
+        Route::get('userinfo/', 'WedController@userInfo');
+        Route::post('userinfo/complete', 'WedController@userInfoComplete');
+        Route::get('/', 'WedController@index');
+        Route::get('list/{page}', 'WedController@list');
+        Route::get('profile', 'WedController@profile');
+        Route::get('detail/{id}', 'WedController@detail');
     });
-    
-    Route::get('wechat/qrcode', 'WechatController@qrcode');
-    Route::get('wechat/check', 'WechatController@check');
     
     Route::group(['namespace' => 'Weixin', 'prefix' => 'wx'], function(){
         Route::get('/', 'HomeController@index');
+    });
+
+    Route::get('wechat/qrcode', 'WechatController@qrcode');
+    Route::get('wechat/check', 'WechatController@check');
+    
+    Route::get('wechat/login', 'WechatController@login');
+    Route::group(['middleware' => ['wechat.oauth']], function () {
+        Route::get('wechat/auth', 'WechatController@auth');
     });
 });
