@@ -35,7 +35,7 @@ class WechatController extends Controller
         $user = session('wechat.oauth_user.default');
         $code = Str::random(32);
         Cache::put($code, $user, 1800);
-        return redirect(request()->url.'?code='.$code.'&redirect='.request()->header('referer'));
+        return redirect(request()->get('url').'?code='.$code.'&redirect='.request()->get('redirect-url'));
     }
 
     public function login()
