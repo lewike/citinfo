@@ -52,10 +52,10 @@ class User extends Authenticatable
     {
         if (!$user = self::where('wechat_openid', $openId)->first()) {
             $user = self::create([
-                'name' => $openid,
-                'email' => $openid.'@zaixixian.com',
+                'name' => $openId,
+                'email' => $openId.'@zaixixian.com',
                 'password' => 'none',
-                'wechat_openid' => $openid
+                'wechat_openid' => $openId
             ]);
         }
         return $user;
