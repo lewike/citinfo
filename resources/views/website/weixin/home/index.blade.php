@@ -51,10 +51,27 @@
         </ul>
     </div>
     <div class="new-post-list">
-        <div>最新信息</div>
+        <div class="post-list__title">最新信息</div>
         <ul>
             <li>
-                <div>xxxxxxxxxxxxxxx</div>
+                <div class="post-title">最新消息消息消息消息消息</div>
+                <div class="post-date">今天</div>
+            </li>
+            <li>
+                <div class="post-title">最新消息消息消息消息消息</div>
+                <div class="post-date">今天</div>
+            </li>
+            <li>
+                <div class="post-title">最新消息消息消息消息消息</div>
+                <div class="post-date">今天</div>
+            </li>
+            <li>
+                <div class="post-title">最新消息消息消息消息消息</div>
+                <div class="post-date">今天</div>
+            </li>
+            <li>
+                <div class="post-title">最新消息消息消息消息消息</div>
+                <div class="post-date">今天</div>
             </li>
         </ul>
     </div>

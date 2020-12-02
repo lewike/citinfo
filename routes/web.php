@@ -86,7 +86,7 @@ Route::group(['namespace' => 'Website'], function () {
         Route::get('detail/{id}', 'WedController@detail');
     });
     
-    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx'], function(){
+    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.auth']], function(){
         Route::get('/', 'HomeController@index');
     });
 
