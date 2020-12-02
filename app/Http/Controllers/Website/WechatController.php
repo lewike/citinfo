@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use Cache;
+use Auth;
+use App\Model\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str; 
 use App\Http\Controllers\Controller;
@@ -35,7 +37,7 @@ class WechatController extends Controller
     {
         $user = session('wechat.oauth_user.default');
         $code = Str::random(32);
-        $user = Arry::only($user, ['id', 'name', 'nickname', 'avatar']);
+        $user = Arr::only($user, ['id', 'name', 'nickname', 'avatar']);
         Cache::put($code, $user, 1800);
         return redirect(request()->get('url').'?code='.$code.'&redirect='.request()->get('redirect-url'));
     }
