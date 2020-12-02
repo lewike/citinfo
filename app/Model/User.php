@@ -47,4 +47,17 @@ class User extends Authenticatable
         $wedMemer = WedMember::where('user_id', $this->id)->first();
         return $wedMemer && $wedMemer->needCompleted();
     }
+
+    public static function findByOpenId($openId)
+    {
+        if (!$user = self::where('wechat_opneid', $openId)->first()) {
+            $user = self::create([
+                'name' => $openid,
+                'email' => $openid.'@zaixixian.com',
+                'password' => 'none',
+                'wechat_openid' => $openid
+            ]);
+        }
+        return $user;
+    }
 }

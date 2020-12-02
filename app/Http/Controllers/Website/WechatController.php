@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use Cache;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str; 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class WechatController extends Controller
     {
         $user = session('wechat.oauth_user.default');
         $code = Str::random(32);
+        $user = Arry::only($user, ['id', 'name', 'nickname', 'avatar']);
         Cache::put($code, $user, 1800);
         return redirect(request()->get('url').'?code='.$code.'&redirect='.request()->get('redirect-url'));
     }
@@ -50,7 +52,14 @@ class WechatController extends Controller
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         $contents = curl_exec($ch);
         curl_close($ch);
-        
-        return redirect($redirectUrl);
+        $data = json_decode($contents, true);
+        if (is_array($data) && $data['result']) {
+            $openId = $data['data']['id'];
+            $user = User::findByOpenId($openId);
+            Auth::login($user);
+            return redirect($redirectUrl);
+        } else {
+            return abort(500);
+        }
     }
 }
