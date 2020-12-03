@@ -42594,7 +42594,6 @@ $(function () {
   });
   var currentPage = $('.wrap').data('page');
   $('.weui-tabbar__item').each(function (i, ele) {
-    console.log(ele);
     var $ele = $(ele);
 
     if ($ele.data('page') == currentPage) {

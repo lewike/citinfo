@@ -53,26 +53,15 @@
     <div class="new-post-list">
         <div class="post-list__title">最新信息</div>
         <ul>
+            @foreach ($posts as $post)
             <li>
-                <div class="post-title">最新消息消息消息消息消息</div>
-                <div class="post-date">今天</div>
+                <div class="post-title @if ($post->index_stick) post-stick @endif">{{$post['title']}}</div>
+                <div class="post-info">
+                    <div class="post-cate">{{$post->category_name}}</div>
+                    <div class="post-date">{{$post->created_at->format('y-m-d')}}</div>
+                </div>
             </li>
-            <li>
-                <div class="post-title">最新消息消息消息消息消息</div>
-                <div class="post-date">今天</div>
-            </li>
-            <li>
-                <div class="post-title">最新消息消息消息消息消息</div>
-                <div class="post-date">今天</div>
-            </li>
-            <li>
-                <div class="post-title">最新消息消息消息消息消息</div>
-                <div class="post-date">今天</div>
-            </li>
-            <li>
-                <div class="post-title">最新消息消息消息消息消息</div>
-                <div class="post-date">今天</div>
-            </li>
+            @endforeach
         </ul>
     </div>
 </div>

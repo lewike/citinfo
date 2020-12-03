@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website\Weixin;
 
+use App\Model\Post;
 use App\Model\Config;
 use App\Model\Category;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,7 @@ class HomeController extends Controller
     {
         $data['config'] = Config::value('mp');
         $data['categories'] = Category::where('depth', 1)->get();
+        $data['posts'] = Post::where('status', 'published')->get();
         return view('website.weixin.home.index', $data);
     }
     public function category($id)

@@ -22,7 +22,6 @@ $(function () {
 
     let currentPage = $('.wrap').data('page');
     $('.weui-tabbar__item').each(function(i, ele){
-        console.log(ele);
         let $ele = $(ele);
         if ($ele.data('page') == currentPage) {
             $ele.addClass('weui-bar__item_on');

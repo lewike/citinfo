@@ -53,6 +53,7 @@ $(function () {
             response.data.data.members.forEach(function (item) {
               let itemHtml = $('.template .item').clone();
               itemHtml.find('img').attr('src', item.avatar);
+              itemHtml.find('a').attr('href', '/wed/detail/'+item.id);
               itemHtml.appendTo('.masonry-container');
             });
           }

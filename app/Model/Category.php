@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use Cache;
+use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -67,5 +69,13 @@ class Category extends Model
     public function parent()
     {
         return Category::where('m_id', $this->p_id)->first();
+    }
+
+    public static function getNameByPath($path)
+    {
+        $categories = Category::where('status', 'normal')->pluck('name', 'm_id');
+        $pathArray = explode('/', $path);
+
+        return $categories[end($pathArray)];
     }
 }

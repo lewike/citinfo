@@ -50,6 +50,7 @@
     <div class="load-more">上拉加载更多</div>
     <div class="d-none template">
         <div class="item">
+            <a href="">
             <div class="user-info">
                 <div class="info-wrap">
                     <img src="" alt="">
@@ -57,9 +58,8 @@
                 </div>
                 <div>
                     <div class="user-baseinfo">
-                        <p class="user-name">{{$member['name']}}</p>
-                        <p class="user-other">{{$member['gender']}} {{$member['age']}}岁 {{$member['marry']}}
-                            {{$member['job']}}</p>
+                        <p class="user-name"></p>
+                        <p class="user-other"></p>
                     </div>
                     <ul class="user-assets">
                         <li class="has-house tag-text border-text-red">有房</li>
@@ -69,6 +69,7 @@
                     </ul>
                 </div>
             </div>
+            </a>
         </div>
     </div>
 </div>

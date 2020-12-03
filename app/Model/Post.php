@@ -58,4 +58,9 @@ class Post extends Model
     {
         return $this->expired_at->diffInDays();
     }
+
+    public function getCategoryNameAttribute()
+    {
+        return Category::getNameByPath($this->category_path);
+    }
 }
