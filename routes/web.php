@@ -88,6 +88,7 @@ Route::group(['namespace' => 'Website'], function () {
     
     Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.auth']], function(){
         Route::get('/', 'HomeController@index');
+        Route::get('/post/show/{post}', 'PostController@show');
     });
 
     Route::get('wechat/qrcode', 'WechatController@qrcode');

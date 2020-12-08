@@ -25,6 +25,7 @@ body {
   overflow-y: auto;
   box-sizing: border-box;
   z-index: 1;
+  background-color: #f7f7f7;
 }
 
 .content {
@@ -168,7 +169,7 @@ body {
 }
 
 .user-detail-header {
-  background: url("https://www.zaixixian.com/upload/swiper/img/201122/a96139a5a24ecf494812174af9496191.png") no-repeat;
+  background: url("http://www.dtwmsj.com/uploads/20201207/917319b3f07fa91b7380c1c5d5ad50fa.jpg") no-repeat;
   background-size: cover;
   position: relative;
   height: 40vw;
@@ -185,6 +186,7 @@ body {
   border-radius: 4px;
   overflow: hidden;
   z-index: 100;
+  box-shadow: 0 2px 6px 1px #c7c7c7bf;
 }
 
 .user-detail .user-avatar img {
@@ -192,9 +194,78 @@ body {
 }
 
 .user-detail-info {
-  height: 10vw;
-  padding-left: 30vw;
-  padding-top: 1rem;
+  padding-left: 32vw;
+  padding-top: 0.9rem;
+  display: flex;
+  margin-bottom: 1.1rem;
+  font-size: 1.1rem;
+  height: 1.5rem;
+  line-height: 1.6rem;
+}
+
+.user-detail-info .gender-1,
+.user-detail-info .gender-2 {
+  color: #FFF;
+  font-size: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.3rem;
+  margin: 0.2rem 0 0 0.7rem;
+  line-height: 0.85rem;
+}
+
+.user-detail-info .gender-1::before,
+.user-detail-info .gender-2::before {
+  content: " ";
+  display: inline-block;
+  height: 0.85rem;
+  width: 0.85rem;
+  vertical-align: bottom;
+  margin-right: 0.25rem;
+}
+
+.user-detail-info .gender-1 {
+  background-color: #0091FF;
+}
+
+.user-detail-info .gender-1::before {
+  background: url(/images/nan.svg?633af9d19095412ccbb84e276ea46b56) no-repeat;
+  background-size: contain;
+}
+
+.user-detail-info .gender-2 {
+  background-color: #FF4D94;
+}
+
+.user-detail-info .gender-2::before {
+  background: url(/images/nv.svg?680008df835bc66df09bbcf1a13867f5) no-repeat;
+  background-size: contain;
+}
+
+.user-detail-other {
+  width: 96vw;
+  margin: 2vw auto;
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 2vw 0;
+  color: #3a3a3a;
+}
+
+.user-detail-other > div {
+  line-height: 2rem;
+  padding: 0 1rem;
+}
+
+.user-detail-images {
+  width: 96vw;
+  margin: 2vw auto;
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 2vw 0;
+}
+
+.user-detail-images ul {
+  list-style: none;
 }
 
 .complete-userinfo-toptip {

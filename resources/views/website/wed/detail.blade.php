@@ -10,32 +10,32 @@
         </div>
     </div>
     <div class="user-detail-info">
-        {{$member['name']}}
+        <div>{{$member['name']}}</div>
+        <div class="gender-{{$member['gender']}}">{{$member['age']}}</div>
     </div>
     <div class="user-detail-other">
         <div>
-            <span>{{$member['gender']}}</span>
-            <span>
-                {{$member['age']}}    
-            </span>
-            <span>
-                {{$member['job']}}
-            </span>
+            工作：{{$member['job']}}
         </div>
+        <div>收入：{{$member['income_cn']}}</div>
         <div>
-        <span>{{$member['car']}}</span>
-        <span>{{$member['house']}}</span>
+            车房：
+            <span>{{$member['car'] ? '无车' : '有车'}}</span>、
+            <span>{{$member['house'] ? '无房' : '有房'}}</span>
         </div>
-        <div>收入:</div>
-        <div>择偶要求:</div>
+        <div>自我介绍：</div>
+        <div>择偶要求：</div>
     </div>
     <div class="user-detail-images">
-        <div>更多生活照</div>
         <ul>
             <li><img src="" alt=""></li>
             <li></li>
             <li></li>
         </ul>
+    </div>
+    <div>
+        联系红娘迅速牵线
+        红娘二维码。。。
     </div>
 </div>
 @endsection
