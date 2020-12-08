@@ -15,16 +15,16 @@
     </div>
     <div class="user-detail-other">
         <div>
-            工作：{{$member['job']}}
+            工作：<strong>{{$member['job']}}</strong>
         </div>
-        <div>收入：{{$member['income_cn']}}</div>
+        <div>收入：<strong>{{$member['income_cn']}}</strong></div>
         <div>
             车房：
-            <span>{{$member['car'] ? '无车' : '有车'}}</span>、
-            <span>{{$member['house'] ? '无房' : '有房'}}</span>
+            <strong><span>{{$member['car'] ? '无车' : '有车'}}</span>、
+            <span>{{$member['house'] ? '无房' : '有房'}}</span></strong>
         </div>
-        <div>自我介绍：</div>
-        <div>择偶要求：</div>
+        <div>自我介绍：<strong></strong></div>
+        <div>择偶要求：<strong></strong></div>
     </div>
     <div class="user-detail-images">
         <ul>

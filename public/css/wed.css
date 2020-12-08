@@ -190,7 +190,8 @@ body {
 }
 
 .user-detail .user-avatar img {
-  width: 100%;
+  width: 20vw;
+  height: 20vw;
 }
 
 .user-detail-info {
