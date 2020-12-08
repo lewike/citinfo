@@ -275,3 +275,12 @@ body {
   color: #666;
 }
 
+.contact-us {
+  text-align: center;
+}
+
+.contact-us img {
+  width: 50vw;
+  height: 50vw;
+}
+

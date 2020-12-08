@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="user-detail-info">
-        <div>{{$member['name']}}</div>
+        <div><strong>{{$member['name']}}</strong></div>
         <div class="gender-{{$member['gender']}}">{{$member['age']}}</div>
     </div>
     <div class="user-detail-other">
@@ -20,7 +20,7 @@
         <div>收入：<strong>{{$member['income_cn']}}</strong></div>
         <div>
             车房：
-            <strong><span>{{$member['car'] ? '无车' : '有车'}}</span>、
+            <strong><span>{{$member['car'] ? '无车' : '有车'}}</span>
             <span>{{$member['house'] ? '无房' : '有房'}}</span></strong>
         </div>
         <div>自我介绍：<strong></strong></div>
@@ -33,9 +33,9 @@
             <li></li>
         </ul>
     </div>
-    <div>
-        联系红娘迅速牵线
-        红娘二维码。。。
+    <div class="contact-us">
+        <img src="http://www.dtwmsj.com/uploads/20201208/c9420b24a81d84348f4e8cba1566808b.png">
+        <p>扫码联系红娘迅速牵线</p>
     </div>
 </div>
 @endsection
