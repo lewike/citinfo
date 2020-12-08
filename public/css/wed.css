@@ -243,18 +243,29 @@ body {
   background-size: contain;
 }
 
+.user-detail-card-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.6rem 1rem 0 1rem;
+  color: #666;
+}
+
 .user-detail-other {
   width: 96vw;
   margin: 2vw auto;
   background-color: #FFF;
   border-radius: 5px;
-  padding: 2vw 0;
+  padding: 3vw 0;
   color: #3a3a3a;
 }
 
 .user-detail-other > div {
   line-height: 2rem;
-  padding: 0 1rem;
+  padding: 0 1.4rem;
+}
+
+.user-detail-other > div span {
+  color: #555;
 }
 
 .user-detail-images {
@@ -267,6 +278,12 @@ body {
 
 .user-detail-images ul {
   list-style: none;
+}
+
+.user-detail-images .none-images {
+  text-align: center;
+  padding: 1rem 2rem;
+  color: #666;
 }
 
 .complete-userinfo-toptip {
