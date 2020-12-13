@@ -45,4 +45,11 @@ class WedController extends Controller
         }
         return ['result' => true];
     }
+
+    public function profile()
+    {
+        $data['user'] = Auth::user();
+        $data['member'] =  WedMember::where('user_id', $data['user']->id)->first();
+        return view('website.wed.profile', $data);
+    }
 }

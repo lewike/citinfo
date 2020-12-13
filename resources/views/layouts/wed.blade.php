@@ -37,7 +37,8 @@
                             <p class="weui-tabbar__label">牵线</p>
                         </div>
                         <div class="weui-tabbar__item">
-                            <p class="weui-tabbar__label">我</p>
+                            
+                            <p class="weui-tabbar__label"><a href="/wed/profile">我</a></p>
                         </div>
                     </div>
                     @show

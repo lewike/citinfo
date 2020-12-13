@@ -6,6 +6,13 @@
 .topbar, .footer {
     font-size: .8rem;
 }
+.logo {
+    background-image: url('../images/website/topbar_bg.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    border-radius: 3px;
+}
 .navbar {
     background: #3490dc;
     a {
