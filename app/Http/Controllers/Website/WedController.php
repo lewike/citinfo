@@ -13,6 +13,7 @@ class WedController extends Controller
     {
         $data['config'] = Config::value('wed');
         $data['members'] = WedMember::where('show', 1)->limit(12)->get();
+        $data['index'] = 'find';
         return view('website.wed.index', $data);
     }
 
@@ -50,6 +51,7 @@ class WedController extends Controller
     {
         $data['user'] = Auth::user();
         $data['member'] =  WedMember::where('user_id', $data['user']->id)->first();
+        $data['page'] = 'profile';
         return view('website.wed.profile', $data);
     }
 }

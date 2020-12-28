@@ -1,4 +1,4 @@
-@extends('layouts.wed')
+@extends('layouts.wed', ['page' => 'home'])
 
 @section('content')
 <div class="wrap">

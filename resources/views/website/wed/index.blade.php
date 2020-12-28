@@ -1,4 +1,4 @@
-@extends('layouts.wed')
+@extends('layouts.wed', ['page' => 'home'])
 
 @section('content')
 <div class="wrap iscroll">
@@ -11,7 +11,7 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="notice">
-        公告:
+        <img src="/images/wed/notice.png" alt="">
     </div>
     <div class="masonry-container">
         @foreach ($members as $member)
@@ -25,7 +25,7 @@
                 <div>
                     <div class="user-baseinfo">
                         <p class="user-name">{{$member['name']}}</p>
-                        <p class="user-other">{{$member['gender']}} {{$member['age']}}岁 {{$member['marry']}}
+                        <p class="user-other">{{$member['gender_cn']}} {{$member['age']}}岁 {{$member['marry_cn']}}
                             {{$member['job']}}</p>
                     </div>
                     <ul class="user-assets">

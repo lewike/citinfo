@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,7 @@
 
 <body>
     <div class="page-loading">
-        <span><i class="weui-loading"></i> 页面加载中...</span>
+        <i class="weui-loading"></i>
     </div>
     <div class="container">
         <div class="page">
@@ -27,19 +26,51 @@
                     </div>
                     @section('tabbar')
                     <div class="weui-tabbar">
-                        <div class="weui-tabbar__item weui-bar__item_on">
+                        <div class="weui-tabbar__item @if ($page == 'home') weui-bar__item_on @endif" data-url="/wed">
+                            <div style="display: inline-block; position: relative;">
+                                @if ($page == 'home')
+                                <img src="/images/wed/nav_icons/find_on.png" alt="" class="weui-tabbar__icon">
+                                @else
+                                <img src="/images/wed/nav_icons/find.png" alt="" class="weui-tabbar__icon">
+                                @endif
+                                
+                            </div>
                             <p class="weui-tabbar__label">推荐</p>
                         </div>
-                        <div class="weui-tabbar__item">
+                        
+                        <div class="weui-tabbar__item @if ($page == 'activity') weui-bar__item_on @endif" data-url="/wed/activity">
+                            <div style="display: inline-block; position: relative;">
+                                @if ($page == 'activity')
+                                <img src="/images/wed/nav_icons/party_on.png" alt="" class="weui-tabbar__icon">
+                                @else
+                                <img src="/images/wed/nav_icons/party.png" alt="" class="weui-tabbar__icon">
+                                @endif
+                            </div>
                             <p class="weui-tabbar__label">活动</p>
                         </div>
-                        <div class="weui-tabbar__item">
+                        
+                        <div class="weui-tabbar__item @if ($page == 'qianxian') weui-bar__item_on @endif" data-url="/wed/qianxian">
+                            <div style="display: inline-block; position: relative;">
+                                @if ($page == 'qianxian')
+                                <img src="/images/wed/nav_icons/qianxian_on.png" alt="" class="weui-tabbar__icon">
+                                @else
+                                <img src="/images/wed/nav_icons/qianxian.png" alt="" class="weui-tabbar__icon">
+                                @endif
+                            </div>
                             <p class="weui-tabbar__label">牵线</p>
                         </div>
-                        <div class="weui-tabbar__item">
-                            
-                            <p class="weui-tabbar__label"><a href="/wed/profile">我</a></p>
+                        
+                        <div class="weui-tabbar__item  @if ($page == 'profile') weui-bar__item_on @endif" data-url="/wed/profile">
+                            <div style="display: inline-block; position: relative;">
+                                @if ($page == 'profile')
+                                <img src="/images/wed/nav_icons/user_on.png" class="weui-tabbar__icon">
+                                @else
+                                <img src="/images/wed/nav_icons/user.png" class="weui-tabbar__icon">
+                                @endif
+                            </div>
+                            <p class="weui-tabbar__label">我</p>
                         </div>
+
                     </div>
                     @show
                 </div>
@@ -50,5 +81,4 @@
     <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
     @yield('extend_js')
 </body>
-
 </html>

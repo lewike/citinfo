@@ -71,4 +71,9 @@ $(function () {
     });
   }
   $('.page-loading').addClass('d-none');
+
+  $('.weui-tabbar__item').on('click', function(event) {
+    const ele = $(event.currentTarget);
+    window.location.href = ele.data('url');
+  })
 })
