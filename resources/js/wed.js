@@ -53,6 +53,8 @@ $(function () {
             response.data.data.members.forEach(function (item) {
               let itemHtml = $('.template .item').clone();
               itemHtml.find('img').attr('src', item.avatar);
+              itemHtml.find('.user-name').text(item.nick_name);
+              itemHtml.find('.user-other').text((item.gender == 1? '男 ': '女 ') + item.age +'岁 '+item.job);
               itemHtml.find('a').attr('href', '/wed/detail/'+item.id);
               itemHtml.appendTo('.masonry-container');
             });

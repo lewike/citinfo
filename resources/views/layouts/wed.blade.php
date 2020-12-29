@@ -13,7 +13,10 @@
 
 <body>
     <div class="page-loading">
-        <i class="weui-loading"></i>
+        <div>
+            <i class="weui-loading"></i>
+            页面加载中....
+        </div>
     </div>
     <div class="container">
         <div class="page">
@@ -29,9 +32,9 @@
                         <div class="weui-tabbar__item @if ($page == 'home') weui-bar__item_on @endif" data-url="/wed">
                             <div style="display: inline-block; position: relative;">
                                 @if ($page == 'home')
-                                <img src="/images/wed/nav_icons/find_on.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/find_on.png" alt="" class="weui-tabbar__icon">
                                 @else
-                                <img src="/images/wed/nav_icons/find.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/find.png" alt="" class="weui-tabbar__icon">
                                 @endif
                                 
                             </div>
@@ -41,9 +44,9 @@
                         <div class="weui-tabbar__item @if ($page == 'activity') weui-bar__item_on @endif" data-url="/wed/activity">
                             <div style="display: inline-block; position: relative;">
                                 @if ($page == 'activity')
-                                <img src="/images/wed/nav_icons/party_on.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/party_on.png" alt="" class="weui-tabbar__icon">
                                 @else
-                                <img src="/images/wed/nav_icons/party.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/party.png" alt="" class="weui-tabbar__icon">
                                 @endif
                             </div>
                             <p class="weui-tabbar__label">活动</p>
@@ -52,9 +55,9 @@
                         <div class="weui-tabbar__item @if ($page == 'qianxian') weui-bar__item_on @endif" data-url="/wed/qianxian">
                             <div style="display: inline-block; position: relative;">
                                 @if ($page == 'qianxian')
-                                <img src="/images/wed/nav_icons/qianxian_on.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/qianxian_on.png" alt="" class="weui-tabbar__icon">
                                 @else
-                                <img src="/images/wed/nav_icons/qianxian.png" alt="" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/qianxian.png" alt="" class="weui-tabbar__icon">
                                 @endif
                             </div>
                             <p class="weui-tabbar__label">牵线</p>
@@ -63,9 +66,9 @@
                         <div class="weui-tabbar__item  @if ($page == 'profile') weui-bar__item_on @endif" data-url="/wed/profile">
                             <div style="display: inline-block; position: relative;">
                                 @if ($page == 'profile')
-                                <img src="/images/wed/nav_icons/user_on.png" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/user_on.png" class="weui-tabbar__icon">
                                 @else
-                                <img src="/images/wed/nav_icons/user.png" class="weui-tabbar__icon">
+                                <img src="/images/wed/icons/user.png" class="weui-tabbar__icon">
                                 @endif
                             </div>
                             <p class="weui-tabbar__label">我</p>

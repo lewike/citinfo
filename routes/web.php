@@ -82,7 +82,7 @@ Route::group(['namespace' => 'Website'], function () {
         Route::get('userinfo/', 'WedController@userInfo');
         Route::post('userinfo/complete', 'WedController@userInfoComplete');
         Route::get('list/{page}', 'WedController@list');
-        Route::get('profile', 'WedController@profile');
+        Route::get('profile', 'Wed\\ProfileController@index');
         Route::get('detail/{id}', 'WedController@detail');
         Route::get('activity', 'Wed\\ActivityController@index');
         Route::get('matchmaker', 'MatchMakerController@index');
