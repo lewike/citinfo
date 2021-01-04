@@ -11,7 +11,7 @@
             <div class="profile-info-percent">资料完成度100%</div>
         </div>
     </div>
-    <div class="profile-photos" id="uploader">
+    <div class="profile-photos">
         <div class="weui-cell">
             <div class="weui-cell__bd">
                 <div class="weui-uploader">
@@ -19,18 +19,15 @@
                         <p class="weui-uploader__title">上传更多生活照片，让对方更了解自己</p>
                     </div>
                     <div class="weui-uploader__bd">
-                        <ul class="weui-uploader__files" id="uploaderFiles">
-                            @foreach ($member->images as $image)
-                            <li class="weui-uploader__file" data-id="{{$loop->index}}" style="background-image: url('{{$image}}');">  </li>
-                            @endforeach
-                        </ul>
+                        <ul class="weui-uploader__files" id="uploaderFiles"></ul>
                         <div class="weui-uploader__input-box">
-                            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple=""/>
+                            <input id="uploader" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple=""/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="profile-menu">
         <ul>
@@ -63,29 +60,18 @@
         $('.profile-menu li').click(function(event){
             window.location.href = $(event.currentTarget).data('url')
         })
-        
-        $('.weui-uploader__file').each(function(i, ele){
-            var url = ele.getAttribute('style') || '';
-            var id = ele.getAttribute('data-id');
-            
-            if(url){
-                url = url.match(/url\((.*?)\)/)[1].replace(/"/g, '');
-            }
-            
-            uploadList.push({id:id, url:url, stop:function(){}});
-            uploadCount++;
-        })
     })
-    
-    var uploadCount = 0, uploadList = [];
-    weui.uploader('#uploader', {
-    url: '/wed/upload',
+
+var uploadCount = 0, uploadList = [];
+var uploadCountDom = document.getElementById("uploadCount");
+weui.uploader('#uploader', {
+    url: '/wed/upload/img',
     auto: true,
     type: 'file',
-    fileVal: 'upload-file',
+    fileVal: 'fileVal',
     compress: {
-        width: 1200,
-        height: 1200,
+        width: 1600,
+        height: 1600,
         quality: .8
     },
     onBeforeQueued: function(files) {
@@ -101,69 +87,30 @@
             weui.alert('最多只能上传5张图片，请重新选择');
             return false;
         }
-        this.id = uploadCount;
+        if (uploadCount + 1 > 5) {
+            weui.alert('最多只能上传5张图片');
+            return false;
+        }
+
+        ++uploadCount;
+        uploadCountDom.innerHTML = uploadCount;
     },
     onQueued: function(){
         uploadList.push(this);
+        console.log(this);
     },
     onBeforeSend: function(data, headers){
         // $.extend(data, { test: 1 }); // 可以扩展此对象来控制上传参数
     },
     onProgress: function(procent){
+        console.log(this, procent);
     },
     onSuccess: function (ret) {
-        uploadCount++;
-        this.url = ret.data.url;
+        console.log(this, ret);
     },
     onError: function(err){
-        weui.alert('上传失败，请稍后重试！');
+        console.log(this, err);
     }
 });
-
-document.querySelector('#uploaderFiles').addEventListener('click', function(e){
-    var target = e.target;
-
-    while(!target.classList.contains('weui-uploader__file') && target){
-        target = target.parentNode;
-    }
-    if(!target) return;
-
-    var url = target.getAttribute('style') || '';
-    var id = target.getAttribute('data-id');
-
-    if(url){
-        url = url.match(/url\((.*?)\)/)[1].replace(/"/g, '');
-    }
-    var gallery = weui.gallery(url, {
-        className: 'custom-name',
-        onDelete: function(){
-            weui.confirm('确定删除该图片？', function(){
-                for (var i = 0, len = uploadList.length; i < len; ++i) {
-                    var file = uploadList[i];
-                    if(file.id == id){
-                        file.stop();
-                        _.pullAt(uploadList, i);
-                        sycnUpload();
-                        break;
-                    }
-                }
-                target.remove();
-                gallery.hide();
-            });
-        }
-    });
-});
-
-function sycnUpload()
-{
-    var images = _.map(uploadList, _.property('url'));
-    axios.post('/wed/profile/images', {images: images})
-        .then(function (response) {
-
-        })
-        .catch(function (error) {
-        })
-}
-
 </script>
 @endsection

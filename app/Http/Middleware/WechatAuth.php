@@ -16,6 +16,11 @@ class WechatAuth
      */
     public function handle($request, Closure $next)
     {
+        if (env('APP_ENV') == 'local') {
+            Auth::loginUsingId(1);
+            return $next($request);
+        }
+        
         if (env('APP_ENV') != 'local' && ! Auth::check()) {
             return redirect(env('WECHAT_AUTH_URL').'?url='.urlencode(env('APP_URL').'/wechat/login').'&redirect-url='.urlencode($request->url()));
         }

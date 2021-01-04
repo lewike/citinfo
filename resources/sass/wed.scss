@@ -245,43 +245,55 @@ body {
         }
     }
 }
-.user-detail-card-header {
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: .6rem 1rem 0 1rem;
-    color: #666;
-}
-.user-detail-other {
-    width: 96vw;
-    margin: 2vw auto;
-    background-color: #FFF;
-    border-radius: 5px;
-    padding: 3vw 0;
-    color: #3a3a3a;
-    &>div {
-        line-height: 2rem;
-        padding: 0 1.4rem;
-        span {
-            color: #555;
-        }
+.detail-card {
+     &-header {
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #666;
+        border-bottom: 3px solid #FF6A95;
+        margin: .6rem 1rem .2rem 1rem;
+    }
+    &-body {
+        width: 96vw;
+        margin: 2vw auto;
+        background-color: #FFF;
+        border-radius: .2rem;
+        padding: 5vw 0;
     }
 }
-.user-detail-images {
-    width: 96vw;
-    margin: 2vw auto;
-    background-color: #FFF;
-    border-radius: 5px;
-    padding: 2vw 0;
-    ul {
-        list-style: none;
+
+.detail-baseinfo {
+    dl {
+        display: flex;
+        padding: .2rem 1rem;
     }
-    .none-images {
-        text-align: center;
-        padding: 1rem 2rem;
+    dt {
+        min-width: 5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+        margin-right: .3rem;
+    }
+    dd {
         color: #666;
     }
-    
 }
+.detail-tags {
+    .none-tags {
+        text-align: center;
+        padding: .3rem 2rem;
+        color: #666;
+    }
+}
+.detail-images {
+    .none-images {
+        text-align: center;
+        padding: .3rem 2rem;
+        color: #666;
+    }
+}
+
 .complete-userinfo-toptip {
     text-align: center;
     padding: 1rem 0;
@@ -289,6 +301,7 @@ body {
 }
 
 .contact-us {
+    margin: 2rem 0;
     text-align: center;
     img {
         width: 50vw;
@@ -330,7 +343,7 @@ body {
         }
     }
     &-info-name {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         margin-bottom: .4rem;
         span {
             font-size: .9rem;
@@ -347,8 +360,8 @@ body {
 
     &-photos {
        background-color: #FFF;
-       padding: 1rem;
        margin-top: .4rem; 
+       color: #666;
     }
     &-menu {
         color: #555;
@@ -363,14 +376,47 @@ body {
                 padding: .8rem 0;
                 img {
                     height: 1.5rem;
+                    width: 1.5rem;
+                    margin-right: .3rem;
                 }
-                span {
-                    vertical-align: text-bottom;
+                div {
+                    text-align: left;
                 }
             }
             li:not(:last-child) {
                 border-bottom: 1px solid rgb(238, 238, 238);
             }
         }
+
+        .arrow-next {
+            height: 1.2rem;
+            margin-left: .5rem;
+        }
+        .font-small {
+            font-size: 1rem;
+            color: #666;
+        }
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.detail-finish-percent {
+    right: 1rem;
+    top: .5rem;
+    font-size: 1rem;
+    img {
+        height: .9rem !important;
     }
 }

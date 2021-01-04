@@ -83,9 +83,13 @@ Route::group(['namespace' => 'Website'], function () {
         Route::post('userinfo/complete', 'WedController@userInfoComplete');
         Route::get('list/{page}', 'WedController@list');
         Route::get('profile', 'Wed\\ProfileController@index');
+        Route::get('profile/edit', 'Wed\\ProfileController@edit');
         Route::get('detail/{id}', 'WedController@detail');
         Route::get('activity', 'Wed\\ActivityController@index');
+        Route::post('upload', 'Wed\\UploadController@save');
         Route::get('matchmaker', 'MatchMakerController@index');
+        
+        Route::post('profile/images', 'Wed\\ProfileController@updateImages');
     });
     
     Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.auth']], function(){
