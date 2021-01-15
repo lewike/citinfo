@@ -158,7 +158,7 @@ class PostController extends Controller
         return ['result' => true, 'data' => ['url' => $post->url()]];
     }
 
-    public function manage()
+    public function manage(Request $request)
     {
         $action = $request->get('action');
         $id = $request->get('id');
