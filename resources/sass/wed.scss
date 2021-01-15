@@ -343,10 +343,10 @@ body {
         }
     }
     &-info-name {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin-bottom: .4rem;
         span {
-            font-size: .9rem;
+            font-size: .85rem;
             background-color:#FFD8E0;
             color: #FF6A95;
             border-radius: 2px;
@@ -356,6 +356,7 @@ body {
     }
     &-info-percent {
         opacity: .8;
+        font-size: .85rem;
     }
 
     &-photos {
@@ -365,7 +366,7 @@ body {
     }
     &-menu {
         color: #555;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         background-color: #FFF;
         padding: 1rem;
         margin-top: .4rem;
@@ -375,8 +376,8 @@ body {
             li {
                 padding: .8rem 0;
                 img {
-                    height: 1.5rem;
-                    width: 1.5rem;
+                    height: 1.4rem;
+                    width: 1.4rem;
                     margin-right: .3rem;
                 }
                 div {
@@ -389,12 +390,12 @@ body {
         }
 
         .arrow-next {
-            height: 1.2rem;
+            height: 1.1rem;
             margin-left: .5rem;
         }
         .font-small {
-            font-size: 1rem;
-            color: #666;
+            font-size: .85rem;
+            color: #888;
         }
     }
 }
@@ -419,4 +420,9 @@ body {
     img {
         height: .9rem !important;
     }
+}
+
+.weui-uploader__file, .weui-uploader__input-box {
+    width: 20vw;
+    height: 20vw;
 }

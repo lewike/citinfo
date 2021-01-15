@@ -54,7 +54,7 @@
               <td>{{$post['views']}}</td>
               <td>{{$post['created_at']}}</td>
               <td><span class="post-status-{{$post['status']}}"></span></td>
-              <td>置顶 <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed">失效</a> | <a href="/admin/post/delete/{{$post['id']}}">删除</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
+              <td>置顶 <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed">失效</a> | <a href="/admin/post/delete/{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#modal-small">删除</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
             </tr>
             @endforeach
           </tbody>
@@ -64,6 +64,20 @@
           {{ $posts->links() }}
         </div>
         @endif
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal modal-blur fade" id="modal-small" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-title">确定删除？</div>
+        <div>如果确定，数据会被永久删除！</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">确定，删除数据</button>
       </div>
     </div>
   </div>

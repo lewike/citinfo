@@ -1,19 +1,22 @@
 @extends('layouts.website')
 @section('content')
-<nav class="breadcrumb">
-  <a class="breadcrumb-item" href="/">首页</a>
-  <a class="breadcrumb-item" href="/search">查找/修改/取消信息</a>
+<nav aria-label="breadcrumb" class="py-3">
+  <ol class="breadcrumb">
+      <li class="text-muted">当前位置：</li>
+    <li class="breadcrumb-item"><a href="/">首页</a></li>
+    <li class="breadcrumb-item"><a href="/search">查找/修改/取消信息</a></li>
+  </ol>
 </nav>
 <div class="content p-4">
   <h3 class="text-center pb-4">查找/修改/取消信息</h3>
   <div class="">
     <form class="text-center row justify-content-center">
-      <div class="input-group mb-3 col-6">
-        <input type="text" name="keyword" class="form-control" placeholder="请输入信息编号或者手机号" aria-label="请输入信息编号或者手机号">
-        <div class="input-group-append">
-          <button class="btn btn-outline-primary btn-search-post" type="button">搜 索</button>
-        </div>
+      <div class="mb-3 col-6">
+       <div class="input-group">
+          <input type="text" class="form-control" name="keyword" placeholder="请输入信息编号或者手机号" aria-label="请输入信息编号或者手机号" aria-describedby="button-addon">
+          <button class="btn btn-outline-primary btn-search-post" type="button" id="button-addon">搜 索</button>
       </div>
+    </div>
     </form>
     <div class="p-5">
       <p><strong>查找信息</strong></p>

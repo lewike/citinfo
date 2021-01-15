@@ -157,4 +157,46 @@ class PostController extends Controller
         $post = Post::create($data);
         return ['result' => true, 'data' => ['url' => $post->url()]];
     }
+
+    public function manage()
+    {
+        $action = $request->get('action');
+        $id = $request->get('id');
+
+        $wechatCode = session('wechat-code');
+        $wechatOpenId = Cache::get('wechat-code'.$wechatCode);
+
+        if (empty($wechatOpenId)) {
+            return ['result' => false, 'message' => '无法获取身份信息'];
+        }
+
+        $user = User::where('wechat_openid', $wechatOpenId)->first();
+        
+        if (!$user) {
+            return ['result' => false, 'message' => '无法获取身份信息'];
+        }
+
+        $post = Post::find($id);
+        
+        if ($post->user_id != $user->id) {
+            return ['result' => false, 'message' => '信息发布者与微信不匹配'];
+        }
+
+        if ($action == 'expired') {
+            $post->expired_at = date('Y-m-d H:i:s');
+        }
+        if ($action == 'refresh') {
+            if ($post->refresh_at->isToday()) {
+                return ['result' => false, 'message' => '每天只能刷新一次'];
+            }
+            $post->refresh_at = date('Y-m-d H:i:s');
+        }
+        if ($action == 'delay_expired') {
+            $post->expired_at = $post->expired_at->addDays(7);
+        }
+        $post->save();
+        
+
+        return ['result' => true];
+    }
 }

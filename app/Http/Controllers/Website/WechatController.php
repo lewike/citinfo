@@ -13,9 +13,12 @@ use Illuminate\Http\Request;
 class WechatController extends Controller
 {
     public function qrcode()
-    {
-        $wechatCode = 'createPost-'.Str::random(32);
-    
+    { 
+        if (env('APP_ENV') == 'local') {
+            return response()
+                ->json(['result' => true, 'data' => ['url' => 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.dh3344.com%2Fapi%2Fqrcode.png.php%3Fauth%3Dhttp%3A%2F%2Fwww.dh3344.com%2Fnews%2Fshow-90347.html&refer=http%3A%2F%2Fwww.dh3344.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613265413&t=78f36f77fb822ae32fff1c705d88b703']]);
+        }
+        $wechatCode = Str::random(32);
         $qrCode = app('wechat.official_account')->qrcode;
         $result = $qrCode->temporary($wechatCode, 24 * 3600);
         $url = $qrCode->url($result['ticket']);

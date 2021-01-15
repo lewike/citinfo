@@ -7,6 +7,7 @@ window.toastr = require('toastr');
 
 import MetisMenu from 'metismenujs';
 import "@fortawesome/fontawesome-free/js/all.js";
+import "bootstrap/js/src/modal";
 
 const mm = new MetisMenu('#admin-menu');
 

@@ -1,19 +1,23 @@
 @extends('layouts.website')
 
 @section('content')
-<nav class="breadcrumb">
-    <a class="breadcrumb-item" href="/">首页</a>
-    <a class="breadcrumb-item" href="/fenlei/{{$fenlei->ename}}">{{$fenlei->name}}</a>
-    <a class="breadcrumb-item" href="/category/{{$category->id}}">{{$category->name}}</a>
+<nav aria-label="breadcrumb" class="py-3">
+    <ol class="breadcrumb">
+        <li class="text-muted">当前位置：</li>
+      <li class="breadcrumb-item"><a href="/">首页</a></li>
+      <li class="breadcrumb-item"><a href="/fenlei/{{$fenlei->ename}}">{{$fenlei->name}}</a></li>
+      <li class="breadcrumb-item"><a href="/category/{{$category->id}}">{{$category->name}}</a></li>
+    </ol>
 </nav>
 <div class="content row">
-    <div class="col position-relative mb-5 mr-2">
-        <div class="expired_layer rounded d-none"></div>
-        <div class="px-3">
+    <div class="col">
+        <div class="position-relative mb-3">
+            <div class="expired_layer rounded d-none"></div>
+            <div class="p-3">
             <h4 class="text-center py-3">{{$post->title}}</h4>
             <div class="text-center border-bottom text-md pb-2 text-secondary"> 信息编号: <span
-                    class="text-danger mr-2"><strong>{{$post->id}}</strong></span> 浏览: <span class="post-views"></span>次
-                <span class="px-2">发布日期: {{$post->created_at->format('Y-m-d')}}</span> 有效期: <span
+                    class="text-danger mr-2"><strong>{{$post->id}}</strong></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览: <span class="post-views"></span>次
+                <span class="px-2">&nbsp;&nbsp;&nbsp;发布日期: {{$post->created_at->format('Y-m-d')}}</span> &nbsp;&nbsp;&nbsp;有效期: <span
                     class="expired_day text-danger mr-2" data-datetime="{{$post->expired_at}}">天</span></div>
             <div class="p-4 show-post-content">
                 {!!$post->content!!}
@@ -52,6 +56,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
     <div class="col-md-auto index-ad">
         <div class="manage-post mb-3" id="manage-post">
@@ -60,12 +65,12 @@
             </div>
             <ul class="list-unstyled text-center mt-3">
                 <li class="mb-3">
-                    <button class="btn btn-success btn-sm btn-manage-post" data-action="refesh"><i class="fas fa-fw fa-sync" aria-hidden="true"></i>&nbsp;刷新信息，靠前显示</button>
+                    <button class="btn btn-success btn-sm btn-manage-post" data-action="refesh" data-postid="{{$post->id}}"><i class="fas fa-fw fa-sync" aria-hidden="true"></i>&nbsp;刷新信息，靠前显示</button>
                 </li>
                 <li class="mb-3">
-                    <button class="btn btn-danger btn-sm btn-manage-post" data-action="expired"><i class="fas fa-fw fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;信息失效，不再显示</button></li>
+                    <button class="btn btn-danger btn-sm btn-manage-post" data-action="expired" data-postid="{{$post->id}}"><i class="fas fa-fw fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;信息失效，不再显示</button></li>
                 <li class="mb-3">
-                    <button class="btn btn-info btn-sm btn-manage-post" data-action="delay_expired"><i class="fas fa-fw fa-clock" aria-hidden="true"></i>&nbsp;信息有效期延长一周</button>
+                    <button class="btn btn-primary btn-sm btn-manage-post" data-action="delay_expired" data-postid="{{$post->id}}"><i class="fas fa-fw fa-clock" aria-hidden="true"></i>&nbsp;信息有效期延长一周</button>
                 </li>
             </ul>
         </div>
@@ -76,6 +81,24 @@
             <li class="text-center">欢迎投放广告!</li>
         </ul>
     </div>
+
+    <div class="modal" tabindex="-1" id="wechat-auth-dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">需要身份验证，请打开微信扫一扫</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="" alt="" width="215px" height="215px">
+            </div>
+            <div class="modal-footer">
+                <span class="text-danger">注意：需要使用发布该信息的微信扫码才能操作</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div class="modal" tabindex="-1" id="follow-dialog" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -101,6 +124,7 @@
 <script type="text/javascript" src="/js/lightbox.js"></script>
 <script>
     $(function () {
+        
     var timer = null;
     $('.btn-edit-post').click(function () {
         $(event.currentTarget).prop('disabled', true)
@@ -140,6 +164,8 @@
         clearInterval(timer);
         $('.btn-edit-post').prop('disabled', false);
     })
+
+    
 
     lightbox.option({
         albumLabel: '%1/%2'

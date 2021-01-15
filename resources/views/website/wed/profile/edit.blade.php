@@ -2,115 +2,172 @@
 
 @section('content')
 <div class="wrap">
-    <div class="profile-top-wrap">
-        <div class="profile-avatar">
-            <img src="https://imgavater.ui.cn/avatar/5/7/4/9/919475.jpg?imageMogr2/auto-orient/crop/!842x842a75a0/thumbnail/148x148" alt="">
+    <div class="weui-form">
+        <div class="weui-form__text-area">
+          <h2 class="weui-form__title">个人相亲资料</h2>
+          <div class="weui-form__desc">完善的资料，会得到更多的曝光机会！</div>
         </div>
-        <div class="profile-info">
-            <div class="profile-info-name">姓名 <span>未实名认证</span></div>
-            <div class="profile-info-percent">资料完成度100%</div>
-        </div>
-    </div>
-    <div class="profile-photos">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <div class="weui-uploader">
-                    <div class="weui-uploader__hd">
-                        <p class="weui-uploader__title">上传更多生活照片，让对方更了解自己</p>
-                    </div>
-                    <div class="weui-uploader__bd">
-                        <ul class="weui-uploader__files" id="uploaderFiles"></ul>
-                        <div class="weui-uploader__input-box">
-                            <input id="uploader" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple=""/>
-                        </div>
-                    </div>
+        <div class="weui-form__control-area">
+          <div class="weui-cells__group weui-cells__group_form">
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
+                <div class="weui-cell__bd">
+                    <input id="js_input" class="weui-input" placeholder="填一个自己喜欢的称呼">
+                </div>
+              </div>
+              <div class="weui-cell weui-cell_active weui-cell_access" id="showDatePicker">
+                <div class="weui-cell__hd">你的生日</div>
+                <div class="weui-cell__bd" id="birthday" style="text-align: right"></div>
+                <input type="hidden" name="birthday">
+                <div class="weui-cell__ft">
+                </div>
+              </div>
+              <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">性别</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="gender">
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
                 </div>
             </div>
-        </div>
+              <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd"><label class="weui-label">身高</label></div>
+                <div class="weui-cell__bd">
+                    <input id="js_input" class="weui-input" placeholder="填写你的身高，单位cm" type="number" pattern="[0-9]*">
+                </div>
+              </div>
+              <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd"><label class="weui-label">体重</label></div>
+                <div class="weui-cell__bd">
+                    <input id="js_input" class="weui-input" placeholder="填写你的体重，单位kg" type="number" pattern="[0-9]*">
+                </div>
+              </div>
+                <div class="weui-cell weui-cell_active">
+                    <div class="weui-cell__hd"><label class="weui-label">工作</label></div>
+                    <div class="weui-cell__bd">
+                        <input id="js_input" class="weui-input" placeholder="">
+                    </div>
+              </div>
+              <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">车辆</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="education">
+                        <option value="0">无车</option>
+                        <option value="1">有车</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">房产</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="education">
+                        <option value="0">无房</option>
+                        <option value="1">有房</option>
+                    </select>
+                </div>
+            </div>
+              <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">学历</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="education">
+                        <option value="1">中专以下</option>
+                        <option value="2">中专</option>
+                        <option value="3">大专</option>
+                        <option value="4">本科</option>
+                        <option value="5">硕士</option>
+                        <option value="6">博士</option>
+                        <option value="7">博士后</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">收入</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="income">
+                        <option value="2">2000以下</option>
+                        <option value="4">2000-4000</option>
+                        <option value="6">4000-6000</option>
+                        <option value="10">6000-10000</option>
+                        <option value="20">10000-20000</option>
+                        <option value="21">20000以上</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">婚姻情况</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="income">
+                        <option value="1">未婚</option>
+                        <option value="2">离异</option>
+                        <option value="3">丧偶</option>
+                    </select>
+                </div>
+            </div>
+          
+            <div class="weui-cell ">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">自我介绍</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="写点什么，介绍一下吧" rows="3"></textarea>
+                </div>
+            </div>
 
-    </div>
-    <div class="profile-menu">
-        <ul>
-            <li class="d-flex align-items-center justify-content-between" data-url="/wed/profile/edit">
-                <div class="d-flex align-items-center">
-                    <img src="/images/wed/icons/detail.png" alt="">
-                    我的资料
+            <div class="weui-cell ">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">择偶要求</label>
                 </div>
-                <div class="d-flex align-items-center">
-                    <div class="font-small">完成度80%</div>
-                    <img class="arrow-next" src="/images/wed/icons/next.png" alt="">
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="还有什么要求，写一写" rows="3"></textarea>
                 </div>
-            </li>
-            <li class="d-flex align-items-center">
-                <img src="/images/wed/icons/hartbeat.png" alt="">
-                联系红娘
-            </li>
-            <li class="d-flex align-items-center">
-                <img src="/images/wed/icons/show.png" alt="">
-                隐藏我的信息
-            </li>
-        </ul>
-    </div>
+            </div>
+            </div>
+
+           
+          </div>
+        </div>
+        <div class="weui-form__tips-area">
+            <p class="weui-form__tips">
+                请务必填写真实有效信息
+            </p>
+          </div>
+        <div class="weui-form__opr-area">
+            <a class="weui-btn weui-btn_primary" href="#">保 存</a>
+          </div>
+      </div>
 </div>
 @endsection
 
 @section('extend_js')
 <script>
-    $(function(){
-        $('.profile-menu li').click(function(event){
-            window.location.href = $(event.currentTarget).data('url')
-        })
-    })
-
-var uploadCount = 0, uploadList = [];
-var uploadCountDom = document.getElementById("uploadCount");
-weui.uploader('#uploader', {
-    url: '/wed/upload/img',
-    auto: true,
-    type: 'file',
-    fileVal: 'fileVal',
-    compress: {
-        width: 1600,
-        height: 1600,
-        quality: .8
-    },
-    onBeforeQueued: function(files) {
-        if(["image/jpg", "image/jpeg", "image/png"].indexOf(this.type) < 0){
-            weui.alert('请上传图片');
-            return false;
-        }
-        if(this.size > 5 * 1024 * 1024){
-            weui.alert('请上传不超过10M的图片');
-            return false;
-        }
-        if (files.length > 5) { // 防止一下子选中过多文件
-            weui.alert('最多只能上传5张图片，请重新选择');
-            return false;
-        }
-        if (uploadCount + 1 > 5) {
-            weui.alert('最多只能上传5张图片');
-            return false;
-        }
-
-        ++uploadCount;
-        uploadCountDom.innerHTML = uploadCount;
-    },
-    onQueued: function(){
-        uploadList.push(this);
-        console.log(this);
-    },
-    onBeforeSend: function(data, headers){
-        // $.extend(data, { test: 1 }); // 可以扩展此对象来控制上传参数
-    },
-    onProgress: function(procent){
-        console.log(this, procent);
-    },
-    onSuccess: function (ret) {
-        console.log(this, ret);
-    },
-    onError: function(err){
-        console.log(this, err);
-    }
-});
+$(function(){
+    $('#showDatePicker').on('click', function () {
+        weui.datePicker({
+            start: 1950,
+            end: 2003,
+            onChange: function (result) {
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $('#birthday').text(result[0].value+'-'+result[1].value+'-'+result[2].value);
+            },
+            title: '你的生日'
+        });
+    });
+})
 </script>
 @endsection

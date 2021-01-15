@@ -66,6 +66,7 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/post/create/success', 'PostController@success');
     Route::post('/post/create', 'PostController@store');
     Route::get('/post/views/{post}', 'PostController@views');
+    Route::post('/post/manage', 'PostController@manage');
     
     Route::get('/about', 'PageController@about');
     Route::get('/changelog', 'PageController@changelog');

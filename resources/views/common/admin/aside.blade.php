@@ -68,6 +68,11 @@
                 </a>
               </li>
               <li >
+                <a class="dropdown-item" href="/admin/wed/notice" >
+                  公告管理
+                </a>
+              </li>
+              <li >
                 <a class="dropdown-item" href="/admin/wed/config" >
                   参数配置
                 </a>

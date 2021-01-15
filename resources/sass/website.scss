@@ -1,7 +1,11 @@
+$link-decoration: none;
+$link-hover-decoration: underline;
+
 @import "~bootstrap/scss/bootstrap";
 @import "~toastr/toastr";
 @import "~lightbox2/src/css/lightbox.css";
 @import "~@fortawesome/fontawesome-free/css/all.css";
+
 
 .topbar, .footer {
     font-size: .8rem;
@@ -11,9 +15,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
-    border-radius: 3px;
 }
-.navbar {
+.nav {
     background: #3490dc;
     a {
         color: #fff;
@@ -70,7 +73,7 @@
 }
 
 .breadcrumb {
-    font-size: .8rem;
+    font-size: .85rem;
     background-color: transparent !important;
 }
 
@@ -81,7 +84,9 @@
 .text-md {
     font-size: .85rem;
 }
-
+.content {
+    min-height: 400px;
+}
 .content p {
     text-indent: 2rem;
 }
