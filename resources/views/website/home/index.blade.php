@@ -8,7 +8,7 @@
     <ul class="home-posts-list list-unstyled pt-2">
       @foreach ($posts as $post)
       <li class="py-1 d-flex justify-content-between" >
-        <div class="@if ($post->index_stick) index-stick @endif">
+        <div class="@if ($post->index_sticky) index-stick @endif">
         <a href="{{route('website.post.show', ['post'=> $post->id])}}">{{$post->title}}</a>
         <small class="mx-2">
           <a href="/category/{{$post->categoryId()}}" class="text-secondary">{{$categoryArray[$post->categoryId()]}}</a>

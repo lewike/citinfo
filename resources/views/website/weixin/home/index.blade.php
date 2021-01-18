@@ -56,7 +56,7 @@
             @foreach ($posts as $post)
             <li>
                 <a href="/wx/post/show/{{$post['id']}}">
-                    <div class="post-title @if ($post->index_stick) post-stick @endif">{{$post['title']}}</div>
+                    <div class="post-title @if ($post->index_sticky) post-stick @endif">{{$post['title']}}</div>
                     <div class="post-info">
                         <div class="post-cate">{{$post->category_name}}</div>
                         <div class="post-date">{{$post->created_at->format('y-m-d')}}</div>

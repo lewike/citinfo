@@ -27,7 +27,7 @@
           <tbody class="cate-posts-list">
             @foreach ($posts as $post)
             <tr>
-              <td @if($post->category_stick) class="category-stick" @endif><a href="{{route('website.post.show', ['post'=> $post->id])}}">{{$post->title}}</a></td>
+              <td @if($post->category_sticky) class="category-stick" @endif><a href="{{route('website.post.show', ['post'=> $post->id])}}">{{$post->title}}</a></td>
               <td width="100" class="text-center text-secondary"><small class="expired_time" data-time="{{$post->expired_at}}"></small></td>
               <td width="100" class="text-end text-secondary"><small>{{$post->created_at->format('Y-m-d')}}</small></td>
             </tr>

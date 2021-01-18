@@ -42,11 +42,14 @@ class InitCityInfoTables extends Migration
             $table->string('password');
             $table->string('status')->default('pending');
             $table->integer('expired_day')->default(7);
-            $table->integer('index_stick')->default(0);
-            $table->integer('category_stick')->default(0);
+            $table->integer('index_sticky')->default(0);
+            $table->integer('category_sticky')->default(0);
             $table->integer('views')->default(0);
+            $table->timestamp('index_sticky_expired_at')->nullable();
+            $table->timestamp('category_sticky_expired_at')->nullable();
             $table->timestamp('expired_at')->nullable();
             $table->timestamp('refresh_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 

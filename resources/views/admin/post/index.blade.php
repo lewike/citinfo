@@ -49,12 +49,12 @@
               <td><a href="/post/{{$post['id']}}" target="_blank">{{$post['title']}}</a></td>
               <td>{{$post['phone']}}</td>
               <td>{{$post['expired_at']}}</td>
-              <td>{{$post['index_stick'] ? '是' : '否'}}</td>
-              <td>{{$post['category_stick'] ? '是' : '否'}}</td>
+              <td>{{$post['index_sticky'] ? '是' : '否'}} 有效期:{{$post['index_sticky_expired_at']}}</td>
+              <td>{{$post['category_sticky'] ? '是' : '否'}} 有效期:{{$post['category_sticky_expired_at']}}</td>
               <td>{{$post['views']}}</td>
               <td>{{$post['created_at']}}</td>
               <td><span class="post-status-{{$post['status']}}"></span></td>
-              <td>置顶 <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed">失效</a> | <a href="/admin/post/delete/{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#modal-small">删除</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
+              <td><a href="" data-bs-toggle="modal" data-bs-target="#modal-sticky">置顶</a> | <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed" data-bs-toggle="modal" data-bs-target="#modal-expired">失效</a> | <a href="/admin/post/delete/{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#modal-small">删除</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
             </tr>
             @endforeach
           </tbody>
@@ -68,7 +68,21 @@
     </div>
   </div>
 </div>
-<div class="modal modal-blur fade" id="modal-small" tabindex="-1" aria-hidden="true" style="display: none;">
+<div class="modal" id="modal-expired" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-title">确定失效？</div>
+        <div>确定执行该操作！</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger btn-expired-post" data-bs-dismiss="modal">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="modal-delete" tabindex="-1" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -77,7 +91,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">确定，删除数据</button>
+        <button type="button" class="btn btn-danger btn-delete-post" data-bs-dismiss="modal">确定，删除数据</button>
       </div>
     </div>
   </div>

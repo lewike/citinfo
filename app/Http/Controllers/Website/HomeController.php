@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $data['categories'] =  Category::tree();
         $data['categoryArray'] = Category::pluck('name', 'id');
-        $data['posts'] = Post::where('status', 'published')->latest('index_stick')->latest('refresh_at')->limit(50)->get();        
+        $data['posts'] = Post::where('status', 'published')->latest('index_sticky')->latest('refresh_at')->limit(50)->get();        
         return view('website.home.index', $data);
     }
 }
