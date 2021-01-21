@@ -48,7 +48,7 @@
               <td>{{$category['status']}}</td>
               <td>{{$category['highlight']}}</td>
               <td>{{$category['weight']}}</td>
-              <td>置顶 删除 编辑</td>
+              <td><a href="">编辑</a></td>
             </tr>
             @endforeach
           </tbody>

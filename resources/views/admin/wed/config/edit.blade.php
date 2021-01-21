@@ -15,13 +15,14 @@
     <div class="col-lg-12">
       <div class="card">
         <form class="form-update-wed-config">
+          <input type="hidden" name="key" value="wed.swiper">
           <div class="card-body">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="mb-3 swiper-wraper">
                       <div class="form-label">轮播图1：</div>
-                    <input type="hidden" class="form-control swiper-img" name="swiper[0]" value="{{$config['swiper'][0] ?? ''}}">
-                    <img src="{{$config['swiper'][0] ?? ''}}" alt="" class="wed-config-swiper">
+                    <input type="hidden" class="form-control swiper-img" name="image[0]" value="{{$swipers['image'][0] ?? ''}}">
+                    <img src="{{$swipers['image'][0] ?? ''}}" alt="" class="wed-config-swiper">
                       <div class="position-relative fileupload-wrapper mt-3">
                           <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
                           点击上传
@@ -29,14 +30,14 @@
                           <input type="file" name="upload_file" class="position-absolute upload-swiper"
                           accept="image/jpeg,image/png" style="">
                       </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="url[0]" value="{{$config['url'][0] ?? ''}}">
+                      <input type="text" class="form-control swiper-url mt-3" name="url[0]" value="{{$swipers['url'][0] ?? ''}}">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="mb-3 swiper-wraper">
                       <div class="form-label">轮播图2：</div>
-                      <input type="hidden" class="form-control swiper-img" name="swiper[1]" value="{{$config['swiper'][1] ?? ''}}">
-                      <img src="{{$config['swiper'][1] ?? ''}}" alt="" class="wed-config-swiper">
+                      <input type="hidden" class="form-control swiper-img" name="image[1]" value="{{$swipers['image'][1] ?? ''}}">
+                      <img src="{{$swipers['image'][1] ?? ''}}" alt="" class="wed-config-swiper">
                       <div class="position-relative fileupload-wrapper mt-3">
                           <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
                           点击上传
@@ -44,14 +45,14 @@
                           <input type="file" name="upload_file" class="position-absolute upload-swiper"
                           accept="image/jpeg,image/png" style="">
                       </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="url[1]" value="{{$config['url'][1] ?? ''}}">
+                      <input type="text" class="form-control swiper-url mt-3" name="url[1]" value="{{$swipers['url'][1] ?? ''}}">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="mb-3 swiper-wraper">
                       <div class="form-label">轮播图3：</div>
-                      <input type="hidden" class="form-control swiper-img" name="swiper[2]" value="{{$config['swiper'][2] ?? ''}}">
-                      <img src="{{$config['swiper'][2] ?? ''}}" alt="" class="wed-config-swiper">
+                      <input type="hidden" class="form-control swiper-img" name="image[2]" value="{{$swipers['image'][2] ?? ''}}">
+                      <img src="{{$swipers['image'][2] ?? ''}}" alt="" class="wed-config-swiper">
                       <div class="position-relative fileupload-wrapper mt-3">
                           <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
                           点击上传
@@ -59,7 +60,7 @@
                           <input type="file" name="upload_file" class="position-absolute upload-swiper"
                           accept="image/jpeg,image/png" style="">
                       </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="url[2]" value="{{$config['url'][2] ?? ''}}">
+                      <input type="text" class="form-control swiper-url mt-3" name="url[2]" value="{{$swipers['url'][2] ?? ''}}">
                     </div>
                 </div>
                 @csrf

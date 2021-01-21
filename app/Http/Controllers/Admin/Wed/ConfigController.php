@@ -10,22 +10,21 @@ class ConfigController extends Controller
 {
     public function edit()
     {
-        $data['config'] = Config::value('wed');
+        $data['swipers'] = Config::value('wed.swiper');
         return view('admin.wed.config.edit', $data);
     }
 
     public function update(Request $request)
     {
-        $data['value'] = $request->all();
-        $data['name'] = 'wed';
-        $config = Config::where('name', 'wed')->first();
+        $name = $request->get('key');
+        $config = Config::where('name', $name)->first();
         if (! $config) {
             Config::create([
-                'name' => 'wed',
-                'value' => $request->except(['_token'])
+                'name' => $name,
+                'value' => $request->except(['_token', 'key'])
             ]);
         } else {
-            $config->update(['value' => $request->except(['_token'])]);
+            $config->update(['value' => $request->except(['_token', 'key'])]);
         }
         
         return ['result' => true];

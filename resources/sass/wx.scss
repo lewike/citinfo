@@ -294,3 +294,32 @@ body {
     box-shadow: 0px 2px 5px 2px rgba(208, 208, 208, 0.5);
     color: #333;
 }
+
+.post-show-img {
+    li {
+        display: inline-block;
+        img {
+            width: 29vw;
+            height: 29vw;
+        }
+    }
+}
+
+i.phone {
+    background: url('../images/phone.svg') no-repeat;
+    background-size: cover;
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+}
+.btn-call-phone {
+    font-size: .85rem;
+    background-color: #ff7700;
+    color: #FFF;
+    padding: .2rem;
+    border-radius: .1rem;
+}
+
+.weui-gallery__opr {
+    display: none;
+}

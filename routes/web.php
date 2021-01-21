@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
             Route::get('wed/config', 'ConfigController@edit');
             Route::post('wed/config', 'ConfigController@update');
+            
+            Route::get('wed/notice', 'NoticeController@index');
         });
         Route::get('mp/config/menu', 'MpController@configMenu');
         Route::post('mp/config/menu', 'MpController@updateConfigMenu');
@@ -92,6 +94,8 @@ Route::group(['namespace' => 'Website'], function () {
         
         Route::post('profile/images', 'Wed\\ProfileController@updateImages');
     });
+
+    
     
     Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.auth']], function(){
         Route::get('/', 'HomeController@index');
@@ -105,4 +109,20 @@ Route::group(['namespace' => 'Website'], function () {
     Route::group(['middleware' => ['wechat.oauth']], function () {
         Route::get('wechat/auth', 'WechatController@auth');
     });
+});
+
+//婚恋交友程序
+
+Route::group(['namespace' => 'Wed', 'prefix' => 'wed'], function(){
+    Route::get('/', 'HomeController@index');
+    Route::get('/profile', 'ProfileController@index');
+    Route::get('/profile/edit', 'ProfileController@edit');
+    Route::post('/profile/edit', 'ProfileController@update');
+
+    Route::get('/activity', 'ActivityController@index');
+    Route::get('/matchmaker', 'MatchMakerController@index');
+
+    Route::get('/member/{id}', 'MemberController@show');
+    
+    Route::post('upload', 'UploadController@save');
 });
