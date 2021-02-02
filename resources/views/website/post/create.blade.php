@@ -1,9 +1,12 @@
 @extends('layouts.website')
 
 @section('content')
-<nav class="breadcrumb">
-  <a class="breadcrumb-item" href="/">首页</a>
-  <a class="breadcrumb-item" href="/post">免费发布信息</a>
+<nav aria-label="breadcrumb" class="py-3">
+  <ol class="breadcrumb">
+      <li class="text-muted">当前位置：</li>
+    <li class="breadcrumb-item"><a href="/">首页</a></li>
+    <li class="breadcrumb-item"><a href="/post/create">免费发布信息</a></li>
+  </ol>
 </nav>
 <div class="content row">
   <div class="col-12 text-center pt-4"><h5>免费发布信息</h5></div>
@@ -29,20 +32,20 @@
         <div class="w-100"></div>
       @endforeach
     </div>
-    <div class="post-category-selected d-none p-3">栏目：<span class="text-danger px-2"></span> <a href="#" class="btn btn-info btn-sm post-category-reselect">重新选择栏目</a></div>
+    <div class="post-category-selected d-none p-3">栏目：<span class="text-danger px-2"></span> <a href="#" class="btn btn-primary btn-sm post-category-reselect"><i class="fas fa-redo"></i> 重新选择栏目</a></div>
     <input type="hidden" name="category_path" id="category-path">
     @csrf
   </div>
   <div class="col mx-3 p-3">
     <h6>第二步：填写详情</h6>
     <div class="p-3">
-    <div class="form-inline row py-2 align-items-start">
+    <div class="row py-2 align-items-start">
       <label class="col-auto col-form-label">内容：&#12288;&#12288;</label>
-      <textarea name="content" class="form-control" cols="80" rows="5" placeholder="在这里输入你要发布的内容，请勿在这里留联系方式，如发布招聘请注明单位名和职位名，如发布房产请注明位置、楼层和面积，请客观、真实准确描述，遵守相关法律法规！"></textarea>
+      <textarea name="content" class="col form-control" cols="60" rows="5" placeholder="在这里输入你要发布的内容，请勿在这里留联系方式，如发布招聘请注明单位名和职位名，如发布房产请注明位置、楼层和面积，请客观、真实准确描述，遵守相关法律法规！"></textarea>
     </div>
-    <div class="form-inline row py-2">
+    <div class="row py-2 align-items-center">
       <label class="col-auto col-form-label">图片：&#12288;&#12288;</label>
-      <div>
+      <div class="col">
         <ul class="post-images-120 list-inline w-100">
         </ul>
           <div class="position-relative fileupload-wrapper">
@@ -54,20 +57,20 @@
           </div>
       </div>
     </div>
-    <div class="form-inline row py-2">
+    <div class="row py-2 align-items-center">
       <label class="col-auto col-form-label">有效期：&#12288;</label>
-        <select class="form-control form-control-sm" name="expired_day">
+        <select class="col-sm form-control form-control-sm" name="expired_day">
           <option value="3" selected>3 天</option>
           <option value="7">7 天</option>
           <option value="15">15 天</option>
           <option value="30">30 天</option>
         </select>
-      <small class="text-muted ml-3">信息超过该时间自动过期</small>
+      <small class="col text-muted ml-3">信息超过有效期后会被删除</small>
     </div>
-    <div class="form-inline row py-2">
+    <div class="row py-2 align-items-center">
         <label class="col-auto col-form-label">联系电话：</label>
-        <input type="text" class="form-control form-control-sm" name="phone">
-        <small class="text-muted ml-3">请正确填写手机号，便于联系</small>
+        <input type="text" class="col form-control form-control-sm" name="phone">
+        <small class="col text-muted ml-3">请仔细填写手机号</small>
     </div>
     </div>
   </div>
@@ -79,13 +82,11 @@
   </div>
   </form>
   <div class="modal" tabindex="-1" id="follow-dialog" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">打开微信 "扫一扫" 扫描二维码</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
           <img src="" alt="" width="215px" height="215px">

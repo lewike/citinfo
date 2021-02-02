@@ -48,6 +48,42 @@
               <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
               </span>
               <span class="nav-link-title">
+                拼车管理
+              </span>
+            </a>
+            <ul class="dropdown-menu show">
+              <li >
+                <a class="dropdown-item" href="/admin/pinche/info" >
+                  信息管理
+                </a>
+              </li>
+              <li >
+                <a class="dropdown-item" href="/admin/pinche/users" >
+                  用户管理
+                </a>
+              </li>
+              <li >
+                <a class="dropdown-item" href="/admin/pinche/recharge" >
+                  充值记录
+                </a>
+              </li>
+              <li >
+                <a class="dropdown-item" href="/admin/pinche/consume" >
+                  消费记录
+                </a>
+              </li>
+              <li >
+                <a class="dropdown-item" href="/admin/pinche/config" >
+                  参数配置
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle has-arrow" href="#" aria-expanded="true">
+              <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
+              </span>
+              <span class="nav-link-title">
                 相亲平台
               </span>
             </a>

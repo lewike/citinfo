@@ -55,6 +55,13 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
         Route::get('mp/config/common', 'MpController@configCommon');
         Route::post('mp/config/common', 'MpController@updateConfigCommon');
+
+        Route::group(['namespace' => 'Carpool'], function () {
+            Route::get('pinche/info', 'InfoController@index');
+            Route::get('pinche/consume', 'ConsumeController@index');
+            Route::get('pinche/recharge', 'RechargeController@index');
+            Route::get('pinche/config', 'ConfigController@index');            
+        });
     });
 });
 
