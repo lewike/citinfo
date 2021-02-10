@@ -26,6 +26,7 @@
     "laravel-mix": "^5.0.1",
     "lightbox2": "^2.11.3",
     "lodash": "^4.17.13",
+    "mescroll.js": "^1.4.2",
     "metismenujs": "^1.2.1",
     "minimasonry": "^1.1.5",
     "popper.js": "^1.16.1",
@@ -37,7 +38,7 @@
     "timeago.js": "^4.0.2",
     "toastr": "^2.1.4",
     "vue-template-compiler": "^2.6.11",
-    "weui": "^2.3.0",
+    "weui": "^2.4.2",
     "weui.js": "^1.2.2"
   },
   "dependencies": {}

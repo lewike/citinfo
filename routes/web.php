@@ -58,9 +58,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
         Route::group(['namespace' => 'Carpool'], function () {
             Route::get('pinche/info', 'InfoController@index');
+            Route::get('pinche/info/create', 'InfoController@create');
             Route::get('pinche/consume', 'ConsumeController@index');
             Route::get('pinche/recharge', 'RechargeController@index');
-            Route::get('pinche/config', 'ConfigController@index');            
+            Route::get('pinche/config', 'ConfigController@edit');            
+            Route::post('pinche/config', 'ConfigController@update');            
         });
     });
 });
@@ -133,3 +135,24 @@ Route::group(['namespace' => 'Wed', 'prefix' => 'wed'], function(){
     
     Route::post('upload', 'UploadController@save');
 });
+
+Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
+    Route::get('/', 'HomeController@index');
+    Route::get('/rule', 'PostController@rule');
+    Route::get('/call/{id}', 'HomeController@call')->where('id', '[0-9]+');
+
+    Route::group(['middleware' => 'wechat.mock'], function () {
+        Route::get('/post', 'PostController@create');
+        Route::post('/post', 'PostController@store');
+        Route::get('/show/{id}', 'PostController@show');
+        Route::get('/edit/{id}', 'PostController@edit');
+        Route::post('/edit/{id}', 'PostController@update');
+        Route::get('/del/{id}', 'PostController@delete');
+        Route::post('/sticky', 'PostController@sticky');
+
+        Route::post('/recharge', 'HomeController@recharge');
+        Route::get('/user', 'HomeController@user');
+    });
+});
+
+

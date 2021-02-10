@@ -50,12 +50,12 @@ class User extends Authenticatable
 
     public static function findByOpenId($openId)
     {
-        if (!$user = self::where('wechat_openid', $openId)->first()) {
+        if (!$user = self::where('wechat_open_id', $openId)->first()) {
             $user = self::create([
                 'name' => $openId,
                 'email' => $openId.'@zaixixian.com',
                 'password' => 'none',
-                'wechat_openid' => $openId
+                'wechat_open_id' => $openId
             ]);
         }
         return $user;

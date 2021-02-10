@@ -8,6 +8,8 @@ class Carpool extends Model
 {
     protected $guarded = [];
 
+    protected $dates = ['start_at', 'sticky_expired_at'];
+
     public function type()
     {
         return $this->type == 'car' ? '车找人' : '人找车';

@@ -1,0 +1,637 @@
+@import "../../node_modules/weui/dist/style/weui.css";
+
+body,
+html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: PingFang SC, Arial, Helvetica, STHeiti STXihei, Microsoft YaHei,
+    Tohoma, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #007ACE;
+}
+
+.page,
+body {
+  background-color: #f9fafb;
+}
+
+.page {
+  box-sizing: border-box;
+}
+
+.link {
+  color: #07c160;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.container,
+.page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.page {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+}
+
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd_spacing {
+  padding: 0 16px;
+}
+
+.page__ft {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-bottom: calc(10px + constant(safe-area-inset-bottom));
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.page__ft img {
+  height: 19px;
+}
+
+.page__ft.j_bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.page__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-size: 14px;
+}
+
+@supports (top: constant(safe-area-inset-top)) {
+  .page {
+    padding: constant(safe-area-inset-top) constant(safe-area-inset-right)
+      constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+  }
+
+  .page.navbar,
+  .page.tabbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .weui-tab__panel {
+    padding-left: constant(safe-area-inset-left);
+    padding-right: constant(safe-area-inset-right);
+  }
+}
+
+@supports (top: env(safe-area-inset-top)) {
+  .page {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  .page.article,
+  .page.msg_success,
+  .page.msg_text,
+  .page.msg_text_primary,
+  .page.msg_warn,
+  .page.navbar,
+  .page.tabbar {
+    padding: 0;
+  }
+}
+
+.weui-half-screen-dialog {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.create-post-select-cate1 {
+  .weui-half-screen-dialog__hd {
+    height: 5em;
+  }
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.swiper-container {
+    width: 100vw;
+    height: 50vw;
+}
+.swiper-slide {
+    img {
+        width: 100%;
+    }
+}
+.swiper-pagination-bullets {
+    bottom: 0 !important;
+}
+.swiper-pagination-bullet {
+    background-color: #FFF !important;
+    width: 16px !important;
+    height: 4px !important;
+    border-radius: 3px !important;
+}
+
+
+.profile-title {
+    font-size: 1.2rem;
+    &__reload {
+      text-align: right;
+      a {
+        color: #212b36;
+      }
+    }
+  }
+  
+  .fixed-topbar-warp {
+    padding-top: 2.8rem;
+  }
+  .fixed-topbar {
+    height: 1.8rem;
+    position: fixed;
+    top: 0;
+    z-index:999;
+    width: 100%;
+  }
+  .carpool-topbar {
+    text-align: center;
+    background-color: #1C2260;
+    color: #fff;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    a {
+      color: #fff;
+      padding: 0 1rem;
+      font-size: .9rem;
+    }
+  }
+  .pinche-nav {
+    padding: 15px;
+    justify-content: space-between;
+    text-align: center;
+    img {
+      width: 25px;
+      vertical-align: text-top;
+    }
+    a {
+      display: inline-block;
+      border: 1px solid #c4cdd5;
+      border-radius: 5px;
+      background: linear-gradient(to bottom, #fff, #f9fafb);
+      padding: 10px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      height: 30px;
+      color: #212b36;
+    }
+  }
+  .pinche-search {
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: 12px;
+    .search-bar {
+      padding: 0 1rem;
+      justify-content: center;
+    }
+    input {
+      border: 1px solid #c4cdd5;
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 16px;
+      height: 2rem;
+      width: 80%;
+      &::placeholder {
+        color: #637381;
+      }
+    }
+    .change {
+      display: inline-block;
+      width: 14px;
+      margin: 8px 6px 0 6px;
+      background: url("../images/pinche/hover.png") no-repeat;
+    }
+    button {
+      display: block;
+      height: 2rem;
+      background: linear-gradient(to bottom, #6371c7, #5563c1);
+      border: 1px solid #3f4eae;
+      box-shadow: inset 0 1px 0 0 #6774c8, 0 1px 0 0 rgba(22, 29, 37, 0.05),
+        0 0 0 0 transparent;
+      color: white;
+      padding: 0 1rem;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+  }
+  .hot-way {
+    margin: 10px 10px 0 10px;
+    a {
+      display: inline-block;
+      padding: 3px 9px;
+      margin: 6px 8px 6px 0;
+      border-left: 3px solid #5c6ac4;
+      border-radius: 2px;
+      background-color: rgba(196, 205, 213, 0.3);
+      color: #212b36;
+    }
+  }
+  
+  .notice-important {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    color: #de3618;
+    font-weight: bold;
+  }
+  .pinche-list {
+    border: none !important;
+    margin-top: 0;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
+    background-color: #fff;
+    &__hd {
+      padding: 12px 16px 10px 16px;
+      font-weight: bold;
+      border-bottom: 1px solid #dfe3e8;
+    }
+    &__sort {
+      text-align: right;
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+  
+  .pinche-list-content {
+    .carpool {
+      padding: 1rem;
+      border-bottom: 1px solid #dfe3e8;
+    }
+    .nothing {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+  
+  .weui-cell::before {
+    left: 0 !important;
+  }
+  
+  .pinche-post {
+    &-title {
+      text-align: center;
+      color: #212b36;
+    }
+    &-tips {
+      color: #212b36;
+      background-color: #fbeae5;
+      margin: 1rem 1.5rem;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+      border-radius: 5px;
+      position: relative;
+      > .close {
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        top: 12px;
+        right: 8px;
+        background: url("../images/pinche/close.png") center no-repeat;
+      }
+    }
+  }
+  
+  .lw-btn {
+    background: linear-gradient(to bottom, #606fc7, #5865c1);
+    border: 1px solid #4f5dba;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .label-car {
+    display: inline-block;
+  }
+  .label-people {
+    display: none;
+  }
+  .seat-cnt {
+    .label-car {
+      display: none;
+    }
+    .label-people {
+      display: inline-block;
+    }
+  }
+  
+  .carpool-rule {
+    p {
+      padding: 0.5rem 2rem;
+    }
+  }
+  .footer {
+    padding: 1rem 0;
+    p {
+      margin: 0.2rem 0;
+    }
+  }
+  
+  .carpool-type__car {
+    .type-car {
+      display: inline-block;
+    }
+    .type-people {
+      display: none;
+    }
+  }
+  
+  .type-car,
+  .type-people {
+    padding: 0 0.3rem;
+    color: #fff;
+    display: inline-block;
+    border-radius: 0.2rem;
+  }
+  
+  .type-car {
+    background-color: #108043;
+  }
+  
+  .type-people {
+    background-color: rgb(238, 163, 0);
+  }
+  .sticky-icon {
+    display: inline-block;
+    color: #fff;
+    background-color: #de3618;
+    padding: 0 0.3rem;
+    border-radius: 0.2rem;
+  }
+  
+  .carpool > .content {
+    font-size: 16px;
+    a {
+      color: #212b36;
+    }
+    .carpool-call {
+      text-align: right;
+      display: inline-block;
+      padding: 1px 12px;
+      margin-right: 10px;
+      background-color: #ec9993;
+      border-radius: 14px;
+      color: #fff;
+    }
+    .seat i {
+      font-size: 20px;
+      margin: 0 3px;
+      font-weight: bold;
+      color: #fa5151;
+      font-style: normal;
+    }
+    .direction span,
+    .direction_with span {
+      font-size: 18px;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+    .datetime-ming {
+      color: #c05717;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .datetime-jin {
+      color: #bf0711;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .datetime-hou {
+      color: #8a6116;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .datetime-none {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 16px;
+      padding: 5px 0;
+    }
+  }
+  
+  .carpool-show-topbar {
+    justify-content: space-between;
+    background-color: #5c6ac4;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    a {
+      color: #fff;
+    }
+  }
+  
+  .carpool-show-content {
+    padding: 1rem;
+    font-size: 1.1rem;
+  
+    .carpool-type__car,
+    .carpool-type__people {
+      padding: 2px 5px;
+      color: #fff;
+      text-align: center;
+    }
+    .carpool-type__car {
+      background-color: #108043;
+    }
+    .carpool-type__people {
+      background-color: #eea300;
+    }
+    .content-border {
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding-bottom: 1rem;
+      &__car {
+        border: 1px solid #108043;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+      }
+      &__people {
+        border: 1px solid #eea300;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+      }
+    }
+    .carpool-direction-info {
+      color: #212b36;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1rem 0;
+    }
+    .carpool-directions,
+    .carpool-start-time,
+    .carpool-seat-info,
+    .carpool-description,
+    .carpool-phone {
+      padding: 5px 1rem;
+    }
+  
+    .carpool-start-time {
+      .datetime-ming {
+        color: #c05717;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .datetime-jin {
+        color: #bf0711;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .datetime-hou {
+        color: #8a6116;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      .datetime-none {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+    }
+    .carpool-seat-info {
+      span {
+        color: #fa5151;
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+    }
+    .carpool-phone {
+      a {
+        color: #fa5151;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .carpool-manage {
+    text-align: right;
+    button {
+      background: linear-gradient(to bottom, #fff, #f9fafb);
+      border: 1px solid #c4cdd5;
+      color: #212b36;
+      padding: 4px 6px;
+      font-size: 14px;
+      border-radius: 3px;
+    }
+    .lw-btn-primary {
+      background: linear-gradient(to bottom, #606fc7, #5865c1);
+      border: 1px solid #4f5dba;
+      color: #fff;
+    }
+    .lw-btn-warn {
+      background: linear-gradient(to bottom, #e33719, #d63418);
+      border: 1px solid #bf0711;
+      color: #fff;
+    }
+    .lw-btn-success {
+      background: linear-gradient(to bottom, #3da02a, #219c59);
+      border: 1px solid #1f7d4c;
+      color: #fff;
+    }
+  }
+  .weui-label {
+    color: #333;
+  }
+  .carpooltype-readonly {
+    width: 4rem;
+    ~ span {
+      color: #bf0711;
+    }
+  }
+  
+  .start-input {
+    padding-bottom: 10px;
+  }
+  .start-tips {
+    text-align: center;
+    margin: 0.4rem 0;
+    font-size: 14px;
+    color: #de3618;
+  }
+  .follow {
+    text-align: center;
+    padding-bottom: 0.6rem;
+  }
+  .follow-mp img {
+    margin: 0 auto;
+  }
+  
+  .carpool_sticky {
+    padding: 0.5rem 0;
+    color: #fa5151;
+  }
+  .share-tips {
+    text-align: center;
+    padding: 0 0 .3rem 0;
+    color: #de3618;
+  }
+  
+  .user-vip {
+    padding: 1rem;
+    &-name {
+      img {
+        width: 6rem;
+      }
+    }
+    &-expired {
+      font-size: .9rem;
+      color: #637381;
+    }
+    &-renew {
+      padding: .5rem;
+      a {
+        font-size: 1rem;
+        background-color: #E0F5F5;
+        color: #212b36;
+        padding: .4rem .8rem;
+        border-radius: 1rem;
+      }
+    }
+    &-detail {
+      margin-top: 1rem;
+    }
+  }
