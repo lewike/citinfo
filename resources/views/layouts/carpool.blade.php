@@ -18,7 +18,7 @@
     </div>
     </div>
     <script src="{{mix('js/pinche.js')}}"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     @yield('extend_js')
   </body>
 </html>
