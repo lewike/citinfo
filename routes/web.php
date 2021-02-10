@@ -141,7 +141,7 @@ Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
     Route::get('/rule', 'PostController@rule');
     Route::get('/call/{id}', 'HomeController@call')->where('id', '[0-9]+');
 
-    Route::group(['middleware' => 'wechat.mock'], function () {
+    Route::group(['middleware' => 'wechat.oauth'], function () {
         Route::get('/post', 'PostController@create');
         Route::post('/post', 'PostController@store');
         Route::get('/show/{id}', 'PostController@show');
@@ -154,5 +154,3 @@ Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
         Route::get('/user', 'HomeController@user');
     });
 });
-
-
