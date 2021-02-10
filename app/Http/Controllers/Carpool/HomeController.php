@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Carpool;
 
 use App\Model\Carpool;
 use App\Model\Config;
+use App\Model\Payment;
 use App\Model\User;
 use EasyWeChat\Factory;
 
