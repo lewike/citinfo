@@ -101,8 +101,9 @@ class HomeController extends Controller
             'mch_id' => env('WPAY_MCHID'),
             'key' => env('WPAY_KEY'),
         ]);
-
-        $desc = '充值金额:'.$data['recharge_amount'].'-赠送金额:'.$data['gift_amount'];
+        $rechargeAmount = number_format($data['recharge_amount']/100, 2);
+        $giftAmount = number_format($data['gift_amount']/100, 2);
+        $desc = '充值金额:'.$rechargeAmount.'元-赠送金额:'.$giftAmount.'元';
 
         if (! $payment = Payment::createRecharge($desc, $user, $data['recharge_amount'])) {
             return ['result' => false, 'message' => '订单生成失败，请稍后重试！'];
@@ -116,7 +117,7 @@ class HomeController extends Controller
             'trade_type' => 'JSAPI',
             'openid' => $user->wechat_open_id,
         ]);
-        
+
         if ($result['return_msg'] !== 'OK') {
             $payment->delete();
             return ['result' => false, 'message' => '支付生成失败，请重试！'];
