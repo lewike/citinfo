@@ -60,4 +60,10 @@ class User extends Authenticatable
         }
         return $user;
     }
+
+    public function rechargeWallet($amount, $gift)
+    {
+        $wallet = UserWallet::findByUser($this);
+        $wallet->rechargeWallet($amount, $gift);
+    }
 }

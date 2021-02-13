@@ -23,6 +23,7 @@ class CreatePaymentsTable extends Migration
             $table->string('prepay_id')->nullable();  //支付预处理订单id
             $table->string('pay_type')->default('wxpay');  //交易方式：微信，后台，现金
             $table->integer('total_fee');   //付款金额 单位分
+            $table->integer('gift_fee');   //赠送金额 单位分
             $table->string('status')->default('unpaid'); //状态 unpaid close paid
             $table->timestamp('paid_at')->nullable(  );
             $table->timestamps();

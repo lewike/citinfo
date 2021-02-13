@@ -18,4 +18,22 @@ class UserWallet extends Model
         }
         return $userWallet;
     }
+
+    public function recharge($amount, $gift)
+    {
+        UserWalletLog::create([
+            'user_id' => $this->user_id,
+            'before_total_amount' => $this->total_amount,
+            'before_actual_amount' => $this->actual_amount,
+            'before_gift_amount' => $this->gift_amount,
+            'after_total_amount' => $this->total_amount + $amount + $gift,
+            'after_actual_amount' => $this->actual_amount + $amount,
+            'after_gift_amount' => $this->gift_amount + $gift,
+        ]);
+
+        $this->total_amount = $this->total_amount + $amount + $gift;
+        $this->actual_amount = $this->actual_amount + $amount;
+        $this->gift_amount = $this->gift_amount + $gift;
+        $this->save();
+    }
 }

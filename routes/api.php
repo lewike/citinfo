@@ -18,4 +18,6 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('wechat', 'WechatController@handle');
     
     Route::get('wechat/user', 'WechatController@getUser');
+
+    Route::post('wechat/payment', 'WechatController@payment');
 });

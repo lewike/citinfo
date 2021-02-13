@@ -105,7 +105,7 @@ class HomeController extends Controller
         $giftAmount = number_format($data['gift_amount']/100, 2);
         $desc = '充值金额:'.$rechargeAmount.'元-赠送金额:'.$giftAmount.'元';
 
-        if (! $payment = Payment::createRecharge($desc, $user, $data['recharge_amount'])) {
+        if (! $payment = Payment::createRecharge($desc, $user, $data['recharge_amount'], $data['gift_amount'])) {
             return ['result' => false, 'message' => '订单生成失败，请稍后重试！'];
         }
 
@@ -113,7 +113,7 @@ class HomeController extends Controller
             'body' => '用户充值-'.$desc.'-#'.$payment->order_id,
             'out_trade_no' => $payment->order_id,
             'total_fee' => $data['recharge_amount'],
-            'notify_url' => env('WPAY_NOTIFY_URL', env('APP_URL').'/api/weixin/payment'),
+            'notify_url' => env('WPAY_NOTIFY_URL', env('APP_URL').'/api/wechat/payment'),
             'trade_type' => 'JSAPI',
             'openid' => $user->wechat_open_id,
         ]);
