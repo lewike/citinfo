@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Cache;
+use EasyWeChat\Factory;
+use App\Model\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
