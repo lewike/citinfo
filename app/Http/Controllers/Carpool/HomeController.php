@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Carpool;
 use App\Model\Carpool;
 use App\Model\Config;
 use App\Model\Payment;
+use App\Model\UserWallet;
 use App\Model\User;
 use EasyWeChat\Factory;
 
@@ -86,6 +87,7 @@ class HomeController extends Controller
                 'gift' => $cost[2],
             ];
         }
+        $data['userWallet'] = UserWallet::findByUser($user);
         return view('carpool.home.user', $data);
     }
 

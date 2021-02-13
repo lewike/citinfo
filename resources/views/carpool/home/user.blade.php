@@ -14,7 +14,7 @@
             <div class="user-vip">
                 <div class="weui-flex">
                     <div class="weui-flex__item">
-                        账户余额： 100.00
+                        账户余额： {{number_format($userWallet->total_amount/100, 2)}}
                     </div>
                     <div class="user-vip-renew">
                         <a href="javascript:;" class="btn-recharge">立即充值</a>
