@@ -64,6 +64,6 @@ class User extends Authenticatable
     public function rechargeWallet($amount, $gift)
     {
         $wallet = UserWallet::findByUser($this);
-        $wallet->rechargeWallet($amount, $gift);
+        $wallet->recharge($amount, $gift);
     }
 }
