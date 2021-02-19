@@ -103,12 +103,16 @@ class PostController extends Controller
 
     public function sticky(Request $request)
     {
-        
         $wechatUser = session('wechat.oauth_user.default');
         $user = User::findByOpenId($wechatUser->id);
 
         $carpoolId = $request->get('id');
         $carpool = Carpool::find($carpoolId);
+
+        if ($carpool->sticking()) {
+            return  ['result' => false, 'message' => '当前正在置顶，请勿重复操作！'];
+        }
+
         $minutes = $request->get('minutes');
 
         $totalFee = $request->get('total_fee');
@@ -134,13 +138,73 @@ class PostController extends Controller
             return ['result' => false, 'message' => '余额不足，请充值！'];
         }
 
-        
-        
+        $sticky = $carpool->createSticky($totalFee, $minutes, $user);
+        $user->sticky($totalFee);
+        $sticky->finish();
 
         return ['result' => true];
     }
 
-    public function delete()
+    public function edit($id)
+    {
+        $wechatUser = session('wechat.oauth_user.default');
+        $user = User::findByOpenId($wechatUser->id);
+        $carpool = Carpool::find($id);
+        if ($carpool->user_id == $user->id || $user->isAdmin()) {
+            $data['carpool'] = $carpool;
+            return view('carpool.post.edit', $data);
+        }
+        return '非法访问！';
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'type' => 'required',
+            'start_at' => 'required',
+            'direction_from' => 'required',
+            'direction_to' => 'required',
+            'seat_cnt' => 'required',
+            'phone' => 'required'
+            ]);
+
+        if ($validator->fails()) {
+            return ['result' => false, 'message' => '请填写完整信息！'];
+        }
+        
+        if (! $carpool = Carpool::find($id)) {
+            return ['result' => false, 'message' => '没有找到该信息'];
+        }
+
+        $wechatUser = session('wechat.oauth_user.default');
+        $user = User::findByOpenId($wechatUser->id);
+        if ($carpool->user_id != $user->id && !$user->isAdmin()) {
+            return ['result' => false, 'message' => '你没有权限修改该信息！'];
+        }
+        
+        if ($carpool->start_at->isPast()) {
+            return ['result' => false, 'message' => '拼车信息已经失效！'];
+        }
+        
+        if ($carpool->type == 'car') {
+            $data = $request->only(['start_at',
+                'direction_from', 'direction_to', 'directions', 'car_type',
+                'seat_cnt', 'additional', 'description', 'phone'
+            ]);
+        } else {
+            $data = $request->only(['start_at',
+            'direction_from', 'direction_to',
+            'seat_cnt', 'additional', 'description', 'phone'
+            ]);
+        }
+        if (strlen($data['start_at']) == 16) {
+            $data['start_at'] .= ':00';
+        }
+        $carpool->update($data);
+        return ['result' => true];
+    }
+
+    public function delete($id)
     {
         $wechatUser = session('wechat.oauth_user.default');
         $user = User::findByOpenId($wechatUser->id);

@@ -20,10 +20,6 @@
                         <a href="javascript:;" class="btn-recharge">立即充值</a>
                     </div>
                 </div>
-                <div>
-                    <button>充值记录</button>
-                    <button>消费记录</button> 
-                </div>
             </div>
         
             <div class="pinche-list">
@@ -179,7 +175,7 @@
                     axios.post('/pinche/sticky', {id: carpoolId, stick: result[0].label, total_fee: result[0].value, minutes: result[0].minutes})
                     .then(function (response) {
                         if (response.data.result) {
-                            weui.toast('置顶成功！', {duration: 2000})
+                            window.location.href = '/pinche/user';
                         } else {
                             weui.toast(response.data.message, {duration: 2000})
                         }

@@ -1,6 +1,5 @@
-@extends('citinfo::layouts.weixin')
+@extends('layouts.carpool')
 @section('title')
-{{$config['edit']['title']}}
 @endsection
 @section('content')
 <div class="weui-tab">
@@ -102,7 +101,7 @@
     </div>
 </div>
 <div class="d-none">
-{!! $config['tongji'] !!}
+{!! $config['tongji'] ?? '' !!}
 </div>
 @endsection
 
@@ -130,7 +129,7 @@ $(function(){
             return false;
         }
         $.ajax({
-            url: '/weixin/pinche/edit/'+$('#carpool_id').val(),
+            url: '/pinche/edit/'+$('#carpool_id').val(),
             type: 'post',
             data: $('.form-edit-carpool').serialize(),
             success: function (data) {
@@ -140,7 +139,7 @@ $(function(){
                         buttons: [{
                             label: '确定',
                             type: 'primary',
-                            onClick: function(){ window.location.href="/weixin/pinche/user" }
+                            onClick: function(){ window.location.href="/pinche/user" }
                         }]
                     })
                 } else {

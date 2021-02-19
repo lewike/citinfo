@@ -36,4 +36,28 @@ class UserWallet extends Model
         $this->gift_amount = $this->gift_amount + $gift;
         $this->save();
     }
+
+    public function sticky($amount)
+    {
+        $actual = $amount;
+        $gift = 0;
+        if ($this->actual_amount < $amount) {
+            $actual = $this->actual_amount;
+            $gift = $amount - $actual;
+        }
+        UserWalletLog::create([
+            'user_id' => $this->user_id,
+            'before_total_amount' => $this->total_amount,
+            'before_actual_amount' => $this->actual_amount,
+            'before_gift_amount' => $this->gift_amount,
+            'after_total_amount' => $this->total_amount - $amount,
+            'after_actual_amount' => $this->actual_amount - $actual,
+            'after_gift_amount' => $this->gift_amount - $gift,
+        ]); 
+
+        $this->total_amount = $this->total_amount - $amount;
+        $this->actual_amount = $this->actual_amount - $actual;
+        $this->gift_amount = $this->gift_amount - $gift;
+        $this->save();
+    }
 }

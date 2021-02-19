@@ -66,4 +66,10 @@ class User extends Authenticatable
         $wallet = UserWallet::findByUser($this);
         $wallet->recharge($amount, $gift);
     }
+    
+    public function sticky($amount)
+    {
+        $wallet = UserWallet::findByUser($this);
+        $wallet->sticky($amount);
+    }
 }

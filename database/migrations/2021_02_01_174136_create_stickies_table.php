@@ -15,11 +15,10 @@ class CreateStickiesTable extends Migration
     {
         Schema::create('stickies', function (Blueprint $table) {
             $table->id();
-            $table->integer('sticky_object_id');  //目标id
-            $table->string('sticky_object')->default('carpool');  //置顶类型，post carpool
+            $table->morphs('stickyable');
             $table->integer('minutes');  //置顶时长 单位分钟
             $table->integer('cost_fee');  //费用
-            $table->integer('admin_user_id')->default(0);  //管理员后台操作时记录
+            $table->integer('user_id')->default(0);  //置顶用户ID
             $table->string('status')->default('pending'); //状态
             $table->timestamp('finished_at')->nullable();
             $table->timestamps();
