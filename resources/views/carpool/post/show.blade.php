@@ -98,7 +98,7 @@
       })
   })
   var host = '{{env('APP_URL')}}';
-  var config = {!!$app->jssdk->buildConfig(['updateAppMessageShareData', 'updateTimelineShareData'], true)!!};
+  var config = {!!$app->jssdk->buildConfig(['updateAppMessageShareData', 'updateTimelineShareData'])!!};
   wx.config(config);
   wx.ready(function () {
       wx.updateAppMessageShareData({ 
