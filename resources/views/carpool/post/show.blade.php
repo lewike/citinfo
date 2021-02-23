@@ -85,22 +85,17 @@
                 label: '点击拨打电话',
                 type: 'primary',
                 onClick: function () {
-                    $.ajax({url: '/weixin/pinche/call/'+$(e.target).data('id')})
+                    $.ajax({url: '/pinche/call/'+$(e.target).data('id')})
                     window.location.href = 'tel:'+ $(e.target).data('tel')
                 }
             }]
         });
         @else
-        $.ajax({url: '/weixin/pinche/call/'+$(e.target).data('id')})
+        $.ajax({url: '/pinche/call/'+$(e.target).data('id')})
         window.location.href = 'tel:'+ $(e.target).data('tel')
         @endif 
         return false;
       })
-      @if (isset($shareMessage))
-      weui.toast('{{$shareMessage}}', {
-          duration: 3000
-      });
-      @endif
   })
   var host = '{{env('APP_URL')}}';
   var config = {!!$app->jssdk->buildConfig(['updateAppMessageShareData', 'updateTimelineShareData'], true)!!};

@@ -35,7 +35,22 @@ class Payment extends Model
 
         if ($this->order_type == 'recharge') {
             $user = User::find($this->user_id);
-            $user->rechargeWallet($this->total_fee, $this->gift_fee);
+            $user->recharge($this);
         }
+    }
+
+    public function userWalletLog()
+    {
+        return $this->morphOne(UserWalletLog::class, 'relation');
+    }
+
+    public function getAmount()
+    {
+        return $this->total_fee;
+    }
+
+    public function getGift()
+    {
+        return $this->gift_fee;
     }
 }

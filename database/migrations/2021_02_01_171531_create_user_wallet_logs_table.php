@@ -23,7 +23,7 @@ class CreateUserWalletLogsTable extends Migration
             $table->integer('after_actual_amount')->default(0); //记录后实际金额
             $table->integer('before_gift_amount')->default(0); //记录前赠送金额
             $table->integer('after_gift_amount')->default(0); //记录后赠送金额
-            $table->morphs('log');
+            $table->morphs('relation');
             $table->string('desc')->nullable();
             $table->timestamps();
         });

@@ -141,7 +141,7 @@ $(function(){
         event.target.disabled = true;
         var start = $('.btn-select-time').val()
         if (!LWDate.checkStartTime(start)) {
-            weui.alert('出发时间不能为过去时间，请重新修改！')
+            weui.topTips('出发时间不能为过去时间，请重新修改！', 3000)
             event.target.disabled = false;
             return false;
         }
@@ -159,7 +159,7 @@ $(function(){
                 })
             } else {
                 event.target.disabled = false;
-                weui.topTips(response.data.data.message, 3000);
+                weui.topTips(response.data.message, 3000);
             }
         })
         .catch(function (error) {

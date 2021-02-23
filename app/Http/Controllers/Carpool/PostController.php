@@ -18,6 +18,7 @@ class PostController extends Controller
         $data['carpool'] = Carpool::find($id);
         $data['app'] = app('wechat.official_account');
         $data['share'] = $this->shareInfo($data['carpool']);
+        $data['config'] = Config::value('carpool');
         return view('carpool.post.show', $data);
     }
 
@@ -31,7 +32,7 @@ class PostController extends Controller
         $info = [
             'title' => "【{$type}】{$carpool->direction_from} 到 {$carpool->direction_to}",
             'desc' => "{$type} {$carpool->direction_from} 到 {$carpool->direction_to} {$seat} {$start} 出发 {$directions}",
-            'image' => '/images/pinche/carpool-'.$carpool->type.'.png'
+            'image' => env('APP_URL').'/images/pinche/carpool-'.$carpool->type.'.png'
         ];
 
         return $info;
@@ -139,7 +140,7 @@ class PostController extends Controller
         }
 
         $sticky = $carpool->createSticky($totalFee, $minutes, $user);
-        $user->sticky($totalFee);
+        $user->consume($sticky);
         $sticky->finish();
 
         return ['result' => true];

@@ -19,9 +19,11 @@ class UserWallet extends Model
         return $userWallet;
     }
 
-    public function recharge($amount, $gift)
+    public function recharge($payment)
     {
-        UserWalletLog::create([
+        $amount = $payment->getAmount();
+        $gift = $payment->getGift();
+        $payment->userWalletLog()->save(new UserWalletLog([
             'user_id' => $this->user_id,
             'before_total_amount' => $this->total_amount,
             'before_actual_amount' => $this->actual_amount,
@@ -29,7 +31,7 @@ class UserWallet extends Model
             'after_total_amount' => $this->total_amount + $amount + $gift,
             'after_actual_amount' => $this->actual_amount + $amount,
             'after_gift_amount' => $this->gift_amount + $gift,
-        ]);
+        ]));
 
         $this->total_amount = $this->total_amount + $amount + $gift;
         $this->actual_amount = $this->actual_amount + $amount;
@@ -37,23 +39,25 @@ class UserWallet extends Model
         $this->save();
     }
 
-    public function sticky($amount)
+    public function consume($consume)
     {
+        $amount = $consume->getAmount();
         $actual = $amount;
         $gift = 0;
         if ($this->actual_amount < $amount) {
             $actual = $this->actual_amount;
             $gift = $amount - $actual;
         }
-        UserWalletLog::create([
+        $consume->userWalletLog()->save(new UserWalletLog([
             'user_id' => $this->user_id,
+            'type' => 'out',
             'before_total_amount' => $this->total_amount,
             'before_actual_amount' => $this->actual_amount,
             'before_gift_amount' => $this->gift_amount,
             'after_total_amount' => $this->total_amount - $amount,
             'after_actual_amount' => $this->actual_amount - $actual,
             'after_gift_amount' => $this->gift_amount - $gift,
-        ]); 
+        ]));
 
         $this->total_amount = $this->total_amount - $amount;
         $this->actual_amount = $this->actual_amount - $actual;

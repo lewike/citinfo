@@ -25,4 +25,14 @@ class Sticky extends Model
 
         $sticky->setSticky($this->minutes);
     }
+
+    public function userWalletLog()
+    {
+        return $this->morphOne(UserWalletLog::class, 'relation');
+    }
+
+    public function getAmount()
+    {
+        return $this->cost_fee;
+    }
 }

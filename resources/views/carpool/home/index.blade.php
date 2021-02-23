@@ -7,7 +7,7 @@
         <div class="weui-tab__content d-block fixed-topbar-warp">
             <div class="carpool-topbar weui-flex fixed-topbar">
                 <div><a href="javascript:;" class="location">切换城市</a></div>
-                <div class="weui-flex__item"></div>
+                <div class="weui-flex__item">{{$config['website'] ?? ''}}</div>
                 <div>&#12288;&#12288;<a href="javascript:location.reload()">刷新</a></div>
             </div>
             <div class="swiper-container">
