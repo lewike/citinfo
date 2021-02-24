@@ -138,14 +138,14 @@ class PostController extends Controller
             return ['result' => false, 'message' => '无法获取身份信息'];
         }
 
-        $user = User::where('wechat_openid', $wechatOpenId)->first();
+        $user = User::where('wechat_open_id', $wechatOpenId)->first();
         if (!$user) {
             $userId = substr($wechatOpenId, 0, 12);
             $user = User::create([
                 'name' => $userId,
                 'email' => $userId.'@zaixixian.com',
                 'password' => md5($userId),
-                'wechat_openid' => $wechatOpenId
+                'wechat_open_id' => $wechatOpenId
             ]);
         }
 
@@ -170,7 +170,7 @@ class PostController extends Controller
             return ['result' => false, 'message' => '无法获取身份信息'];
         }
 
-        $user = User::where('wechat_openid', $wechatOpenId)->first();
+        $user = User::where('wechat_open_id', $wechatOpenId)->first();
         
         if (!$user) {
             return ['result' => false, 'message' => '无法获取身份信息'];
