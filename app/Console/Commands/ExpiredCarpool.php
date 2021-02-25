@@ -45,7 +45,7 @@ class ExpiredCarpool extends Command
 
     public function expiredStick()
     {
-        Carpool::where('is_sticky', 1)->where('sticky_expired_at', '<', date('Y-m-d H:i:s'))->update(['is_sticky' => 0]);
+        Carpool::where('sticky', 1)->where('sticky_expired_at', '<', date('Y-m-d H:i:s'))->update(['sticky' => 0]);
     }
 
     public function expiredCarpool()
