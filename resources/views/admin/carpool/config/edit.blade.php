@@ -105,6 +105,27 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">微缘采集id：</label>
+                  <input type="text" class="form-control" name="vyuanid" value="{{$config['vyuanid'] ?? ''}}">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">最大采集数量：</label>
+                  <input type="text" class="form-control" name="vyuan_max" value="{{$config['vyuan_max'] ?? ''}}">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">采集关键字：</label>
+                  <input type="text" class="form-control" name="vyuan_keyword" value="{{$config['vyuan_keyword'] ?? ''}}">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-footer text-muted">
             <button type="button" class="btn btn-primary btn-update-carpool-config">保存配置</button>
