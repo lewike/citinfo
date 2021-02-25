@@ -13,8 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        App\Console\Commands\ExpiredCarpool::class,
-        App\Console\Commands\SpiderCarpool::class
+        Commands\ExpiredCarpool::class,
+        Commands\SpiderCarpool::class
     ];
 
     /**
