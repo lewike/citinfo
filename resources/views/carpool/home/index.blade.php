@@ -62,7 +62,7 @@
                     <span class="direction">{{$direction_from}}->{{$direction_to}}</span>
                     @endif
                     共{{$carpools->count()}}条信息</div>
-                    <div class="weui-flex__item pinche-list__sort"><a href="/weixin/pinche?sort=start" class="sort-start d-none" data-sort="start">按出发时间排序</a><a href="/weixin/pinche?sort=created" class="sort-created d-none" data-sort="create">按发布时间排序</a></div>
+                    <div class="weui-flex__item pinche-list__sort"><a href="/pinche?sort=start" class="sort-start d-none" data-sort="start">按出发时间排序</a><a href="/pinche?sort=created" class="sort-created d-none" data-sort="create">按发布时间排序</a></div>
                 </div>
                 <div class="pinche-list-content">
                     @if (!$carpools->count())
