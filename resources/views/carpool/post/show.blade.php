@@ -107,6 +107,7 @@
           link: host+'/pinche/show/{{$carpool->id}}',
           imgUrl: '{{$share['image']}}',
           success: function () {
+            weui.alert('感谢你的分享！');
           }
       })
       wx.updateTimelineShareData({  
@@ -114,7 +115,7 @@
           link: host+'/pinche/show/{{$carpool->id}}',
           imgUrl: '{{$share['image']}}',
           success: function () {
-
+            weui.alert('感谢你的分享！');
           }
       })
   });

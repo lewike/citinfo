@@ -83,7 +83,7 @@
                     @empty
                     <div class="nothing">
                         <p>没有找到未出发的拼车信息</p>
-                        <p>要拼车？ <a href="/weixin/pinche/post">点击立即去发布</a></p>
+                        <p>要拼车？ <a href="/pinche/post">点击立即去发布</a></p>
                     </div>
                     @endforelse
                 </div>
