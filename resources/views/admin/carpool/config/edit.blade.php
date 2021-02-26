@@ -126,6 +126,32 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">主页分享标题：</label>
+                  <input type="text" class="form-control" name="share_title" value="{{$config['share_title'] ?? ''}}">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">主页分享描述：</label>
+                  <input type="text" class="form-control" name="share_desc" value="{{$config['share_desc'] ?? ''}}">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">主页分享链接：</label>
+                  <input type="text" class="form-control" name="share_link" value="{{$config['share_link'] ?? ''}}">
+                </div>
+              </div>
+                <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">主页分享图片：</label>
+                  <input type="text" class="form-control" name="share_image" value="{{$config['share_image'] ?? ''}}">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-footer text-muted">
             <button type="button" class="btn btn-primary btn-update-carpool-config">保存配置</button>
