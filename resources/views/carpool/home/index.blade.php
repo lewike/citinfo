@@ -193,13 +193,13 @@
                     label: '点击拨打电话',
                     type: 'primary',
                     onClick: function () {
-                        $.ajax({url: '/weixin/pinche/call/'+$(e.target).data('id')})
+                        $.ajax({url: '/pinche/call/'+$(e.target).data('id')})
                         window.location.href = 'tel:'+ $(e.target).data('tel')
                     }
                 }]
             });
             @else
-            $.ajax({url: '/weixin/pinche/call/'+$(e.target).data('id')})
+            $.ajax({url: '/pinche/call/'+$(e.target).data('id')})
             window.location.href = 'tel:'+ $(e.target).data('tel')
             @endif 
             return false;
@@ -207,7 +207,7 @@
         $('.btn-search').click(function (){
            var direction_from = $('input[name=direction_from]').val();
            var direction_to = $('input[name=direction_to]').val();
-           window.location.href = '/weixin/pinche?direction_from='+encodeURIComponent(direction_from)+'&direction_to='+encodeURIComponent(direction_to)
+           window.location.href = '/pinche?direction_from='+encodeURIComponent(direction_from)+'&direction_to='+encodeURIComponent(direction_to)
         })
         $('.pinche-list__sort a').click(function (e) {
             e.preventDefault();
@@ -225,22 +225,22 @@
             }
         })
         $.ajax({
-            url: '/weixin/config/share',
+            url: '/config/share',
             success: function (res) {
                 wx.config(res.json)
                 wx.ready(function () {
                     wx.updateAppMessageShareData({ 
-                        title: '{{$config['index']['share']['title'] ?? ''}}',
-                        desc: '{{$config['index']['share']['desc'] ?? ''}}',
-                        link: '{{$config['index']['share']['link'] ?? ''}}',
-                        imgUrl: '{{$config['index']['share']['img'] ?? ''}}',
+                        title: '{{$config['share_title'] ?? ''}}',
+                        desc: '{{$config['share_desc'] ?? ''}}',
+                        link: '{{$config['share_link'] ?? ''}}',
+                        imgUrl: '{{$config['share_img'] ?? ''}}',
                         success: function () {
                         }
                     })
                     wx.updateTimelineShareData({  
-                        title: '{{$config['index']['share']['title'] ?? ''}}',
-                        link: '{{$config['index']['share']['link'] ?? ''}}',
-                        imgUrl: '{{$config['index']['share']['img'] ?? ''}}',
+                        title: '{{$config['share_title'] ?? ''}}',
+                        link: '{{$config['share_link'] ?? ''}}',
+                        imgUrl: '{{$config['share_img'] ?? ''}}',
                         success: function () {
                         }
                     })
@@ -255,11 +255,11 @@
                 children: [
                     {
                         label: '息县拼车网',
-                        value: 'https://www.zaixixian.com/weixin/pinche'
+                        value: 'https://www.zaixixian.com/pinche'
                     },
                     {
                         label: '淮滨拼车网',
-                        value: 'https://www.huaibin360.com/weixin/pinche'
+                        value: 'https://www.huaibin360.com/pinche'
                     }
                 ]
             }], 
