@@ -225,7 +225,7 @@
             }
         })
         $.ajax({
-            url: '/config/share',
+            url: '/wechat/share',
             success: function (res) {
                 wx.config(res.json)
                 wx.ready(function () {
