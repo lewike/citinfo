@@ -233,14 +233,14 @@
                         title: '{{$config['share_title'] ?? ''}}',
                         desc: '{{$config['share_desc'] ?? ''}}',
                         link: '{{$config['share_link'] ?? ''}}',
-                        imgUrl: '{{$config['share_img'] ?? ''}}',
+                        imgUrl: '{{$config['share_image'] ?? ''}}',
                         success: function () {
                         }
                     })
                     wx.updateTimelineShareData({  
                         title: '{{$config['share_title'] ?? ''}}',
                         link: '{{$config['share_link'] ?? ''}}',
-                        imgUrl: '{{$config['share_img'] ?? ''}}',
+                        imgUrl: '{{$config['share_image'] ?? ''}}',
                         success: function () {
                         }
                     })
