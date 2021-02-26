@@ -69,7 +69,7 @@ class WechatController extends Controller
         }
     }
 
-    public function share()
+    public function share(Request $request)
     {
         $app = app('wechat.official_account');
         $app->jssdk->setUrl($request->server('HTTP_REFERER'));
