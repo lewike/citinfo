@@ -68,4 +68,11 @@ class WechatController extends Controller
             return abort(500);
         }
     }
+
+    public function share()
+    {
+        $app = app('wechat.official_account');
+        $app->jssdk->setUrl($request->server('HTTP_REFERER'));
+        return ['json' => $app->jssdk->buildConfig(['updateAppMessageShareData', 'updateTimelineShareData'], false, false, false)];
+    }
 }
