@@ -113,6 +113,7 @@ Route::group(['namespace' => 'Website'], function () {
 
     Route::get('wechat/qrcode', 'WechatController@qrcode');
     Route::get('wechat/check', 'WechatController@check');
+    Route::get('wechat/share', 'WechatController@share');
     
     Route::get('wechat/login', 'WechatController@login');
     Route::group(['middleware' => ['wechat.oauth']], function () {
