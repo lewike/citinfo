@@ -41,7 +41,6 @@
                     <th width="60">拨打数</th>
                     <th width="80">ip</th>
                     <th width="50">渠道</th>
-                    <th width="50">是否付款</th>
                     <th width="50">是否置顶</th>
                     <th width="100">发布时间</th>
                     <th width="130">操作</th>
@@ -63,7 +62,6 @@
                 <td>{{$carpool->call_cnt}}</td>
                 <td>{{$carpool->ip ?? '-'}}</td>
                 <td>{{$carpool->source}}</td>
-                <td>{{$carpool->payStatus()}}</td>
                 <td>
                     {{$carpool->sticky? '是':'否'}}
                     {{$carpool->sticky_expired_at}}
