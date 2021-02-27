@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="start">
                                     <span class="time" data-date="{{$carpool->start_at->valueOf()}}"></span>
-                                    @if ($carpool->additional)
+                                    @if (trim($carpool->additional))
                                     <span>({{$carpool->additional}})</span>
                                     @endif
                                     <span>出发</span>
