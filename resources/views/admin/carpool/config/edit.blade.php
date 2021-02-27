@@ -104,6 +104,12 @@
                   <textarea name="recharge" class="form-control" cols="30" rows="10" >{{$config['recharge'] ?? ''}}</textarea>
                 </div>
               </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">统计代码：</label>
+                  <textarea name="tongji" class="form-control" cols="30" rows="10" >{{$config['tongji'] ?? ''}}</textarea>
+                </div>
+              </div>
             </div>
 
             <div class="row">
