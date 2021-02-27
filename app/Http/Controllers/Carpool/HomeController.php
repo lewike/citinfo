@@ -130,4 +130,11 @@ class HomeController extends Controller
         $config = $app->jssdk->sdkConfig($result['prepay_id']);
         return ['result' => true, 'data' => $config];
     }
+
+    public function call($id)
+    {
+        $carpool = Carpool::find($id);
+        $carpool->call_cnt++;
+        $carpool->save();
+    }
 }
