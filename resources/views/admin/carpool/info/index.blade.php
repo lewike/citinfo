@@ -65,8 +65,8 @@
                 <td>{{$carpool->source}}</td>
                 <td>{{$carpool->payStatus()}}</td>
                 <td>
-                    {{$carpool->is_stick? '是':'否'}}
-                    {{$carpool->stick_expired_at}}
+                    {{$carpool->sticky? '是':'否'}}
+                    {{$carpool->sticky_expired_at}}
                 </td>
                 <td>{{$carpool->created_at}}</td>
                 <td><a href="javascript:;" data-id="{{$carpool->id}}" class="btn-delete-carpool">删除</a> <a href="/admin/pinche/edit/{{$carpool->id}}">修改</a> </td>
