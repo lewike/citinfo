@@ -67,7 +67,7 @@
                     {{$carpool->sticky_expired_at}}
                 </td>
                 <td>{{$carpool->created_at}}</td>
-                <td><a href="javascript:;" data-id="{{$carpool->id}}" class="btn-delete-carpool">删除</a> <a href="/admin/pinche/edit/{{$carpool->id}}">修改</a> </td>
+                <td><a href="javascript:;" data-id="{{$carpool->id}}" class="btn-carpool-delete-dlg">删除</a> <a href="/admin/pinche/edit/{{$carpool->id}}">修改</a> </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -81,4 +81,46 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="modal-delete" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-title">确定删除？</div>
+        <div>如果确定，数据会被永久删除！</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger btn-carpool-delete" data-id="" data-bs-dismiss="modal">确定，删除数据</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection
+
+@section('extend_js')
+<script>
+  $(function(){
+    $('.btn-carpool-delete-dlg').click(function(event) {
+
+      $('#modal-delete').modal('show');
+      var delId = $(event.currentTarget).data('id');
+      $('.btn-carpool-delete').attr('data-id', delId);
+    });
+    $('.btn-carpool-delete').click(function(event){
+      $(event.currentTarget).prop('disabled', true)
+      axios.post('/admin/pinche/info/delete', {id:$(event.currentTarget).data('id')})
+      .then(function(response){
+        var res = response.data;
+        if (res.result) {
+          window.location.href = '/admin/pinche/info'
+        } else {
+          toastr.error(res.message)
+          $(event.currentTarget).prop('disabled', false)
+        }
+      })
+    })
+})
+</script>
 @endsection

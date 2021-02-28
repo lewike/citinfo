@@ -59,6 +59,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
         Route::group(['namespace' => 'Carpool'], function () {
             Route::get('pinche/info', 'InfoController@index');
             Route::get('pinche/info/create', 'InfoController@create');
+            Route::post('pinche/info/create', 'InfoController@save');
+            Route::post('pinche/info/delete', 'InfoController@delete');
             Route::get('pinche/consume', 'ConsumeController@index');
             Route::get('pinche/recharge', 'RechargeController@index');
             Route::get('pinche/config', 'ConfigController@edit');            

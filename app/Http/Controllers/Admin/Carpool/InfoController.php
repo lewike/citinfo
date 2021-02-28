@@ -23,4 +23,11 @@ class InfoController extends Controller
     {
         return ['result' => true];
     }
+    
+    public function delete(Request $request)
+    {
+        $carpool = Carpool::find($request->get('id'));
+        $carpool->delete();
+        return ['result' => true];
+    }
 }
