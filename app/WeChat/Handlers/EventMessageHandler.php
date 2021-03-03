@@ -26,6 +26,10 @@ class EventMessageHandler implements EventHandlerInterface
             $welcome .= "\r\n\r\n".'你的信息正在提交，需要经过审核后才能显示！'."\r\n\r\n".'如需快速审核，请联系客服！';
         }
 
+        if (Str::start($payload['EventKey'], 'edit-post')) {
+            $welcome .= "\r\n\r\n".'你的信息正在更新中...';
+        }
+
         Cache::put('openid:'.$payload['EventKey'], $openId, 1800);
         return $welcome;
     }

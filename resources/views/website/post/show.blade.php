@@ -98,25 +98,6 @@
           </div>
         </div>
       </div>
-
-    <div class="modal" tabindex="-1" id="follow-dialog" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fab fa-weixin"></i> 身份验证，请用微信扫描二维码</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="" alt="" width="215px" height="215px">
-                </div>
-                <div class="modal-footer">
-                    <span class="text-danger">注意：请使用发布该信息的微信扫描！</span>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
 
@@ -124,47 +105,45 @@
 <script type="text/javascript" src="/js/lightbox.js"></script>
 <script>
     $(function () {
-        
-    var timer = null;
-    $('.btn-edit-post').click(function () {
-        $(event.currentTarget).prop('disabled', true)
-        axios.get('/weixin/qrcode').then(response => {
-            if (response.data.result) {
-                $('#follow-dialog img').attr('src', response.data.data.url);
-                $('#follow-dialog').modal('show');
-                timer = setInterval(function () {
-                    axios.get('/weixin/check-login').then(response => {
-                        if (response.data.result) {
-                            $('#follow-dialog').modal('hide');
-                            clearInterval(timer);
-                            $.ajax({
-                                url: '/post/edit',
-                                type: 'POST',
-                                data: $('.form-edit-post').serialize(),
-                                success: function (res) {
-                                    if (res.result) {
-                                        toastr.success('修改成功，等待缓存更新后刷新页面！')
-                                    } else {
-                                        toastr.error(res.message)
-                                    }
-                                },
-                                complete: function () {
-                                    $(event.currentTarget).prop('disabled', false)
+        var checkTimer;
+        $('#wechat-auth-dialog').on('hide.bs.modal', function (e) {
+            clearInterval(checkTimer);
+            $('.btn-manage-post').prop('disabled', false);
+        });
+
+        $('.btn-manage-post').on('click', function (event) {
+            var $ele = $(event.currentTarget);
+            $ele.prop('disabled', true);
+            var action = $ele.data('action');
+            var id = $ele.data('postid');
+            var wechatChecking = false;
+            axios.get('/wechat/qrcode?scene=edit-post').then(response => {
+                if (response.data.result) {
+                $('#wechat-auth-dialog img').attr('src', response.data.data.url);
+                $('#wechat-auth-dialog').modal('show');
+                checkTimer = setInterval(() => {
+                    axios.get('/wechat/check').then(response => {
+                    if (response.data.result) {
+                        if (! wechatChecking) {
+                            $('#wechat-auth-dialog').modal('hide');
+                            wechatChecking = true;
+                            clearInterval(checkTimer);
+                            axios.post('/post/manage', {action: action, id: id})
+                                .then(response => {
+                                if (response.data.result) {
+                                    toastr.success('修改成功，等待缓存更新后刷新页面！');
+                                } else {
+                                    toastr.error(res.message);
                                 }
-                            })
+                            });   
+                            }
                         }
-                    })
-                }, 2000);
-            }
-        })
-        return false
-    })
-
-    $('#follow-dialog').on('hide.bs.modal', function (e) {
-        clearInterval(timer);
-        $('.btn-edit-post').prop('disabled', false);
-    })
-
+                        });
+                    }, 2000);
+                }
+            });
+            return false;
+        });
     
 
     lightbox.option({

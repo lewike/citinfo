@@ -162,23 +162,22 @@ class PostController extends Controller
         $action = $request->get('action');
         $id = $request->get('id');
 
-        $wechatCode = session('wechat-code');
-        $wechatOpenId = Cache::get('wechat-code'.$wechatCode);
+        $wechatOpenId = session('wechat_openid');
 
         if (empty($wechatOpenId)) {
-            return ['result' => false, 'message' => '无法获取身份信息'];
+            return ['result' => false, 'message' => '无法获取身份信息！'];
         }
 
         $user = User::where('wechat_open_id', $wechatOpenId)->first();
         
         if (!$user) {
-            return ['result' => false, 'message' => '无法获取身份信息'];
+            return ['result' => false, 'message' => '无法获取身份信息！'];
         }
 
         $post = Post::find($id);
         
         if ($post->user_id != $user->id) {
-            return ['result' => false, 'message' => '信息发布者与微信不匹配'];
+            return ['result' => false, 'message' => '你没有权限管理该信息！'];
         }
 
         if ($action == 'expired') {
@@ -186,7 +185,7 @@ class PostController extends Controller
         }
         if ($action == 'refresh') {
             if ($post->refresh_at->isToday()) {
-                return ['result' => false, 'message' => '每天只能刷新一次'];
+                return ['result' => false, 'message' => '每天只能刷新一次！'];
             }
             $post->refresh_at = date('Y-m-d H:i:s');
         }
@@ -194,7 +193,6 @@ class PostController extends Controller
             $post->expired_at = $post->expired_at->addDays(7);
         }
         $post->save();
-        
 
         return ['result' => true];
     }
