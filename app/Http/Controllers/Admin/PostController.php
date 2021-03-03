@@ -95,6 +95,13 @@ class PostController extends Controller
         $post->update($data);
         return ['result' => true];
     }
+
+    public function delete(Request $request)
+    {
+        $postId = $request->get('id');
+        Post::destroy($postId);
+        return ['result' => true];
+    }
     
     public function getPhoneLocal($phone)
     {

@@ -52,7 +52,7 @@
             <td>{{$user['created_at']}}</td>
             <td>{{$user['last_login_at']}}</td>
             <td>{{$user['status']}}</td>
-            <td>限制</td>
+            <td>拉黑</td>
           </tr>
           @endforeach
         </tbody>

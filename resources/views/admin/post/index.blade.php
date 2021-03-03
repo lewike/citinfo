@@ -54,7 +54,7 @@
               <td>{{$post['views']}}</td>
               <td>{{$post['created_at']}}</td>
               <td><span class="post-status-{{$post['status']}}"></span></td>
-              <td><a href="" data-bs-toggle="modal" data-bs-target="#modal-sticky">置顶</a> | <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed" data-bs-toggle="modal" data-bs-target="#modal-expired">失效</a> | <a href="/admin/post/delete/{{$post['id']}}" data-bs-toggle="modal" data-bs-target="#modal-small">删除</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a></td>
+              <td><a href="" data-bs-toggle="modal" data-bs-target="#modal-sticky">置顶</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a> | <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed text-danger" data-bs-toggle="modal" data-bs-target="#modal-expired">失效</a> | <a href="#" data-id="{{$post['id']}}" class="text-danger btn-delete-post-dlg">删除</a></td>
             </tr>
             @endforeach
           </tbody>
@@ -91,9 +91,38 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-danger btn-delete-post" data-bs-dismiss="modal">确定，删除数据</button>
+        <button type="button" class="btn btn-danger btn-delete-post" data-bs-dismiss="modal" data-id="">确定，删除数据</button>
       </div>
     </div>
   </div>
 </div>
+@endsection
+
+@section('extend_js')
+<script>
+  $(function(){
+    $('.post-images-120').on('click', 'div span', function () {
+      $(this).closest('li').remove()
+      if ($('.post-images-120 li').length < 6) {
+        $('.fileupload-wrapper').removeClass('hidden')
+      }
+    })
+    $('.btn-delete-post-dlg').click(function(event){
+      var ele = $(event.currentTarget);
+      $('#modal-delete').modal('show');
+      $('.btn-delete-post').attr('data-id', ele.data('id'));
+      return false;
+    });
+    $('.btn-delete-post').click(function(event){
+      var ele = $(event.currentTarget);
+      var postId = ele.data('id');
+      axios.post('/admin/post/delete', {id: postId})
+      .then(function (response) {
+        window.location.reload();
+      })
+      .catch(function (error) {
+      })
+    });
+  });
+</script>
 @endsection

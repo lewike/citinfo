@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
         Route::post('/post/create', 'PostController@store');
         Route::get('/post/edit/{post}', 'PostController@edit');
         Route::post('/post/edit/{post}', 'PostController@update');
+        Route::post('/post/delete', 'PostController@delete');
         
         Route::post('/image/upload', 'ImageController@upload');
         
