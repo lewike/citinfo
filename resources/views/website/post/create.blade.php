@@ -92,7 +92,7 @@
           <img src="" alt="" width="215px" height="215px">
         </div>
         <div class="modal-footer">
-          <span>扫码后请关注公众号，便于对信息管理</span>
+          <span class="text-danger">扫码后请关注公众号，便于对信息管理</span>
         </div>
       </div>
     </div>

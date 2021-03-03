@@ -33,8 +33,11 @@ class WechatController extends Controller
     public function check()
     {
         $code = session('wechat_scene_str');
-        return response()
-                ->json(['result' => !!Cache::get('openid:'.$code)]);
+        if ($openid = Cache::get('openid:'.$code)) {
+            session(['wechat_openid' => $openid]);
+            return ['result' => true];
+        }
+        return ['result' => false];
     }
 
     public function auth()

@@ -131,8 +131,7 @@ class PostController extends Controller
             return ['result' => false, 'message' => join('、', $errors->all())];
         }
 
-        $wechatCode = session('wechat-code');
-        $wechatOpenId = Cache::get('wechat-code'.$wechatCode);
+        $wechatOpenId = session('wechat-openid');
 
         if (empty($wechatOpenId)) {
             return ['result' => false, 'message' => '无法获取身份信息'];
