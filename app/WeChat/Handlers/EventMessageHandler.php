@@ -22,11 +22,11 @@ class EventMessageHandler implements EventHandlerInterface
             $welcome = '扫码成功！';
         }
 
-        if (Str::start($payload['EventKey'], 'create-post')) {
+        if (Str::startsWith($payload['EventKey'], 'create-post')) {
             $welcome .= "\r\n\r\n".'你的信息正在提交，需要经过审核后才能显示！'."\r\n\r\n".'如需快速审核，请联系客服！';
         }
 
-        if (Str::start($payload['EventKey'], 'edit-post')) {
+        if (Str::startsWith($payload['EventKey'], 'edit-post')) {
             $welcome .= "\r\n\r\n".'你的信息正在更新中...';
         }
 
