@@ -78,7 +78,7 @@
     <span class="d-block mx-5 px-4 py-3 border text-md text-danger bg-light">请认真阅读本页上方“发布须知”，以及【网站声明】、【使用帮助】文档内容。点击“↙现在发布”即代表你已阅读并同意我们的服务条款</span>
   </div>
   <div class="col text-center pt-3">
-    <button type="button" class="btn btn-success btn-post">已经填写完整，现在发布</button>
+    <button type="button" class="btn btn-success btn-create-post">已经填写完整，现在发布</button>
   </div>
   </form>
   <div class="modal" tabindex="-1" id="follow-dialog" role="dialog">
@@ -118,8 +118,8 @@ window.onload = function() {
 
 $(function(){
   var timer = null;
-  $('.btn-post').click(function(){
-    axios.get('/wechat/qrcode').then(response => {
+  $('.btn-create-post').click(function(){
+    axios.get('/wechat/qrcode?scene=create-post').then(response => {
       if (response.data.result) {
         $('#follow-dialog img').attr('src', response.data.data.url);
         $('#follow-dialog').modal('show');
