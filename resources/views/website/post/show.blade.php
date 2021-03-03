@@ -133,7 +133,7 @@
                                 if (response.data.result) {
                                     toastr.success('修改成功，等待缓存更新后刷新页面！');
                                 } else {
-                                    toastr.error(res.message);
+                                    toastr.error(response.data.message);
                                 }
                             });   
                             }
