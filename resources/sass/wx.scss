@@ -253,7 +253,6 @@ body {
     }
 }
 .post-show {
-    background-color: #FFF;
     min-height: 92vh;
     &-title {
         font-size: 1.2rem;
@@ -279,9 +278,6 @@ body {
     &-tip {
         padding: 1rem;
         font-size: .85rem;
-        margin: 1rem;
-        border: 1px solid #F44336;
-        border-radius: 2px;
     }
 }
 .breadcrumb {
@@ -289,10 +285,9 @@ body {
     line-height: 2.4rem;
     font-size: .9rem;
     font-weight: bold;
-    padding-left: 1rem;
-    background-color: #f7f7f7;
-    box-shadow: 0px 2px 5px 2px rgba(208, 208, 208, 0.5);
+    padding: 0 .5rem;
     color: #333;
+    background-color: #FFF;
 }
 
 .post-show-img {
@@ -314,12 +309,43 @@ i.phone {
 }
 .btn-call-phone {
     font-size: .85rem;
-    background-color: #ff7700;
-    color: #FFF;
-    padding: .2rem;
-    border-radius: .1rem;
+    border: 1px solid #ff7700;
+    color: #FF7700;
+    padding: .2rem .4rem;
+    border-radius: .2rem;
 }
 
 .weui-gallery__opr {
     display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card {
+    width: 96vw;
+    margin: 2vw auto;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 2vw 0;
+    .card-title {
+        padding-left: 2vw;
+        margin-left: 3vw;
+        margin-top: .5rem;
+        font-weight: bold;
+        line-height: 1rem;
+        border-left: 3px solid #3154c5;
+    }
+    .title-danger {
+        border-left: 3px solid #ff3c00;
+    }
+}
+
+.post-phone {
+    font-size: 1.3rem;
+    color: #FF7700;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-right: 1rem;
 }

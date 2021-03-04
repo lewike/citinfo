@@ -36,11 +36,6 @@
                   分类管理
                 </a>
               </li>
-              <li >
-                <a class="dropdown-item" href="/admin/post/black" >
-                  黑名单
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -55,11 +50,6 @@
               <li >
                 <a class="dropdown-item" href="/admin/pinche/info" >
                   信息管理
-                </a>
-              </li>
-              <li >
-                <a class="dropdown-item" href="/admin/pinche/users" >
-                  用户管理
                 </a>
               </li>
               <li >
@@ -134,12 +124,12 @@
             </a>
             <ul class="dropdown-menu show">
               <li >
-                <a class="dropdown-item" href="./empty.html" >
-                  logo设置
+                <a class="dropdown-item" href="/admin/website/config" >
+                  网站配置
                 </a>
               </li>
               <li >
-                <a class="dropdown-item" href="./blank.html" >
+                <a class="dropdown-item" href="/admin/website/ad" >
                   广告管理
                 </a>
               </li>

@@ -19,4 +19,17 @@ class PostController extends Controller
 
         return view('website.weixin.post.show', $data);
     }
+
+    public function create()
+    {
+        return view('website.weixin.post.create');
+    }
+
+    public function phone($id)
+    {
+        $post = Post::find($id);
+        $post->call_cnt++;
+        $post->save();
+        return ['result' => true, 'data' => ['phone' => $post->phone]];
+    }
 }
