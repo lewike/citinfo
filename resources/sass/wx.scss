@@ -214,7 +214,7 @@ body {
         border-bottom: 1px solid #fafafa;
         list-style: none;
         a {
-            color: #2281FF;
+            color: #1890ff;
         }
         .post-title {
             max-width: 96vw;
@@ -258,12 +258,15 @@ body {
         font-size: 1.2rem;
         font-weight: bold;
         text-align: center;
-        padding: 2rem .5rem 1.5rem .5rem;
+        padding: .5rem;
     }
     &-info {
         font-size: .65rem;
         text-align: center;
         color: #666;
+        margin: 0 1rem;
+        padding-bottom: .5rem;
+        border-bottom: 1px solid #DDD;
     }
     &-content {
         font-size: 1rem;
@@ -309,8 +312,8 @@ i.phone {
 }
 .btn-call-phone {
     font-size: .85rem;
-    border: 1px solid #ff7700;
-    color: #FF7700;
+    border: 1px solid #ff4d4f;
+    color: #ff4d4f;
     padding: .2rem .4rem;
     border-radius: .2rem;
 }
@@ -335,17 +338,45 @@ i.phone {
         margin-top: .5rem;
         font-weight: bold;
         line-height: 1rem;
-        border-left: 3px solid #3154c5;
+        border-left: 3px solid #1890ff;
     }
     .title-danger {
-        border-left: 3px solid #ff3c00;
+        border-left: 3px solid #ff4d4f;
     }
 }
 
 .post-phone {
     font-size: 1.3rem;
-    color: #FF7700;
+    color: #ff4d4f;
     font-weight: bold;
     vertical-align: middle;
     margin-right: 1rem;
+}
+
+.post-phone-local {
+    font-size: .9rem;
+    color: #666;
+}
+
+.content-label {
+    padding: 1rem 0 .5rem 1rem;
+}
+
+.btn-primary, .btn-danger {
+    background: none;
+    border: 1px solid #1890ff !important;
+    border-radius: 3px;
+    padding: .1rem .3rem;
+    color: #1890ff;
+}
+
+.btn-danger {
+    border-color: #ff4d4f !important;
+    color: #ff4d4f;
+}
+
+.user-posts {
+    padding: .8rem 1rem;
+    list-style: none;
+
 }

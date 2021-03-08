@@ -47,6 +47,7 @@ class PostController extends Controller
         $data['refresh_at'] = date('Y-m-d H:i:s');
         $data['ip'] = $request->ip();
         $data['status'] = 'published';
+        $data['source'] = 'admin';
         if (! $phoneInfo = PhoneInfo::where('phone', $data['phone'])->first()) {
             $phoneInfo = PhoneInfo::create([
                 'phone' => $data['phone'],

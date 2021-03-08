@@ -36,6 +36,7 @@
               <th>首页置顶</th>
               <th>栏目置顶</th>
               <th>浏览量</th>
+              <th>来源</th>
               <th>发布时间</th>
               <th>状态</th>
               <th>操作</th>
@@ -45,13 +46,14 @@
             @foreach ($posts as $post)
             <tr>
               <td><a href="/admin/post/edit/{{$post['id']}}">{{$post['id']}}</a></td>
-              <td>{{$post->category()->name}}</td>
+              <td>{{$post->category_path ? $post->category()->name : ''}}</td>
               <td><a href="/post/{{$post['id']}}" target="_blank">{{$post['title']}}</a></td>
               <td>{{$post['phone']}}</td>
               <td>{{$post['expired_at']}}</td>
               <td>{{$post['index_sticky'] ? '是' : '否'}} 有效期:{{$post['index_sticky_expired_at']}}</td>
               <td>{{$post['category_sticky'] ? '是' : '否'}} 有效期:{{$post['category_sticky_expired_at']}}</td>
               <td>{{$post['views']}}</td>
+              <td>{{$post->source_cn}}</td>
               <td>{{$post['created_at']}}</td>
               <td><span class="post-status-{{$post['status']}}"></span></td>
               <td><a href="" data-bs-toggle="modal" data-bs-target="#modal-sticky">置顶</a> | <a href="/admin/post/edit/{{$post['id']}}">编辑</a> | <a href="/admin/post/expired/{{$post['id']}}" class="comfirmed text-danger" data-bs-toggle="modal" data-bs-target="#modal-expired">失效</a> | <a href="#" data-id="{{$post['id']}}" class="text-danger btn-delete-post-dlg">删除</a></td>

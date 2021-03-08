@@ -153,6 +153,7 @@ class PostController extends Controller
         $data['user_id'] = $user->id;
         $data['expired_at'] = $data['refresh_at'] = date('Y-m-d H:i:s');
         $data['ip'] = $request->ip();
+        $data['source'] = 'pc';
         $post = Post::create($data);
         return ['result' => true, 'data' => ['url' => $post->url()]];
     }

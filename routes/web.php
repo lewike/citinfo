@@ -67,6 +67,14 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
             Route::get('pinche/config', 'ConfigController@edit');            
             Route::post('pinche/config', 'ConfigController@update');            
         });
+
+        Route::group(['namespace' => 'Website', 'prefix' => 'website'], function () {
+            Route::get('/config', 'ConfigController@edit');
+            Route::post('/config', 'ConfigController@update');
+
+            Route::get('/ad', 'AdController@edit');
+            Route::post('/ad', 'AdController@update');
+        });
     });
 });
 
@@ -109,11 +117,14 @@ Route::group(['namespace' => 'Website'], function () {
 
     
     
-    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.auth']], function(){
+    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.mock']], function(){
         Route::get('/', 'HomeController@index');
         Route::get('/post/show/{post}', 'PostController@show');
         Route::get('post/create', 'PostController@create');
+        Route::post('post/create', 'PostController@store');
         Route::get('post/phone/{id}', 'PostController@phone');
+        Route::post('post/upload', 'PostController@upload');
+        Route::get('user', 'UserController@index');
     });
 
     Route::get('wechat/qrcode', 'WechatController@qrcode');

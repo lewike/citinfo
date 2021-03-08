@@ -33,6 +33,7 @@
         <div class="card-title">联系方式</div>   
         <div class="post-show-phone">
             <span class="post-phone">{{ substr_replace($post->phone,'****',3,4)}}</span>  <span class="btn-call-phone" data-id="{{$post->id}}">拨打电话</span>
+            <div class="post-phone-local">归属地：{{$post->phone_local}}</div>
         </div>
     </div>
     <div class="card">

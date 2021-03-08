@@ -63,4 +63,11 @@ class Post extends Model
     {
         return Category::getNameByPath($this->category_path);
     }
+
+    public function getSourceCnAttribute()
+    {
+        $value = $this->attributes['source'];
+        $marryMap = ['pc' => '网站', 'wechat' => '微信', 'admin' => '后台'];
+        return $marryMap[$value];
+    }
 }
