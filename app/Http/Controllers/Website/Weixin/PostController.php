@@ -72,4 +72,10 @@ class PostController extends Controller
         }
         return ['img' => $url];
     }
+
+    public function view(Post $post)
+    {
+        $post->views++;
+        $post->save();
+    }
 }

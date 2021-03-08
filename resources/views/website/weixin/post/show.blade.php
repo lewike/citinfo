@@ -55,6 +55,7 @@
 <script>
     $(function(){
         var postId = {{$post->id}};
+        axios.get('/wx/post/view/'+postId);
         $('.post-show-img li').on('click', function(event){
             var $ele = $(event.currentTarget);
             var img = $ele.find('img');
