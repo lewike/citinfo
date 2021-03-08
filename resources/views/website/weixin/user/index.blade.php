@@ -13,13 +13,17 @@
         </div>
         <div>
             <ul class="user-posts">
+                @foreach ($posts as $post)
                 <li>
-                    <div>信息标题</div>
-                    <div>分类： </div>
-                    <div>浏览： </div>
-                    <div>过期时间： </div>
-                    <div><button class="btn-primary">刷新靠前</button>  <button class="btn-primary">延长一周</button> <button class="btn-danger">信息失效</button></div>
+                    <div class="post-title"><a href="/wx/post/show/{{$post->id}}">{{$post->title}}</a></div>
+                    <div class="post-info">
+                        <div>浏&#12288;览： {{$post->views}} 次</div>
+                        <div>分&#12288;类：{{$post->category()->name}}</div>
+                       <div>有效期：{{$post->expired_at->format('Y-m-d H:i')}}</div>
+                    </div>
+                    <div class="post-opts"><button class="btn-primary">信息刷新</button>  <button class="btn-primary">信息延长</button> <button class="btn-danger">信息失效</button></div>
                 </li>
+                @endforeach
             </ul>
         </div>
     </div>

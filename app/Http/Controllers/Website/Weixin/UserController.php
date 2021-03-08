@@ -13,7 +13,9 @@ class UserController extends Controller
 {
     public function index()
     {
-
-        return view('website.weixin.user.index');
+        $wechatUser = session('wechat.oauth_user.default');
+        $user = User::findByOpenId($wechatUser->id);
+        $data['posts'] = Post::where('user_id', $user->id)->where('status', 'published')->get();
+        return view('website.weixin.user.index', $data);
     }
 }

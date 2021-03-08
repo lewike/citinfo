@@ -362,21 +362,57 @@ i.phone {
     padding: 1rem 0 .5rem 1rem;
 }
 
-.btn-primary, .btn-danger {
-    background: none;
-    border: 1px solid #1890ff !important;
-    border-radius: 3px;
-    padding: .1rem .3rem;
-    color: #1890ff;
-}
-
-.btn-danger {
-    border-color: #ff4d4f !important;
-    color: #ff4d4f;
-}
-
 .user-posts {
     padding: .8rem 1rem;
     list-style: none;
-
+    li {
+        margin-top: .5rem;
+        &:not(:last-child) {
+            padding-bottom: .8rem;
+            margin-bottom: .8rem;
+            border-bottom: 1px solid #DDD;
+        }
+    }
+    .post-title {
+        font-size: 1.1rem;
+        a {
+            color: #1890ff;
+        }
+    }
+    .post-info {
+        color: #555;
+        padding: .4rem 0;
+    }
+    .post-opts {
+        margin-top: .2rem;
+        button {
+            background: none;
+            border-radius: 3px;
+            padding: .2rem .4rem;
+        }
+        .btn-primary{
+            border: 1px solid #1890ff !important;
+            color: #1890ff;
+            margin-right: .3rem;
+            &:focus {
+                outline: none;
+                background-color: #1890ff;
+                color: #FFF;
+            }
+        }
+        .btn-danger {
+            border: 1px solid #ff4d4f !important;
+            color: #ff4d4f;
+            &:focus {
+                outline: none;
+                background-color: #ff4d4f;
+                color: #FFF;
+            }
+        }
+    }
 }
+
+.text-right {
+    text-align: right;
+}
+
