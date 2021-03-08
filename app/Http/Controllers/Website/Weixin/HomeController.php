@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $data['config'] = Config::value('mp');
         $data['categories'] = Category::where('depth', 1)->get();
-        $data['posts'] = Post::where('status', 'published')->get();
+        $data['posts'] = Post::where('status', 'published')->latest()->get();
         return view('website.weixin.home.index', $data);
     }
     public function category($id)
