@@ -126,6 +126,8 @@ Route::group(['namespace' => 'Website'], function () {
         Route::get('post/phone/{id}', 'PostController@phone');
         Route::post('post/upload', 'PostController@upload');
         Route::get('user', 'UserController@index');
+
+        Route::get('/fenlei/{name}', 'HomeController@fenlei');
     });
 
     Route::get('wechat/qrcode', 'WechatController@qrcode');
