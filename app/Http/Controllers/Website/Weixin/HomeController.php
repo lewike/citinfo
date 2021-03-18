@@ -14,17 +14,23 @@ class HomeController extends Controller
     {
         $data['config'] = Config::value('mp');
         $data['categories'] = Category::where('depth', 1)->get();
-        $data['posts'] = Post::where('status', 'published')->latest()->get();
+        $data['posts'] = Post::where('status', 'published')->latest('index_sticky')->latest('refresh_at')->limit(50)->get();
         return view('website.weixin.home.index', $data);
     }
     public function category($id)
     {
-        return view('website.weixin.home.category');
+        $category = Category::find($id);
+        $data['subCategories'] = $category->subCategories()->get();
+        $data['posts'] = $category->posts()->show()->latest('category_sticky')->latest('refresh_at')->limit(40)->get();
+        return view('website.weixin.home.category', $data);
     }
 
-    public function fenlei($name)
+    public function fenlei($ename)
     {
-        return view('website.weixin.home.fenlei');
+        $data['category'] = Category::where('ename', $ename)->first();
+        $data['subCategories'] = $data['category']->subCategories()->get();
+        $data['posts'] = $data['category']->posts()->show()->latest('category_sticky')->latest('refresh_at')->limit(40)->get();
+        return view('website.weixin.home.fenlei', $data);
     }
 
     public function detail($id)

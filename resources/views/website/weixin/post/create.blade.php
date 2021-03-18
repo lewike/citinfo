@@ -5,7 +5,7 @@
     <div class="breadcrumb weui-flex">
         <div><a href="/wx">主页</a></div>
         <div class="weui-flex__item text-center">
-            <h4>免费发布消息</h4>
+            <h3>免费发布消息</h3>
         </div>
         <div><a href="javascript:location.reload()">重置</a></div>
     </div>
@@ -83,6 +83,9 @@ $(function(){
           var id = $this.data('id');
           $('input[data-id="'+id+'"]').remove();
           $this.remove();
+          if (--uploadCount < 6) {
+              $('.weui-uploader__input-box').removeClass('d-none');
+          }
         }
       }])
     })
@@ -147,15 +150,16 @@ weui.uploader('#uploader', {
             return false;
         }
         if (files.length > 6) { // 防止一下子选中过多文件
-            weui.alert('最多只能上传5张图片，请重新选择');
+            weui.alert('最多只能上传6张图片，请重新选择');
             return false;
         }
         if (uploadCount + 1 > 6) {
             weui.alert('最多只能上传6张图片');
             return false;
         }
-
-        ++uploadCount;
+        if (++uploadCount == 6) {
+            $('.weui-uploader__input-box').addClass('d-none');
+        }
     },
     onQueued: function(){
         uploadList.push(this);
