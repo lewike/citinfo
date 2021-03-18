@@ -1,6 +1,12 @@
 html, body {
     height: 100%;
 }
+a {
+    color: #333;
+    &:visited {
+        color: #333;
+    }
+}
 body {
     margin: 0;
     background-color: #f7f7f7;
@@ -374,12 +380,12 @@ i.phone {
         }
     }
     .post-title {
-        font-size: 1.1rem;
         a {
             color: #1890ff;
         }
     }
     .post-info {
+        font-size: .9rem;
         color: #555;
         padding: .4rem 0;
     }
@@ -416,3 +422,6 @@ i.phone {
     text-align: right;
 }
 
+.form-create-post {
+    margin-top: -40px;
+}
