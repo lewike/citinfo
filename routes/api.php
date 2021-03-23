@@ -23,6 +23,6 @@ Route::group(['namespace' => 'Api'], function () {
 });
 
 
-Route::domain('hook-api.zaixixian.com')->group(['namespace' => 'Api'], function(){
+Route::group(['namespace' => 'Api', 'domain' => 'hook-api.zaixixian.com'], function(){
     Route::post('msg', 'WechatController@hookMsg');
 });
