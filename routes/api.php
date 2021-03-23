@@ -21,3 +21,8 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::post('wechat/payment', 'WechatController@payment');
 });
+
+
+Route::domain('hook-api.zaixixian.com')->group(['namespace' => 'Api'], function(){
+    Route::post('msg', 'WechatController@hookMsg');
+});

@@ -84,4 +84,10 @@ class WechatController extends Controller
         });
         return $response;
     }
+
+    public function hookMsg(Request $request)
+    {
+        $content = $request->getBody();
+        info($content);
+    }
 }
