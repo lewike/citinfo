@@ -52,7 +52,7 @@ class SpiderCarpool extends Command
         }
 
         if (isset($config['wuxi_host']) && $config['wuxi_host']) {
-            $this->spiderWuxi($config['wuxi_host']);
+            $this->spiderWuxi($config['wuxi_host'], $config['wuxi_max'], $config['wuxi_keyword']);
         }
 
         return 0;
@@ -157,25 +157,25 @@ class SpiderCarpool extends Command
         return $data;
     }
  
-    public function spiderWuxi($host)
+    public function spiderWuxi($host, $max, $keyword)
     {
         $url = 'http://'.$host.'/index.php';
         $response = $this->http->get($url);
         $content = (string)$response->getBody();
         preg_match_all('/PCID\=(\d+)\&ID/', $content, $match);
-        $ids = array_slice($match[1], 0, $this->config['spider']['wuxi']['max-count']);
+        $ids = array_slice($match[1], 0, $max);
         foreach ($ids as $id) {
             $url = 'http://'.$host.'/PinCheInfo.php?PCID='.$id;
-            $this->getDetail($url);
+            $this->getDetail($url, $keyword);
         }
     }
 
-    public function getDetail($url)
+    public function getDetail($url, $keyword)
     {
         $response = $this->http->get($url);
         $content = (string)$response->getBody();
         $data = $this->parser($content);
-        $keywords = explode(',', $this->config['spider']['keyword']);
+        $keywords = explode(',', $keyword);
         if (!empty($data)) {
             if ($data['start_at'] > date('Y-m-d H:i:s')) {
                 if (!CollectCarpool::where('phone', $data['phone'])->where('start_at', '>', date('Y-m-d H:i:s'))->first()) {
