@@ -140,6 +140,18 @@
                   <input type="text" class="form-control" name="wuxi_host" value="{{$config['wuxi_host'] ?? ''}}">
                 </div>
               </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">最大采集数量：</label>
+                  <input type="text" class="form-control" name="wuxi_max" value="{{$config['wuxi_max'] ?? ''}}">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">采集关键字：</label>
+                  <input type="text" class="form-control" name="wuxi_keyword" value="{{$config['wuxi_keyword'] ?? ''}}">
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-lg-3">
