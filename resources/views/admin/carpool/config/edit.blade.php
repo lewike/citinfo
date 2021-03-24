@@ -132,6 +132,16 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="">巫溪采集域名：</label>
+                  <input type="text" class="form-control" name="wuxi_host" value="{{$config['wuxi_host'] ?? ''}}">
+                </div>
+              </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-lg-3">
                 <div class="form-group">

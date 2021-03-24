@@ -47,7 +47,13 @@ class SpiderCarpool extends Command
 
         $config = Config::value('carpool');
 
-        $this->spiderVyuan($config['vyuanid'], $config['vyuan_max'], $config['vyuan_keyword']);
+        if (isset($config['vyuanid']) && $config['vyuanid']) {
+            $this->spiderVyuan($config['vyuanid'], $config['vyuan_max'], $config['vyuan_keyword']);
+        }
+
+        if (isset($config['wuxi_host']) && $config['wuxi_host']) {
+            $this->spiderWuxi($config['wuxi_host']);
+        }
 
         return 0;
     }
@@ -156,7 +162,6 @@ class SpiderCarpool extends Command
         $url = 'http://'.$host.'/index.php';
         $response = $this->http->get($url);
         $content = (string)$response->getBody();
-        $this->info('get data from : '.$url);
         preg_match_all('/PCID\=(\d+)\&ID/', $content, $match);
         $ids = array_slice($match[1], 0, $this->config['spider']['wuxi']['max-count']);
         foreach ($ids as $id) {
