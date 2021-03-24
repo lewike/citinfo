@@ -140,7 +140,6 @@
                   <input type="text" class="form-control" name="wuxi_host" value="{{$config['wuxi_host'] ?? ''}}">
                 </div>
               </div>
-              </div>
             </div>
             <div class="row">
               <div class="col-lg-3">
