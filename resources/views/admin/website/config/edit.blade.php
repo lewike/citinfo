@@ -18,82 +18,42 @@
           <input type="hidden" name="key" value="website">
           <div class="card-body">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="mb-3 swiper-wraper">
-                      <div class="form-label">轮播图1：</div>
-                    <input type="hidden" class="form-control swiper-img" name="swipers[image][0]" value="{{$config['swipers']['image'][0] ?? ''}}">
-                    <img src="{{$config['swipers']['image'][0] ?? ''}}" alt="" class="carpool-config-swiper">
-                      <div class="position-relative fileupload-wrapper mt-3">
-                          <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
-                          点击上传
-                          </button>
-                          <input type="file" name="upload_file" class="position-absolute upload-swiper"
-                          accept="image/jpeg,image/png" style="">
-                      </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="swipers[url][0]" value="{{$config['swipers']['url'][0] ?? ''}}" placeholder="链接地址1">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mb-3 swiper-wraper">
-                      <div class="form-label">轮播图2：</div>
-                      <input type="hidden" class="form-control swiper-img" name="swipers[image][1]" value="{{$config['swipers']['image'][1] ?? ''}}">
-                      <img src="{{$config['swipers']['image'][1] ?? ''}}" alt="" class="carpool-config-swiper">
-                      <div class="position-relative fileupload-wrapper mt-3">
-                          <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
-                          点击上传
-                          </button>
-                          <input type="file" name="upload_file" class="position-absolute upload-swiper"
-                          accept="image/jpeg,image/png" style="">
-                      </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="swipers[url][1]" value="{{$config['swipers']['url'][1] ?? ''}}" placeholder="链接地址2">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mb-3 swiper-wraper">
-                      <div class="form-label">轮播图3：</div>
-                      <input type="hidden" class="form-control swiper-img" name="swipers[image][2]" value="{{$config['swipers']['image'][2] ?? ''}}">
-                      <img src="{{$config['swipers']['image'][2] ?? ''}}" alt="" class="carpool-config-swiper">
-                      <div class="position-relative fileupload-wrapper mt-3">
-                          <button type="button" class="btn btn-primary btn-sm" style="width:90px;height:31px; z-index:0">
-                          点击上传
-                          </button>
-                          <input type="file" name="upload_file" class="position-absolute upload-swiper"
-                          accept="image/jpeg,image/png" style="">
-                      </div>
-                      <input type="text" class="form-control swiper-url mt-3" name="swipers[url][2]" value="{{$config['swipers']['url'][2] ?? ''}}" placeholder="链接地址3">
-                    </div>
-                </div>
-                @csrf
-            </div>
-            <div class="row">
-              <div class="col-lg-3">
+              <div class="col-lg-6 mb-2">
                 <div class="form-group">
                   <label for="">网站名：</label>
                   <input type="text" class="form-control" name="website" value="{{$config['website'] ?? ''}}">
                 </div>
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-6 mb-2">
                 <div class="form-group">
                   <label for="">首页SEO标题：</label>
                   <input type="text" class="form-control" name="index_seo_title" value="{{$config['index_seo_title'] ?? ''}}">
                 </div>
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-6 mb-2">
                 <div class="form-group">
                   <label for="">首页SEO描述：</label>
-                  <input type="text" class="form-control" name="index_seo_desc" value="{{$config['index_seo_desc'] ?? ''}}">
+                  <textarea class="form-control" name="index_seo_desc" id="" rows="3">{{$config['index_seo_desc'] ?? ''}}</textarea>
                 </div>
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-6 mb-2">
                 <div class="form-group">
                   <label for="">首页SEO关键字：</label>
-                  <input type="text" class="form-control" name="index_seo_keywords" value="{{$config['index_seo_keywords'] ?? ''}}">
+                  <textarea class="form-control" name="index_seo_keywords" rows="3">{{$config['index_seo_keywords'] ?? ''}}</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 mb-2">
+                <div class="form-group">
+                  <label for="">统计代码：</label>
+                    <textarea class="form-control" name="tongji"rows="3">{{$config['tongji'] ?? ''}}</textarea>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-footer text-muted">
-            <button type="button" class="btn btn-primary btn-update-carpool-config">保存配置</button>
+            <button type="button" class="btn btn-primary btn-update-website-config">保存配置</button>
             <button type="button" class="btn btn-link">返回</button>
           </div>
         </form>
