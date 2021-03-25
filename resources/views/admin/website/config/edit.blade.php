@@ -85,20 +85,22 @@ $(function(){
   })
   
   $('.btn-update-website-config').click(function(event){
-      $(event.currentTarget).prop('disabled', true)
-      $.ajax({
-          url: '/admin/website/config',
-          type: 'post',
-          data: $('.form-update-website-config').serialize(),
-          success: function (res) {
-              if (res.result) {
-                  window.location.href = '/admin/website/config'
-              } else {
-                  toastr.error(res.message)
-                  $(event.currentTarget).prop('disabled', false)
-              }
-          }
+      $(event.currentTarget).prop('disabled', true);
+      axios.post('/admin/website/config', $('.form-update-website-config').serialize())
+      .then(function (response) {
+        if (response.data.result)
+        {
+          window.location.href = '/admin/website/config';
+        } else {
+          toastr.error(response.data.message);
+          $(event.currentTarget).prop('disabled', false);
+        }
       })
+      .catch(function (error) {
+        toastr.error(error);
+        $(event.currentTarget).prop('disabled', false);
+      })
+      
   })
 })
 </script>
