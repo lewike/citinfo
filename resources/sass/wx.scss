@@ -35,9 +35,10 @@ body {
 
 .swiper-container {
     width: 100vw;
-    height: 50vw;
+    height: auto !important;
 }
 .swiper-slide {
+    height: auto !important;
     img {
         width: 100%;
     }
