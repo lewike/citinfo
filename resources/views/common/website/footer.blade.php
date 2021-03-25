@@ -14,15 +14,4 @@
       <img src="{{env('CDN_URL')}}/images/zaixixian-kefu-qr.png" alt="客服微信二维码" width="80px">
       </p>
     </div>
-    <div class="d-none">
-      <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?04bfd99db311ab3ec53bf08ed8a62081";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>        
-    </div>
   </div>

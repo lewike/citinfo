@@ -18,36 +18,36 @@
           <input type="hidden" name="key" value="website">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6 mb-2">
+              <div class="col-lg-6 mb-4">
                 <div class="form-group">
-                  <label for="">网站名：</label>
-                  <input type="text" class="form-control" name="website" value="{{$config['website'] ?? ''}}">
+                  <label class="font-weight-bold">网站名：</label>
+                  <input type="text" class="form-control mt-2" name="website" value="{{$config['website'] ?? ''}}">
                 </div>
               </div>
-              <div class="col-lg-6 mb-2">
+              <div class="col-lg-6 mb-4">
                 <div class="form-group">
-                  <label for="">首页SEO标题：</label>
-                  <input type="text" class="form-control" name="index_seo_title" value="{{$config['index_seo_title'] ?? ''}}">
+                  <label class="font-weight-bold">首页SEO标题：</label>
+                  <input type="text" class="form-control mt-2" name="index_seo_title" value="{{$config['index_seo_title'] ?? ''}}">
                 </div>
               </div>
-              <div class="col-lg-6 mb-2">
+              <div class="col-lg-6 mb-4">
                 <div class="form-group">
-                  <label for="">首页SEO描述：</label>
-                  <textarea class="form-control" name="index_seo_desc" id="" rows="3">{{$config['index_seo_desc'] ?? ''}}</textarea>
+                  <label class="font-weight-bold">首页SEO描述：</label>
+                  <textarea class="form-control mt-2" name="index_seo_desc" id="" rows="3">{{$config['index_seo_desc'] ?? ''}}</textarea>
                 </div>
               </div>
-              <div class="col-lg-6 mb-2">
+              <div class="col-lg-6 mb-4">
                 <div class="form-group">
-                  <label for="">首页SEO关键字：</label>
-                  <textarea class="form-control" name="index_seo_keywords" rows="3">{{$config['index_seo_keywords'] ?? ''}}</textarea>
+                  <label class="font-weight-bold">首页SEO关键字：</label>
+                  <textarea class="form-control mt-2" name="index_seo_keywords" rows="3">{{$config['index_seo_keywords'] ?? ''}}</textarea>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-6 mb-2">
+              <div class="col-lg-6 mb-4">
                 <div class="form-group">
-                  <label for="">统计代码：</label>
-                    <textarea class="form-control" name="tongji"rows="3">{{$config['tongji'] ?? ''}}</textarea>
+                  <label class="font-weight-bold">统计代码：</label>
+                    <textarea class="form-control mt-2" name="tongji"rows="9">{{$config['tongji'] ?? ''}}</textarea>
                 </div>
               </div>
             </div>
