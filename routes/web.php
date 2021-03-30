@@ -13,70 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin/market', 'middleware' => ['admin'], 'namespace' => 'Admin\Market'], function () {
-    Route::get('/single', 'SingleController@index');
-});
-
-Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
-
-    Route::get('/login', 'AuthController@login')->name('admin.login');
-    Route::post('/login', 'AuthController@loginAuth');
-
-    Route::group(['middleware' => ['admin']], function() {
-        Route::get('/', 'HomeController@index');
-        Route::get('/post', 'PostController@index');
-        Route::get('/post/create', 'PostController@create')->name('admin.post.create');
-        Route::post('/post/create', 'PostController@store');
-        Route::get('/post/edit/{post}', 'PostController@edit');
-        Route::post('/post/edit/{post}', 'PostController@update');
-        Route::post('/post/delete', 'PostController@delete');
-        
-        Route::post('/image/upload', 'ImageController@upload');
-        
-        Route::get('/cate', 'CategoryController@index');
-        Route::get('/cate/create', 'CategoryController@create')->name('admin.cate.create');
-        Route::post('/cate/create', 'CategoryController@store');
-
-        Route::get('/user', 'UserController@index');
-
-        Route::group(['namespace' => 'Wed'], function () {
-            Route::get('/wed/member', 'MemberController@index')->name('admin.wed.member');
-            Route::get('/wed/member/create', 'MemberController@create')->name('admin.wed.member.create');
-            Route::post('/wed/member/create', 'MemberController@store');
-            Route::get('/wed/member/edit/{wed_member}', 'MemberController@edit');
-            Route::post('/wed/member/edit/{wed_member}', 'MemberController@update');
-
-            Route::get('wed/config', 'ConfigController@edit');
-            Route::post('wed/config', 'ConfigController@update');
-            
-            Route::get('wed/notice', 'NoticeController@index');
-        });
-        Route::get('mp/config/menu', 'MpController@configMenu');
-        Route::post('mp/config/menu', 'MpController@updateConfigMenu');
-
-        Route::get('mp/config/common', 'MpController@configCommon');
-        Route::post('mp/config/common', 'MpController@updateConfigCommon');
-
-        Route::group(['namespace' => 'Carpool'], function () {
-            Route::get('pinche/info', 'InfoController@index');
-            Route::get('pinche/info/create', 'InfoController@create');
-            Route::post('pinche/info/create', 'InfoController@save');
-            Route::post('pinche/info/delete', 'InfoController@delete');
-            Route::get('pinche/consume', 'ConsumeController@index');
-            Route::get('pinche/recharge', 'RechargeController@index');
-            Route::get('pinche/config', 'ConfigController@edit');            
-            Route::post('pinche/config', 'ConfigController@update');            
-        });
-
-        Route::group(['namespace' => 'Website', 'prefix' => 'website'], function () {
-            Route::get('/config', 'ConfigController@edit');
-            Route::post('/config', 'ConfigController@update');
-
-            Route::get('/ad', 'AdController@edit');
-            Route::post('/ad', 'AdController@update');
-        });
-    });
-});
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(base_path('routes/admin.php'));
 
 Route::group(['namespace' => 'Website'], function () {
     Route::get('/', 'HomeController@index');
@@ -114,8 +53,6 @@ Route::group(['namespace' => 'Website'], function () {
         
         Route::post('profile/images', 'Wed\\ProfileController@updateImages');
     });
-
-    
     
     Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.mock']], function(){
         Route::get('/', 'HomeController@index');
@@ -161,7 +98,7 @@ Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
     Route::get('/rule', 'PostController@rule');
     Route::get('/call/{id}', 'HomeController@call')->where('id', '[0-9]+');
 
-    Route::group(['middleware' => 'wechat.oauth'], function () {
+    Route::group(['middleware' => 'wechat.mock'], function () {
         Route::get('/post', 'PostController@create');
         Route::post('/post', 'PostController@store');
         Route::get('/show/{id}', 'PostController@show');
