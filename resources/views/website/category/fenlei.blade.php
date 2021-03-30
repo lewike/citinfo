@@ -51,7 +51,15 @@
       <strong>赞助商广告</strong>
     </div>
     <ul class="list-unstyled my-4">
-      <li class="text-center">欢迎投放广告!</li>
+      @if (isset($ad['ad'])) 
+      @foreach ($ad['ad'] as $item)
+      <li class="text-center">
+        <img src="{{$item['image']}}" alt="">
+      </li>
+      @endforeach
+      @else
+      <li class="text-center">欢迎投放广告</li>
+      @endif
     </ul>
   </div>
 </div>
