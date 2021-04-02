@@ -63,6 +63,7 @@
                 <div class="mb-3">
                   <label class="form-label">联系方式：</label>
                   <input type="text" class="form-control" name="phone" placeholder="请输入电话">
+                  <span id="phone-info"></span>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -96,7 +97,20 @@
     if ($('.post-images-120 li').length < 6) {
       $('.fileupload-wrapper').removeClass('hidden')
     }
-  })
+  });
+  $('input[name=phone]').on('blur', function(event){
+    var phone = event.currentTarget.value;
+    if (/^\d{11}$/.test(phone)) {
+      $('#phone-info').text('查询中...');
+      axios.get('/admin/post/phone-info/'+phone)
+      .then(function (response) {
+        if (response.data.result) {
+          $('#phone-info').text(response.data.info);
+        }
+      });
+    }
+  });
+  
   $('#fileupload').fileupload({
     url : '/admin/image/upload',
     type: 'POST',

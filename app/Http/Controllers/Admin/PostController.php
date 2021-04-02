@@ -124,4 +124,15 @@ class PostController extends Controller
         ]);
         return Arr::only($phoneInfo->toArray(), ['local', 'post_cnt']);
     }
+
+    public function phoneInfo($phone)
+    {
+        $info = PhoneInfo::where('phone', $phone)->first();
+        if (!$info) {
+            $data = json_decode(file_get_contents('https://cx.shouji.360.cn/phonearea.php?number='.$phone), true);
+            $info['local'] = isset($data['data']) ? $data['data']['province'].$data['data']['city'] : '未知';
+            $info['post_cnt'] = 0;
+        }
+        return ['result' => true, 'info' => '归属地：'.$info['local'].'，发布次数：'.$info['post_cnt']];
+    }
 }

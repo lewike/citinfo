@@ -14,6 +14,7 @@ Route::group(['middleware' => ['admin']], function() {
     Route::get('/post/edit/{post}', 'PostController@edit');
     Route::post('/post/edit/{post}', 'PostController@update');
     Route::post('/post/delete', 'PostController@delete');
+    Route::get('/post/phone-info/{phone}', 'PostController@phoneInfo');
     
     Route::post('/image/upload', 'ImageController@upload');
     

@@ -70,6 +70,7 @@
                 <div class="mb-3">
                   <label class="form-label">联系方式：</label>
                     <input type="text" class="form-control" name="phone" value="{{$post['phone']}}">
+                    <span id="phone-info"></span>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -94,12 +95,20 @@
 <script type="text/javascript" src="/js/uploadfile.js"></script>
 <script>
   $(function(){
-  $('.post-images-120').on('click', 'div span', function () {
-    $(this).closest('li').remove()
-    if ($('.post-images-120 li').length < 6) {
-      $('.fileupload-wrapper').removeClass('hidden')
-    }
-  })
+    $('.post-images-120').on('click', 'div span', function () {
+      $(this).closest('li').remove()
+      if ($('.post-images-120 li').length < 6) {
+        $('.fileupload-wrapper').removeClass('hidden')
+      }
+    });
+
+    axios.get('/admin/post/phone-info/'+$('input[name=phone]').val())
+    .then(function (response) {
+      if (response.data.result) {
+        $('#phone-info').text(response.data.info);
+      }
+    });
+  
   $('#fileupload').fileupload({
     url : '/admin/image/upload',
     type: 'POST',
