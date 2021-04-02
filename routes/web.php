@@ -54,17 +54,20 @@ Route::group(['namespace' => 'Website'], function () {
         Route::post('profile/images', 'Wed\\ProfileController@updateImages');
     });
     
-    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.oauth']], function(){
+    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx'], function(){
         Route::get('/', 'HomeController@index');
         Route::get('/post/show/{post}', 'PostController@show');
         Route::get('/post/view/{post}', 'PostController@view');
         Route::get('post/create', 'PostController@create');
         Route::post('post/create', 'PostController@store');
         Route::get('post/phone/{id}', 'PostController@phone');
-        Route::post('post/upload', 'PostController@upload');
-        Route::get('user', 'UserController@index');
-
         Route::get('/fenlei/{name}', 'HomeController@fenlei');
+        Route::middleware(['wechat.oauth'])->group(function () {
+            Route::get('post/create', 'PostController@create');
+            Route::post('post/create', 'PostController@store');
+            Route::post('post/upload', 'PostController@upload');
+            Route::get('user', 'UserController@index');
+        });
     });
 
     Route::get('wechat/qrcode', 'WechatController@qrcode');
