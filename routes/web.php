@@ -54,7 +54,7 @@ Route::group(['namespace' => 'Website'], function () {
         Route::post('profile/images', 'Wed\\ProfileController@updateImages');
     });
     
-    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.mock']], function(){
+    Route::group(['namespace' => 'Weixin', 'prefix' => 'wx', 'middleware' => ['wechat.oauth']], function(){
         Route::get('/', 'HomeController@index');
         Route::get('/post/show/{post}', 'PostController@show');
         Route::get('/post/view/{post}', 'PostController@view');
