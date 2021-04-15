@@ -71,6 +71,7 @@
                   <label class="form-label">联系方式：</label>
                     <input type="text" class="form-control" name="phone" value="{{$post['phone']}}">
                     <span id="phone-info"></span>
+                    <a href="#" class="btn btn-danger btn-blacklist-phone">加入黑名单</a>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -125,6 +126,16 @@
         }
       }
     }
+    })
+
+    $('.btn-blacklist-phone').on('click', function(){
+      axios.post('/admin/phone/balcklist',params)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.error(err); 
+      })
     })
 
     $('.btn-edit-post').click(function (event) {

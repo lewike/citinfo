@@ -79,20 +79,22 @@ class PostController extends Controller
         $data['content'] = str_replace(["\r\n", "\n", "\r"], '<br />', $data['content']);
         $data['expired_at'] = date('Y-m-d H:i:s', time()+$data['expired_day']*86400);
         $data['status'] = 'published';
-        if (! $phoneInfo = PhoneInfo::where('phone', $data['phone'])->first()) {
-            $phoneInfo = PhoneInfo::create([
-                'phone' => $data['phone'],
-                'local' => $this->getPhoneLocal($data['phone']),
-                'post_cnt' => 1
-            ]);
-        } else {
-            $phoneInfo->post_cnt++;
-            $phoneInfo->save();
+        if ($data['phone'] != $post->phone) {
+            if (! $phoneInfo = PhoneInfo::where('phone', $data['phone'])->first()) {
+                $phoneInfo = PhoneInfo::create([
+                    'phone' => $data['phone'],
+                    'local' => $this->getPhoneLocal($data['phone']),
+                    'post_cnt' => 1
+                ]);
+            } else {
+                $phoneInfo->post_cnt++;
+                $phoneInfo->save();
+            }
+            $data['phone_local'] = $phoneInfo['local'];
         }
         if (empty($data['images'])) {
             $data['images'] = [];
         }
-        $data['phone_local'] = $phoneInfo['local'];
         $post->update($data);
         return ['result' => true];
     }
