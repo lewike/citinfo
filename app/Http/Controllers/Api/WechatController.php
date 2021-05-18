@@ -87,7 +87,7 @@ class WechatController extends Controller
 
     public function hookMsg(Request $request)
     {
-        $content = (string)$request->getContent();
+        $content = $request->get('data');
         info($content);
     }
 }
