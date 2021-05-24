@@ -6,6 +6,7 @@ use Cache;
 use EasyWeChat\Factory;
 use App\Model\Payment;
 use App\Model\WechatMessage;
+use App\Model\WechatRoom;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
@@ -94,7 +95,7 @@ class WechatController extends Controller
         if ($msg['id2'] == 'dai-dongsheng') {
             
         }
-        if (! $msg['id1']) {
+        if (! empty($msg['id1'])) {
             $wxRoom = WechatRoom::findByRoomId($msg['id2']);
             if (! $wxRoom) {
                 WechatRoom::addRoom($msg['id2']);
