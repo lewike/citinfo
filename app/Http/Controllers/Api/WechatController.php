@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Cache;
 use EasyWeChat\Factory;
 use App\Model\Payment;
+use App\Model\WechatMessage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
@@ -87,7 +88,27 @@ class WechatController extends Controller
 
     public function hookMsg(Request $request)
     {
-        $content = $request->get('data');
-        info($content);
+        $content = (string)$request->get("data");
+        $msg = json_decode($content, true);
+        if ($msg['id2'] == 'dai-dongsheng') {
+            
+        }
+        if (! $msg['id1']) {
+            $wxRoom = WechatRoom::findByRoomId($msg['id2']);
+            if (! $wxRoom) {
+                WechatRoom::addRoom($msg['id2']);
+            }
+            if ($msg['id1'] == 'dai-dongsheng') {
+                $wxRoom->name = '已标记';
+                $wxRoom->save();
+            }
+        }
+    }
+
+    public function getTask()
+    {
+        $msg = WechatMessage::getMsg();
+        $msg->send();
+        return ['result' => 'true', 'receiver_id' => $msg->receiver_id, 'content' => $msg->content, 'type' => $msg->type];
     }
 }
