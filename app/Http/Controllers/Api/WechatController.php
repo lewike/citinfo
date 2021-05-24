@@ -98,7 +98,7 @@ class WechatController extends Controller
         if (! empty($msg['id1'])) {
             $wxRoom = WechatRoom::findByRoomId($msg['id2']);
             if (! $wxRoom) {
-                WechatRoom::addRoom($msg['id2']);
+                $wxRoom = WechatRoom::addRoom($msg['id2']);
             }
             if ($msg['id1'] == 'dai-dongsheng') {
                 $wxRoom->name = '已标记';
