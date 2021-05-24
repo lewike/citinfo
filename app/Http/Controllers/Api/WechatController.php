@@ -90,6 +90,7 @@ class WechatController extends Controller
     {
         $content = (string)$request->get("data");
         $msg = json_decode($content, true);
+        info($msg);
         if ($msg['id2'] == 'dai-dongsheng') {
             
         }
