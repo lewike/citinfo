@@ -92,7 +92,6 @@ class WechatController extends Controller
     {
         $content = (string)$request->get("data");
         $msg = json_decode($content, true);
-        info($msg);
         if ($msg['id2'] == 'dai-dongsheng') {
             
         }
@@ -102,9 +101,10 @@ class WechatController extends Controller
                 $wxRoom = WechatRoom::addRoom($msg['id2']);
             }
             if ($msg['id1'] == 'dai-dongsheng') {
-                if (Str::startsWith('备注', $msg['content']))
-                $wxRoom->name = '已标记';
-                $wxRoom->save();
+                if (Str::startsWith($msg['content'], 'bz')) {
+                    $wxRoom->name = substr($msg['content'], 2);
+                    $wxRoom->save();
+                }
             }
         }
     }
