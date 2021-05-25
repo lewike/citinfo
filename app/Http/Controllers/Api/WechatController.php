@@ -8,6 +8,7 @@ use App\Model\Payment;
 use App\Model\WechatMessage;
 use App\Model\WechatRoom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Kernel\Messages\Message;
 use App\WeChat\Handlers\EventMessageHandler;
@@ -101,6 +102,7 @@ class WechatController extends Controller
                 $wxRoom = WechatRoom::addRoom($msg['id2']);
             }
             if ($msg['id1'] == 'dai-dongsheng') {
+                if (Str::startsWith('备注', $msg['content']))
                 $wxRoom->name = '已标记';
                 $wxRoom->save();
             }
