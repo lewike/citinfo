@@ -10,7 +10,7 @@ class WechatMessage extends Model
     
     public static function getMsg()
     {
-        return self::whereIsNull('send_at')->oldest('id')->first();
+        return self::whereNull('send_at')->oldest('id')->first();
     }
 
     public function send()
