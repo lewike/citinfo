@@ -113,6 +113,6 @@ class WechatController extends Controller
     {
         $msg = WechatMessage::getMsg();
         $msg->send();
-        return ['result' => 'true', 'receiver_id' => $msg->receiver_id, 'content' => $msg->content, 'type' => $msg->type];
+        return ['result' => 'true', 'reciverId' => $msg->receiver_id, 'content' => $msg->content, 'type' => $msg->type];
     }
 }
