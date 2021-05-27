@@ -112,7 +112,10 @@ class WechatController extends Controller
     public function getTask()
     {
         $msg = WechatMessage::getMsg();
-        $msg->send();
-        return ['result' => 'true', 'reciverId' => $msg->receiver_id, 'content' => $msg->content, 'type' => $msg->type];
+        if ($msg) {
+            $msg->send();
+            return ['result' => 'true', 'reciverId' => $msg->receiver_id, 'content' => $msg->content, 'type' => $msg->type];
+        } 
+        return ['result' => false];
     }
 }
