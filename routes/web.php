@@ -17,6 +17,10 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->group(base_path('routes/admin.php'));
 
+Route::namespace('Mobile')
+    ->group(base_path('routes/mobile.php'));
+
+
 Route::group(['namespace' => 'Website'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/fenlei/{name}', 'CategoryController@fenlei');
