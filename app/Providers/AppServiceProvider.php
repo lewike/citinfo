@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            ['layouts.website'],
+            ['layouts.website', 'layouts.mobile'],
             \App\Http\View\Composers\ConfigComposer::class
         );
     }
