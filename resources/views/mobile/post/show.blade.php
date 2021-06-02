@@ -55,7 +55,7 @@
 <script>
     $(function(){
         var postId = {{$post->id}};
-        axios.get('/wx/post/view/'+postId);
+        axios.get('/post/view/'+postId);
         $('.post-show-img li').on('click', function(event){
             var $ele = $(event.currentTarget);
             var img = $ele.find('img');
@@ -63,7 +63,7 @@
             weui.gallery(img.attr('src'));
         });
         $('.btn-call-phone').click(function(){
-            axios.get('/wx/post/phone/'+postId)
+            axios.get('/post/phone/'+postId)
             .then(function (response) {
                 window.location.href='tel:'+response.data.data.phone;
             })
