@@ -17,6 +17,7 @@ class CreateWechatRoomsTable extends Migration
             $table->id();
             $table->string('roomid');
             $table->string('name');
+            $table->timestamp('last_msg_at')->nullable();
             $table->timestamps();
         });
     }

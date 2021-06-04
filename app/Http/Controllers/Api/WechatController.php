@@ -106,6 +106,8 @@ class WechatController extends Controller
                     $wxRoom->save();
                 }
             }
+            $wxRoom->last_msg_at = date('Y-m-d H:i:s');
+            $wxRoom->save();
         }
     }
 
