@@ -62,8 +62,6 @@ Route::group(['namespace' => 'Website'], function () {
         Route::get('/', 'HomeController@index');
         Route::get('/post/show/{post}', 'PostController@show');
         Route::get('/post/view/{post}', 'PostController@view');
-        Route::get('post/create', 'PostController@create');
-        Route::post('post/create', 'PostController@store');
         Route::get('post/phone/{id}', 'PostController@phone');
         Route::get('/fenlei/{name}', 'HomeController@fenlei');
         Route::middleware(['wechat.oauth'])->group(function () {
