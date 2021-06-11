@@ -33,4 +33,9 @@ class PostController extends Controller
         $post->increment('call_cnt');
         return ['result' => true, 'data' => ['phone' => $post->phone]];
     }
+
+    public function create()
+    {
+        return view('mobile.post.create-tip');
+    }
 }
