@@ -113,5 +113,4 @@ Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
     });
 });
 
-Route::namespace('Mobile')
-    ->group(base_path('routes/mobile.php'));
+Route::group(base_path('routes/mobile.php'));
