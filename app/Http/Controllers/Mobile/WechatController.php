@@ -70,7 +70,7 @@ class WechatController extends Controller
         $wechatUser = session('wechat.oauth_user.default');
         $user = User::findByOpenId($wechatUser->id);
         $data['posts'] = Post::where('user_id', $user->id)->where('status', 'published')->latest()->get();
-        return view('mobile.user.index');
+        return view('mobile.user.index', $data);
     }
 
     public function show(Post $post)
