@@ -17,7 +17,7 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->group(base_path('routes/admin.php'));
 
-Route::namespace('Mobile')->domain('m.zaixixian.com')->group([], function(){
+Route::group(['namespace' => 'Mobile', 'domain' => 'm.zaixixian.com'], function(){
     Route::get('/', 'HomeController@index');
     Route::get('/post/{post}', 'PostController@show');
     Route::get('/post/views/{post}', 'PostController@views');
