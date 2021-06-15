@@ -17,6 +17,25 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->group(base_path('routes/admin.php'));
 
+Route::namespace('Mobile')->domain('m.zaixixian.com')->group([], function(){
+    Route::get('/', 'HomeController@index');
+    Route::get('/post/{post}', 'PostController@show');
+    Route::get('/post/views/{post}', 'PostController@views');
+    Route::get('/post/phone/{post}', 'PostController@phone');
+    Route::get('/post/create', 'PostController@create');
+
+    Route::get('/fenlei/{name}', 'CategoryController@fenlei');
+    Route::get('/category/{category}', 'CategoryController@index');
+
+    Route::prefix('wx')->middleware(['wechat.oauth'])->group(function () {
+        Route::get('post/create', 'WechatController@createPost');
+        Route::post('post/create', 'WechatController@savePost');
+        Route::post('post/upload', 'WechatController@upload');
+        Route::post('post/update', 'WechatController@updatePost');
+        Route::get('user', 'WechatController@user');
+    });
+});
+
 Route::group(['namespace' => 'Website'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/fenlei/{name}', 'CategoryController@fenlei');
@@ -110,24 +129,5 @@ Route::group(['namespace' => 'Carpool', 'prefix' => 'pinche'], function(){
 
         Route::post('/recharge', 'HomeController@recharge');
         Route::get('/user', 'HomeController@user');
-    });
-});
-
-Route::group(['namespace' => 'Mobile', 'domain' => 'm.zaixixian.com'], function(){
-    Route::get('/', 'HomeController@index');
-    Route::get('/post/{post}', 'PostController@show');
-    Route::get('/post/views/{post}', 'PostController@views');
-    Route::get('/post/phone/{post}', 'PostController@phone');
-    Route::get('/post/create', 'PostController@create');
-
-    Route::get('/fenlei/{name}', 'CategoryController@fenlei');
-    Route::get('/category/{category}', 'CategoryController@index');
-
-    Route::prefix('wx')->middleware(['wechat.oauth'])->group(function () {
-        Route::get('post/create', 'WechatController@createPost');
-        Route::post('post/create', 'WechatController@savePost');
-        Route::post('post/upload', 'WechatController@upload');
-        Route::post('post/update', 'WechatController@updatePost');
-        Route::get('user', 'WechatController@user');
     });
 });
