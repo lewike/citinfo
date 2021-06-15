@@ -6,7 +6,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/post/{post}', 'PostController@show')->where('post', '[0-9]+');
 Route::get('/post/views/{post}', 'PostController@views');
 Route::get('/post/phone/{post}', 'PostController@phone');
-Route::get('/post/create', 'WechatController@createPost');
+Route::get('/post/create', 'PostController@create');
 
 Route::get('/fenlei/{name}', 'CategoryController@fenlei');
 Route::get('/category/{category}', 'CategoryController@index');
