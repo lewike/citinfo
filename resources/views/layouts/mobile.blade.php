@@ -25,19 +25,19 @@
                         </div>
                     </div>
                     <div class="weui-tabbar">
-                        <div class="weui-tabbar__item" data-page="/wx">
+                        <div class="weui-tabbar__item" data-page="/">
                             <div style="display: inline-block; position: relative;">
                                 <img src="/images/wx-tabbar/a_home.svg" data-onit="/images/wx-tabbar/a_fill-home.svg" alt="" class="weui-tabbar__icon">
                             </div>
                             <p class="weui-tabbar__label">首页</p>
                         </div>
-                        <div class="weui-tabbar__item" data-page="/wx/post/create">
+                        <div class="weui-tabbar__item" data-page="/post/create">
                             <div style="display: inline-block; position: relative;">
                                 <img src="/images/wx-tabbar/a_square-add.svg" data-onit="/images/wx-tabbar/a_fill-square-add.svg" alt="" class="weui-tabbar__icon">
                             </div>
                             <p class="weui-tabbar__label">免费发布</p>
                         </div>
-                        <div class="weui-tabbar__item" data-page="/wx/user">
+                        <div class="weui-tabbar__item" data-page="/user">
                             <div style="display: inline-block; position: relative;">
                                 <img src="/images/wx-tabbar/a_user.svg" data-onit="/images/wx-tabbar/a_fill-user.svg" alt="" class="weui-tabbar__icon">
                             </div>
