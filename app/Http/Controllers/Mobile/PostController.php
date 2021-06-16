@@ -6,6 +6,7 @@ use App\Model\User;
 use App\Model\Post;
 use App\Model\File;
 use App\Model\Category;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,19 @@ class PostController extends Controller
         return ['result' => true, 'data' => ['phone' => $post->phone]];
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('mobile.post.create-tip');
+        if (Str::contains(strtolower($request->userAgent()), 'micromessenger')) {
+            return redirect('/wx/post/create');
+        }
+        return view('mobile.home.tips');
+    }
+
+    public function user()
+    {
+        if (Str::contains(strtolower($request->userAgent()), 'micromessenger')) {
+            return redirect('/wx/user');
+        }
+        return view('mobile.home.tips');
     }
 }
