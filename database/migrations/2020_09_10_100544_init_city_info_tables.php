@@ -45,6 +45,7 @@ class InitCityInfoTables extends Migration
             $table->integer('index_sticky')->default(0);
             $table->integer('category_sticky')->default(0);
             $table->integer('views')->default(0);
+            $table->tinyInteger('is_expired')->default(0);
             $table->timestamp('index_sticky_expired_at')->nullable();
             $table->timestamp('category_sticky_expired_at')->nullable();
             $table->timestamp('expired_at')->nullable();

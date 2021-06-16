@@ -3,11 +3,11 @@
 @section('content')
 <div class="wrap post-show">
     <div class="breadcrumb weui-flex">
-        <div><a href="">返回</a></div>
+        <div><a href="/"><img src="/images/mobile/back.png" alt=""></a></div>
         <div class="weui-flex__item text-center">
             <h4>信息详情</h4> 
         </div>
-        <div><a href="">刷新</a></div>
+        <div><a href="javascript:location.reload()"><img src="/images/mobile/reload.png" alt=""></a></div>
     </div>
     <div class="card">
     <div class="post-show-title">

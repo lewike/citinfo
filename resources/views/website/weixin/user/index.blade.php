@@ -21,7 +21,7 @@
                         <div>分&#12288;类：{{$post->category()->name}}</div>
                        <div>有效期：{{$post->expired_at->format('Y-m-d H:i')}}</div>
                     </div>
-                    <div class="post-opts"><button class="btn-primary">刷新信息</button>  <button class="btn-primary">延长信息</button> <button class="btn-danger">删除信息</button></div>
+                    <div class="post-opts"><button class="btn-primary" data-action="refresh" data-id="{{$post->id}}">刷新信息</button>  <button class="btn-primary" data-action="delay" data-id="{{$post->id}}">延长信息</button> <button class="btn-danger" data-action="delete" data-id="{{$post->id}}">删除信息</button></div>
                 </li>
                 @endforeach
             </ul>
@@ -32,6 +32,11 @@
 
 @section('extend_js')
 <script>
-
+$(function(){
+    $('.post-opts button').on('click', function(e){
+        var $ele = $(e.currentTarget);
+        
+    })
+})
 </script>
 @endsection

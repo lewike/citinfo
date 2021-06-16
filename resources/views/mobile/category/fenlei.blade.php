@@ -3,11 +3,11 @@
 @section('content')
 <div class="wrap iscroll" data-page="/">
     <div class="breadcrumb weui-flex">
-        <div><a href="/">主页</a></div>
+        <div><a href="/"><img src="/images/mobile/home.png" alt=""></a></div>
         <div class="weui-flex__item text-center">
             <h3>{{$category->name}}</h3>
         </div>
-        <div><a href="javascript:location.reload()">刷新</a></div>
+        <div><a href="javascript:location.reload()"><img src="/images/mobile/reload.png" alt=""></a></div>
     </div>
 
     <div class="new-post-list">

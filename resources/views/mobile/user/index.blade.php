@@ -15,7 +15,7 @@
             <ul class="user-posts">
                 @foreach ($posts as $post)
                 <li>
-                    <div class="post-title"><a href="/wx/post/show/{{$post->id}}">{{$post->title}}</a></div>
+                    <div class="post-title @if ($post->is_expired) post-deleted @endif"><a href="/wx/post/show/{{$post->id}}">{{$post->title}}</a></div>
                     <div class="post-info">
                         <div>浏&#12288;览： {{$post->views}} 次</div>
                         <div>分&#12288;类：{{$post->category()->name}}</div>
